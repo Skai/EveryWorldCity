@@ -1,0 +1,38 @@
+<h1>Every World City</h1>
+<%= link_to @city.city + ',' + @city.country, city_path(@city) %>
+
+<h2><%= @city.city %>,<%= @city.country %></h2>
+
+<%= image_tag(@city.wiki_image_src) %>
+
+
+<br/>
+
+
+<%= link_to "Read full wiki article about" + @city.city, "http://en.wikipedia.org/wiki?curid=" + @city.wiki_page_id.to_s, :target => "_blank" %>
+
+
+<br/>
+<br/>
+
+
+<div id="city_panoramio" style="margin: 10px 15px"></div>
+<script type="text/javascript">
+  //TODO: Add slideShow for panoramio photos.
+  //TODO link to maps
+  var request = {
+    //'tag': 'kharkiv',
+    'rect': <%= @rectangle_coordinates.html_safe %>
+  };
+
+  console.log(request);  
+  var options = {'width': 800, 'height': 600}; //should be calculated according to current page size
+  var widget = new panoramio.PhotoWidget('city_panoramio', request, options);
+  widget.setPosition(0);
+</script>
+
+
+<%= image_tag('http://maps.googleapis.com/maps/api/staticmap?center=' + @city.latitude.to_s + ',' + @city.longitude.to_s + '&zoom=11&size=400x400&sensor=true') %>
+<%= link_to "Go To Google Map", "/", :target => "_blank" %>
+
+<p><%= @city.description.html_safe %></p>
