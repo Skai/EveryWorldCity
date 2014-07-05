@@ -1,7 +1,6 @@
 <h1>Every World City</h1>
-<%= link_to @city.city + ', ' + @city.country, city_path(@city) %>
 
-<h2><%= @city.city %>,<%= @city.country %></h2>
+<h2><%= link_to @city.city + ', ' + @city.country, city_path(@city), :target => "_blank" %></h2>
 
 <%= image_tag(@city.wiki_image_src) %>
 
@@ -14,23 +13,26 @@
 
 <br/>
 <br/>
-
+<ul>
+<% @countries.each do |country| %>
+  <% #TODO: move url_creation to helper %>
+  <li><%= link_to country, controller: "index", action: "get_cities", country: country %></li>
+<% end %>
+</ul>
 
 <div id="city_panoramio" style="margin: 10px 15px"></div>
 <script type="text/javascript">
-  //TODO link to maps
   var request = {
     'rect': <%= @rectangle_coordinates.html_safe %>
   };
-
-  console.log(request);  
-  var options = {'width': 800, 'height': 600}; //should be calculated according to current page size
+  var options = {'width': 850, 'height': 600}; //should be calculated according to current page size
   var widget = new panoramio.PhotoWidget('city_panoramio', request, options);
   widget.setPosition(0);
 </script>
 
+<%= image_tag('http://maps.googleapis.com/maps/api/staticmap?center=' + @city.latitude.to_s + ',' + @city.longitude.to_s + '&zoom=11&size=600x600&sensor=true') %>
 
-<%= image_tag('http://maps.googleapis.com/maps/api/staticmap?center=' + @city.latitude.to_s + ',' + @city.longitude.to_s + '&zoom=11&size=400x400&sensor=true') %>
+
 <br />
 <%= link_to 'Go To Google Map', "http://maps.google.com/?q=#{@city.latitude.to_s},#{@city.longitude.to_s}", :target => "_blank" %>
 
