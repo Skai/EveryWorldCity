@@ -3,6 +3,10 @@ Rails.application.routes.draw do
   resources :cities, :path => '/', :controller => :index, :only => [:show]
   get 'get_cities/:country' => 'index#get_cities'
 
+  #resources :cities
+  #get '/:id/' => "index#show"
+  #get "/pairings/:id/:token/print_email" => "pairings#print_email", as: :print_email
+  #get "/:id/" => "root_controller#display"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
   # You can have the root of your site routed with "root"

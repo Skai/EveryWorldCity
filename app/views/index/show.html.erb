@@ -1,26 +1,22 @@
 <h1>Every World City</h1>
 
+<div id="wrapper" style="width: 300px;">
+  <label for="select-beast">Country:</label>
+  <select id="select-country" placeholder="Pick country...">
+    <option value="">Select country...</option>
+    <% @countries.each do |country| %>
+      <% #TODO: move url_creation to helper %>
+        <option value="<%= country %>"><%= country %></option>
+      <% #link_to country, controller: "index", action: "get_cities", country: country %>
+    <% end %>
+  </select>
+  <label for="select-beast" style="margin-top:20px">City:</label>
+  <select id="select-city" placeholder="Pick a city..."></select>
+</div>
 <h2><%= link_to @city.city + ', ' + @city.country, city_path(@city), :target => "_blank" %></h2>
-
 <%= image_tag(@city.wiki_image_src) %>
-
-
-<br/>
-
-
-<%= link_to "Read full wiki article about" + @city.city, "http://en.wikipedia.org/wiki?curid=" + @city.wiki_page_id.to_s, :target => "_blank" %>
-
-
-<br/>
-<br/>
-<ul>
-<% @countries.each do |country| %>
-  <% #TODO: move url_creation to helper %>
-  <li><%= link_to country, controller: "index", action: "get_cities", country: country %></li>
-<% end %>
-</ul>
-
 <div id="city_panoramio" style="margin: 10px 15px"></div>
+
 <script type="text/javascript">
   var request = {
     'rect': <%= @rectangle_coordinates.html_safe %>
@@ -31,9 +27,7 @@
 </script>
 
 <%= image_tag('http://maps.googleapis.com/maps/api/staticmap?center=' + @city.latitude.to_s + ',' + @city.longitude.to_s + '&zoom=11&size=600x600&sensor=true') %>
-
-
 <br />
 <%= link_to 'Go To Google Map', "http://maps.google.com/?q=#{@city.latitude.to_s},#{@city.longitude.to_s}", :target => "_blank" %>
-
-<p><%= @city.description.html_safe %></p>
+<%= truncate_html(@city.description, length: 5000, omission: '...').html_safe %> 
+<%= link_to "Read full wiki article about " + @city.city, "http://en.wikipedia.org/wiki?curid=" + @city.wiki_page_id.to_s, :target => "_blank" %>
