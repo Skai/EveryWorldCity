@@ -22,6 +22,7 @@ test:
 
 production:
   <<: *default
-  database: every_world_city_live
+  database: every_world_city
   username: everycityapp
   password: c9e8f54f7d77aed76e45b836e41acee5
+  host: localhost
