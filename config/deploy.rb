@@ -9,6 +9,7 @@ set :repo_url, 'https://github.com/Skai/EveryWorldCity.git'
 
 # Default deploy_to directory is /var/www/my_app
 set :deploy_to, '/home/EveryWorldCity'
+set :use_sudo, false
 
 # Default value for :scm is :git
 # set :scm, :git
