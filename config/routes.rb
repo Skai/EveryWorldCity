@@ -2,6 +2,8 @@ Rails.application.routes.draw do
   root 'index#show'
   resources :cities, :path => '/', :controller => :index, :only => [:show]
   get 'get_cities/:country' => 'index#get_cities'
+  
+  resources :contacts, :only => [:new, :create]
 
   #resources :cities
   #get '/:id/' => "index#show"

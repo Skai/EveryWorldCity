@@ -2,7 +2,7 @@ class IndexController < ApplicationController
   include IndexHelper
   
   def show
-    #show random city if homepage.
+    #show random city for homepage.
     if params[:id].nil?
       @city = City.limit(1).order('RANDOM()').first
     else
@@ -15,8 +15,6 @@ class IndexController < ApplicationController
   end
 
   def get_cities
-    render json: City.select(:id, :city, :friendly_url).where(:country => params[:country])
+    render json: City.select(:id, :city, :friendly_url).where(:country => params[:country]).order(:city)
   end
-
-  
 end

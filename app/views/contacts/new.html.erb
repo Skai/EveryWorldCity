@@ -1,0 +1,9 @@
+<div>
+  <h3>Send A message to Us</h3>
+  <%= form_for @contact, :url => { :action => :create }, remote: true do |f| %>
+    Name: <%= f.text_field :name, :required => true %>
+    Email: <%= f.text_field :email, :required => true %>
+    Message: <%= f.text_area :message, :as => :text, :required => true %>
+    <%= f.submit 'Send message' %>
+  <% end %>
+</div>
