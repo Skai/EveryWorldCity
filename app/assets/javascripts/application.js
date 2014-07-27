@@ -14,3 +14,24 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+jQuery(document).on('click', '#contact-button', function() {
+	
+	contact = $('#contact');
+	
+	if (contact.hasClass('active')) {
+		contact.removeClass('active').addClass('display-none');
+	} else {
+ 		contact.addClass('active').removeClass('display-none');
+	}
+	 
+	if (contact.children().length == 0){
+		$.ajax({
+  			url: "contacts/new",
+		}).done(function(data) {
+			contact.addClass('active').removeClass('display-none').html(data);
+		})
+	}
+
+	return false;
+});
