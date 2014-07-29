@@ -1,4 +1,4 @@
-$( document ).ready(function() {
+$(document).on('page:change', function() {
   var xhr, select_country, $select_country, select_city, $select_city;
 
   $select_country = jQuery('#select-country').selectize({

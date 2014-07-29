@@ -2,12 +2,14 @@ class IndexController < ApplicationController
   include IndexHelper
   
   def show
-    #show random city for homepage.
+    #go to random city for homepage.
     if params[:id].nil?
       @city = City.limit(1).order('RANDOM()').first
-    else
-      @city = City.find_by_friendly_url(params[:id])
+      redirect_to @city
+      return
     end
+
+    @city = City.find_by_friendly_url(params[:id])
     raise ActiveRecord::RecordNotFound if @city.nil?
 
     @countries = City.pluck('DISTINCT country').sort
