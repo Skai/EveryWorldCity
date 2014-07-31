@@ -4,12 +4,10 @@
 
 <div id="wrapper" style="width: 300px;">
   <label for="select-beast">Country:</label>
-  <select id="select-country" placeholder="Pick country...">
+  <select id="select-country" placeholder="Select country...">
     <option value="">Select country...</option>
     <% @countries.each do |country| %>
-      <% #TODO: move url_creation to helper %>
         <option value="<%= country %>"><%= country %></option>
-      <% #link_to country, controller: "index", action: "get_cities", country: country %>
     <% end %>
   </select>
   <label for="select-beast" style="margin-top:20px">City:</label>
