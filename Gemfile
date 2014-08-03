@@ -31,11 +31,11 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'mail_form'
 
 group :development do
-  #gem 'puma'
   gem 'sqlite3'
   gem 'tzinfo-data'
   gem 'capistrano'
   gem 'capistrano-rails'
+  gem 'httpclient'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   #DISABLE_PRY_RAILS=1 rails console
