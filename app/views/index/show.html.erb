@@ -1,33 +1,105 @@
-<a href='/'>
-  <h1>Every World City</h1>
-</a>
+<div class="page">
+  <header id="header">
+    <div class="c">
+      <div class="holder">
+        <strong class="logo short-logo">
+          <a href="/"><img src="images/logo2.gif" class="img-responsive"></a>
+        </strong>
+        <form action="" role="form" class="select-form">
+          <fieldset>
+            <label for="select-beast" class="sr-only">Country:</label>
+            <select id="select-country">
+              <option value="" disabled selected>Select country...</option>
+                <% @countries.each do |country| %>
+                <% #TODO: move url_creation to helper %>
+                  <option value="<%= country %>"><%= country %></option>
+                <% #link_to country, controller: "index", action: "get_cities", country: country %>
+              <% end %>
+            </select>
+            <label for="select-beast" class="sr-only">City:</label>
+            <select id="select-city">
+              <option value="">Pick a city...</option>
+            </select>
+          </fieldset>
+        </form><!-- / select-form -->
+        <span id="toggle-search" class="icon-search"></span>
+      </div>
+    </div>
+  </header><!-- / header -->
+  <section class="section" id="gallery">
+    <div class="wrapper">
+      <div class="holder">
+        <h1><%= @city.city %> / <span><%= @city.country %></span></h1>
+        <div id="photos-panoramio"></div>
+      </div>
+    </div>
+  </section><!-- / gallery section -->
+  <section class="section" id="about">
+    <div class="wrapper">
+      <div class="holder">
+        <h2>Info About city (titel):</h2>
+        <div class="hold">
+          <article>
+            <p><%= truncate_html(@city.description, length: 5000, omission: '...').html_safe %></p>
+            <p>One morning, when Gregor Samsa woke from troubled dreams, he found himself transformed in his bed into a horrible vermin. He lay on his armour-like back, and if he lifted his head a little he could see his brown belly, slightly domed and divided by arches into stiff sections.</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.<small>* material from wiki</small></p>
+            <%= link_to "Read full Wiki article", "http://en.wikipedia.org/wiki?curid=" + @city.wiki_page_id.to_s, :target => "_blank", :class => "btn" %>
+          </article>
+          <aside class="map-holder">
+            <div id="map_canvas">
+              <%= image_tag('http://maps.googleapis.com/maps/api/staticmap?center=' + @city.latitude.to_s + ',' + @city.longitude.to_s + '&zoom=11&size=600x600&sensor=true') %>
+            </div>
+          </aside>
+          <%= link_to "go to Google maps", "http://maps.google.com/?q=#{@city.latitude.to_s},#{@city.longitude.to_s}", :target => "_blank", :class => 'maps-tip' %>
+        </div>
+      </div>
+    </div>
+  </section><!-- / about section -->
 
-<div id="wrapper" style="width: 300px;">
-  <label for="select-beast">Country:</label>
-  <select id="select-country" placeholder="Select country...">
-    <option value="">Select country...</option>
-    <% @countries.each do |country| %>
-        <option value="<%= country %>"><%= country %></option>
-    <% end %>
-  </select>
-  <label for="select-beast" style="margin-top:20px">City:</label>
-  <select id="select-city" placeholder="Pick a city..."></select>
-</div>
-<h2><%= link_to @city.city + ', ' + @city.country, city_path(@city), :target => "_blank" %></h2>
-<%= image_tag(@city.wiki_image_src) %>
-<div id="city_panoramio" style="margin: 10px 15px"></div>
+  <section class="section" id="info">
+    <div class="wrapper">
+      <div class="holder">
+        <h2>And now a few words about:</h2>
+        <div class="hold">
+          <article class="box">
+            <h3><span class="icon-target"></span>Our goals</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+          </article><!-- box -->
+          <article class="box">
+            <h3><span class="icon-gears"></span>What can you do here</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+          </article><!-- box -->
+          <article class="box">
+            <h3><span class="icon-group"></span>Follow us</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+          </article><!-- box -->
+        </div>
+      </div>
+    </div>
+  </section><!-- / about-section -->
 
+  <footer id="footer">
+    <div class="holder">
+      <p>&copy; EveryWorldCity 2014</p>
+      <a href="" class="open-qbox">Don't fear - contact us!</a>
+    </div>
+  </footer><!-- / footer -->
+
+</div><!-- / page -->
+<nav id="nav">
+  <ul>
+      <li><a href="#gallery">Photos</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#info">Info</a></li>
+  </ul>
+</nav><!-- / nav -->
+<a class="sr-only" href="#gallery">Skip to main content</a>
+<div class="ribbon"><p>It's a random city</p></div>
 <script type="text/javascript">
   var request = {
     'rect': <%= @rectangle_coordinates.html_safe %>
   };
   var options = {'width': 850, 'height': 600}; //should be calculated according to current page size
-  var widget = new panoramio.PhotoWidget('city_panoramio', request, options);
+  var widget = new panoramio.PhotoWidget('photos-panoramio', request, options);
   widget.setPosition(0);
 </script>
-
-<%= image_tag('http://maps.googleapis.com/maps/api/staticmap?center=' + @city.latitude.to_s + ',' + @city.longitude.to_s + '&zoom=11&size=600x600&sensor=true') %>
-<br />
-<%= link_to 'Go To Google Map', "http://maps.google.com/?q=#{@city.latitude.to_s},#{@city.longitude.to_s}", :target => "_blank" %>
-<%= truncate_html(@city.description, length: 5000, omission: '...').html_safe %> 
-<%= link_to "Read full wiki article about " + @city.city, "http://en.wikipedia.org/wiki?curid=" + @city.wiki_page_id.to_s, :target => "_blank" %>
