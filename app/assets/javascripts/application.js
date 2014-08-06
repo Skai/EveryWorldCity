@@ -16,7 +16,6 @@
 //= require_tree .
 
 jQuery(document).on('click', '#contact-button', function() {
-	
 	contact = $('#contact');
 	
 	if (contact.hasClass('active')) {

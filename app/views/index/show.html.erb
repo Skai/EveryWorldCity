@@ -37,12 +37,10 @@
   <section class="section" id="about">
     <div class="wrapper">
       <div class="holder">
-        <h2>Info About city (titel):</h2>
+        <h2>Info About <%= @city.city %>:</h2>
         <div class="hold">
           <article>
-            <p><%= truncate_html(@city.description, length: 5000, omission: '...').html_safe %></p>
-            <p>One morning, when Gregor Samsa woke from troubled dreams, he found himself transformed in his bed into a horrible vermin. He lay on his armour-like back, and if he lifted his head a little he could see his brown belly, slightly domed and divided by arches into stiff sections.</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.<small>* material from wiki</small></p>
+            <p><%= truncate_html(@city.description, length: 1300, omission: '...').html_safe %><small>* material from wiki</small></p>
             <%= link_to "Read full Wiki article", "http://en.wikipedia.org/wiki?curid=" + @city.wiki_page_id.to_s, :target => "_blank", :class => "btn" %>
           </article>
           <aside class="map-holder">
