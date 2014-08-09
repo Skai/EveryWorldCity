@@ -5,6 +5,7 @@ class IndexController < ApplicationController
     #go to random city for homepage.
     if params[:id].nil?
       @city = City.limit(1).order('RANDOM()').first
+      flash[:notice] = "It's a random city"
       redirect_to @city
       return
     end

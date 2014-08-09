@@ -1,94 +1,96 @@
-  <header id="header">
-    <div class="c">
-      <div class="holder">
-        <strong class="logo short-logo">
-          <a href="/"><img src="images/logo2.gif" class="img-responsive"></a>
-          <span><%= @city.city %>, <%= @city.country %></span>
-        </strong>
-        <form action="" role="form" class="select-form">
-          <fieldset>
-            <label for="select-beast" class="sr-only">Country:</label>
-            <select id="select-country">
-              <option value="" disabled selected>Select country...</option>
-                <% @countries.each do |country| %>
-                <% #TODO: move url_creation to helper %>
-                  <option value="<%= country %>"><%= country %></option>
-                <% #link_to country, controller: "index", action: "get_cities", country: country %>
-              <% end %>
-            </select>
-            <label for="select-beast" class="sr-only">City:</label>
-            <select id="select-city">
-              <option value="">Pick a city...</option>
-            </select>
-          </fieldset>
-        </form><!-- / select-form -->
-        <span id="toggle-search" class="icon-search"></span>
+<header id="header">
+  <div class="c">
+    <div class="holder">
+      <strong class="logo short-logo">
+        <a href="/"><img src="images/logo2.gif" class="img-responsive"></a>
+        <span><%= @city.city %>, <%= @city.country %></span>
+      </strong>
+      <form action="" role="form" class="select-form">
+        <fieldset>
+          <label for="select-beast" class="sr-only">Country:</label>
+          <select id="select-country">
+            <option value="" disabled selected>Select country...</option>
+              <% @countries.each do |country| %>
+              <% #TODO: move url_creation to helper %>
+                <option value="<%= country %>"><%= country %></option>
+              <% #link_to country, controller: "index", action: "get_cities", country: country %>
+            <% end %>
+          </select>
+          <label for="select-beast" class="sr-only">City:</label>
+          <select id="select-city">
+            <option value="">Pick a city...</option>
+          </select>
+        </fieldset>
+      </form><!-- / select-form -->
+      <span id="toggle-search" class="icon-search"></span>
+    </div>
+  </div>
+</header><!-- / header -->
+<section class="section" id="gallery">
+  <div class="wrapper">
+    <div class="holder">
+      <h1><%= @city.city %> / <span><%= @city.country %></span></h1>
+      <div id="photos-panoramio"></div>
+    </div>
+  </div>
+</section><!-- / gallery section -->
+<section class="section" id="about">
+  <div class="wrapper">
+    <div class="holder">
+      <h2>Info About <%= @city.city %>:</h2>
+      <div class="hold">
+        <article>
+          <p><%= truncate_html(@city.description, length: 1300, omission: '...').html_safe %><small>* material from wiki</small></p>
+          <%= link_to "Read full Wiki article", "http://en.wikipedia.org/wiki?curid=" + @city.wiki_page_id.to_s, :target => "_blank", :class => "btn" %>
+        </article>
+        <aside class="map-holder">
+          <div id="map_canvas">
+            <%= image_tag('http://maps.googleapis.com/maps/api/staticmap?center=' + @city.latitude.to_s + ',' + @city.longitude.to_s + '&zoom=6&size=600x600&sensor=true&markers=color:0x00b597%7Clabel:@%7C' + @city.latitude.to_s + ',' + @city.longitude.to_s) %>
+          </div>
+        </aside>
+        <%= link_to "go to Google maps", "http://maps.google.com/?q=#{@city.latitude.to_s},#{@city.longitude.to_s}", :target => "_blank", :class => 'maps-tip' %>
       </div>
     </div>
-  </header><!-- / header -->
-  <section class="section" id="gallery">
-    <div class="wrapper">
-      <div class="holder">
-        <h1><%= @city.city %> / <span><%= @city.country %></span></h1>
-        <div id="photos-panoramio"></div>
-      </div>
-    </div>
-  </section><!-- / gallery section -->
-  <section class="section" id="about">
-    <div class="wrapper">
-      <div class="holder">
-        <h2>Info About <%= @city.city %>:</h2>
-        <div class="hold">
-          <article>
-            <p><%= truncate_html(@city.description, length: 1300, omission: '...').html_safe %><small>* material from wiki</small></p>
-            <%= link_to "Read full Wiki article", "http://en.wikipedia.org/wiki?curid=" + @city.wiki_page_id.to_s, :target => "_blank", :class => "btn" %>
-          </article>
-          <aside class="map-holder">
-            <div id="map_canvas">
-              <%= image_tag('http://maps.googleapis.com/maps/api/staticmap?center=' + @city.latitude.to_s + ',' + @city.longitude.to_s + '&zoom=6&size=600x600&sensor=true&markers=color:0x00b597%7Clabel:@%7C' + @city.latitude.to_s + ',' + @city.longitude.to_s) %>
-            </div>
-          </aside>
-          <%= link_to "go to Google maps", "http://maps.google.com/?q=#{@city.latitude.to_s},#{@city.longitude.to_s}", :target => "_blank", :class => 'maps-tip' %>
-        </div>
-      </div>
-    </div>
-  </section><!-- / about section -->
+  </div>
+</section><!-- / about section -->
 
-  <section class="section" id="info">
-    <div class="wrapper">
-      <div class="holder">
-        <h2>And now a few words about:</h2>
-        <div class="hold">
-          <article class="box">
-            <h3><span class="icon-target"></span>Our goals</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-          </article><!-- box -->
-          <article class="box">
-            <h3><span class="icon-gears"></span>What can you do here</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-          </article><!-- box -->
-          <article class="box">
-            <h3><span class="icon-group"></span>Follow us</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-          </article><!-- box -->
-        </div>
+<section class="section" id="info">
+  <div class="wrapper">
+    <div class="holder">
+      <h2>And now a few words about:</h2>
+      <div class="hold">
+        <article class="box">
+          <h3><span class="icon-target"></span>Our goals</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+        </article><!-- box -->
+        <article class="box">
+          <h3><span class="icon-gears"></span>What can you do here</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+        </article><!-- box -->
+        <article class="box">
+          <h3><span class="icon-group"></span>Follow us</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+        </article><!-- box -->
       </div>
     </div>
-  </section><!-- / about-section -->
- <nav id="nav">
-  <ul>
-      <li><a href="#gallery">Photos</a></li>
-      <li><a href="#about">About</a></li>
-      <li><a href="#info">Info</a></li>
-  </ul>
+  </div>
+</section><!-- / about-section -->
+<nav id="nav">
+<ul>
+    <li><a href="#gallery">Photos</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#info">Info</a></li>
+</ul>
 </nav><!-- / nav -->
 <a class="sr-only" href="#gallery">Skip to main content</a>
-<div class="ribbon"><p>It's a random city</p></div>
+<% if flash[:notice] %>
+  <div class="ribbon"><p><%= flash[:notice] %></p></div>
+<% end %>
 <script type="text/javascript">
-  var request = {
-    'rect': <%= @rectangle_coordinates.html_safe %>
-  };
-  var options = {'width': 850, 'height': 600}; //should be calculated according to current page size
-  var widget = new panoramio.PhotoWidget('photos-panoramio', request, options);
-  widget.setPosition(0);
+var request = {
+  'rect': <%= @rectangle_coordinates.html_safe %>
+};
+var options = {'width': 850, 'height': 600}; //should be calculated according to current page size
+var widget = new panoramio.PhotoWidget('photos-panoramio', request, options);
+widget.setPosition(0);
 </script>
