@@ -1,4 +1,4 @@
-#Panoramoi helper for index controller
+#helper for index controller
 module IndexHelper
   EARTH_RADIUS = 6371.0
   PANORAMIO_REQUEST_URL = 'http://www.panoramio.com/map/get_panoramas.php?'
@@ -72,5 +72,10 @@ module IndexHelper
 
   def to_radians(value)
     value * (Math::PI / 180)
+  end
+
+  def get_staticmap_url(latitude, longitude)
+    'http://maps.googleapis.com/maps/api/staticmap?center=' + latitude + ',' + longitude + 
+      '&zoom=6&size=600x600&sensor=true&markers=color:0x00b597%7Clabel:E%7C' + latitude + ',' + longitude
   end
 end

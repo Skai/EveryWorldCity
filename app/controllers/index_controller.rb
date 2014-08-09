@@ -12,7 +12,7 @@ class IndexController < ApplicationController
 
     @city = City.find_by_friendly_url(params[:id])
     raise ActiveRecord::RecordNotFound if @city.nil?
-
+    @staticmap_url = get_staticmap_url(@city.latitude.to_s, @city.longitude.to_s)
     @countries = City.pluck('DISTINCT country').sort
     @rectangle_coordinates = get_rectangle_coordinates(@city.latitude, @city.longitude, 5).to_json
   end

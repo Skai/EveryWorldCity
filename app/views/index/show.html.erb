@@ -2,8 +2,8 @@
   <div class="c">
     <div class="holder">
       <strong class="logo short-logo">
-        <a href="/"><img src="images/logo2.gif" class="img-responsive"></a>
-        <span><%= @city.city %>, <%= @city.country %></span>
+        <a href="/"><img src="images/logo.gif" class="img-responsive"></a>
+        <span><%= @city.city %> / <%= @city.country %></span>
       </strong>
       <form action="" role="form" class="select-form">
         <fieldset>
@@ -11,9 +11,7 @@
           <select id="select-country">
             <option value="" disabled selected>Select country...</option>
               <% @countries.each do |country| %>
-              <% #TODO: move url_creation to helper %>
                 <option value="<%= country %>"><%= country %></option>
-              <% #link_to country, controller: "index", action: "get_cities", country: country %>
             <% end %>
           </select>
           <label for="select-beast" class="sr-only">City:</label>
@@ -45,7 +43,7 @@
         </article>
         <aside class="map-holder">
           <div id="map_canvas">
-            <%= image_tag('http://maps.googleapis.com/maps/api/staticmap?center=' + @city.latitude.to_s + ',' + @city.longitude.to_s + '&zoom=6&size=600x600&sensor=true&markers=color:0x00b597%7Clabel:@%7C' + @city.latitude.to_s + ',' + @city.longitude.to_s) %>
+            <%= image_tag(@staticmap_url) %>
           </div>
         </aside>
         <%= link_to "go to Google maps", "http://maps.google.com/?q=#{@city.latitude.to_s},#{@city.longitude.to_s}", :target => "_blank", :class => 'maps-tip' %>
