@@ -263,7 +263,7 @@ h3 span.icon-group{
   text-align: right;
 }
 #nav li{
- padding: 6px 6px 15px;
+ padding: 0 0 5px;
  vertical-align: top;
  height: 1%;
  position: relative;
@@ -272,15 +272,23 @@ h3 span.icon-group{
   display: block;
   position: relative;
   z-index: 2;
-  outline: none;
+  outline: none;  
+  font-size: 0;
+  line-height: 0;
+  width: 22px;
+  height: 22px;
+}
+#nav a:before{
+  content:'';
+  position: absolute;
+  top: 6px;
+  left: 6px;
   width: 10px;
   height: 10px;
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
   border-radius: 5px;
   background: #00B597;
-  font-size: 0;
-  line-height: 0;
 }
 #nav li:hover:after,
 #nav li.active:after{
@@ -391,18 +399,12 @@ h3 span.icon-group{
   display: inline-block;
   vertical-align: middle;
   width: 515px;
-  border: 10px solid #00b597;
-  border-radius: 50%;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
   position: relative;
-  overflow: hidden;
 }
 .maps-tip{
   position: absolute;
   bottom: -22px;
-  left: 44%;
+  left: -12%;
   width: 206px;
   height: 48px;
   text-indent: -9999px;
@@ -412,6 +414,12 @@ h3 span.icon-group{
 #map_canvas{
   width: 100%;
   height: 500px;
+  border: 10px solid #00b597;
+  border-radius: 50%;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  overflow: hidden;
 }
 /* panoramio photo */
 #photos-panoramio{
@@ -612,15 +620,23 @@ h3 span.icon-group{
 #footer a:focus{ color: #fff;}
 .open-qbox{
   float: right;
+  position: relative;
 }
 .open-qbox:after{
-  display: inline-block;
-  vertical-align: top;
-  font:20px/23px 'icomoon';
-  content: "\f059";
-  padding: 0 0 0 10px;
+  position: absolute;
+  top: 50%;
+  right: -15px;
+  margin:-3px 0 0;
+  content:' ';
+  width: 0;
+  border-style: solid;
+  border-width: 0 5px 5px;
+  border-color:transparent transparent #fff;
 }
-
+.open-qbox.active:after{
+  border-width: 5px 5px 0 5px;
+  border-color: #fff transparent transparent;
+}
 /* media queries */
 @media (max-width: 1100px) {
   .ie8 .ribbon{ display: none;}

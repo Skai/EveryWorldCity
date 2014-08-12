@@ -19,8 +19,10 @@ jQuery(document).on('click', '#contact-button', function() {
 	contact = $('#contact');
 	
 	if (contact.hasClass('active')) {
+		$(this).removeClass('active');
 		contact.removeClass('active').addClass('display-none');
 	} else {
+		$(this).addClass('active');
  		contact.addClass('active').removeClass('display-none');
 	}
 	 
