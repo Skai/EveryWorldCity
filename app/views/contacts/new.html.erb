@@ -1,9 +1,7 @@
-<div>
-  <h3>Send A message to Us</h3>
-  <%= form_for @contact, :url => { :action => :create }, remote: true do |f| %>
-    Name: <%= f.text_field :name, :required => true %>
-    Email: <%= f.text_field :email, :required => true %>
-    Message: <%= f.text_area :message, :as => :text, :required => true %>
-    <%= f.submit 'Send message' %>
-  <% end %>
-</div>
+<p>We're not around, but we'd love to chat another time.</p>
+<%= form_for @contact, :url => { :action => :create }, remote: true do |f| %>
+<%= f.text_field :name, :required => true, :placeholder => 'Your Name' %>
+<%= f.text_field :email, :required => true, :placeholder => 'Your Email' %>
+<%= f.text_area :message, :as => :text, :required => true, :placeholder => 'We still really want to hear from you! Leave us a note:' %>
+<%= f.submit 'Send' %>
+<% end %>

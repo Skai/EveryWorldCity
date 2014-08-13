@@ -10,16 +10,6 @@
   font-weight: normal;
   font-style: normal;
 }
-
-@font-face {
-    font-family: 'GothamRoundedBook';
-    src: url('/assets/gotham-rounded-book.eot');
-    src: url('/assets/gotham-rounded-book.eot') format('embedded-opentype'),
-         url('/assets/gotham-rounded-book.woff') format('woff'),
-         url('/assets/gotham-rounded-book.ttf') format('truetype'),
-         url('/assets/gotham-rounded-book.svg#GothamRoundedBook') format('svg');
-}
-
 @font-face {
     font-family: 'GothamRoundedMedium';
     src: url('/assets/gotham-rounded-medium.eot');
@@ -28,7 +18,6 @@
          url('/assets/gotham-rounded-medium.ttf') format('truetype'),
          url('/assets/gotham-rounded-medium.svg#GothamRoundedMedium') format('svg');
 }
-
 [class^="icon-"], [class*=" icon-"] {
   font-family: 'icomoon';
   speak: none;
@@ -75,8 +64,6 @@
 .icon-search:before {
   content: "\e604";
 }
-
-
 html {
   height: 100%;
   -ms-text-size-adjust: 100%;
@@ -84,7 +71,6 @@ html {
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: none;
 }
-
 button,
 input,
 optgroup,
@@ -139,7 +125,7 @@ mark {
 }
 html{ height: 100%;}
 body {
-  font:18px/26px "GothamRoundedBook", Helvetica, Arial, sans-serif;
+  font:18px/26px 'Fira Sans', Helvetica, Arial, sans-serif;
   color: #373339;
   background: #fff;
   margin: 0;
@@ -205,14 +191,10 @@ p small{
   clip: rect(0, 0, 0, 0);
   border: 0;
 }
-h1,
-h2{
-  text-transform: uppercase;
-  font-family: "GothamRoundedBook", Helvetica, Arial, sans-serif;
-}
 h1{
-  font-size:30px;
+  font:30px "GothamRoundedMedium", Helvetica, Arial, sans-serif;
   margin: 0 0 35px;
+  text-transform: uppercase;
 }
 h1 span{
   text-transform: none;
@@ -220,13 +202,16 @@ h1 span{
   font-weight: normal;
 }
 h2{
+  text-transform: uppercase;
   text-align: center;
-  font-size: 22px;
+  font-size: 24px;
+  font-weight: 500;
   line-height: 29px;
   margin: 0 10px 40px;
 }
 h3{
-  font:20px "GothamRoundedMedium", Helvetica, Arial, sans-serif;
+  font-size:20px;
+  font-weight: 500;
   margin: 0 0 20px;
 }
 h3 span[class*="icon-"]{
@@ -498,6 +483,8 @@ h3 span.icon-group{
 /*comment-box */
 .comment-box{
   position: fixed;
+  display: none;
+  color: #373339;
   bottom: 50px;
   right: 15px;
   background: #fff;
@@ -517,11 +504,11 @@ h3 span.icon-group{
   display: block;
   bottom: 50px;
 }
-.comment-box p{ margin: 0 0 20px;}
+#footer .comment-box p{ margin: 0 0 15px; float: none;}
 .comment-box input[type='text'],
 .comment-box input[type='email'],
 .comment-box textarea{
-  width: 100%;
+  width: 100% !important;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
   margin: 0 0 5px;
@@ -599,6 +586,7 @@ h3 span.icon-group{
   padding: 15px 0;
   color: #fff;
   font-size: 14px;
+  font-weight: 400;
   line-height: 23px;
   bottom: 0;
 }
