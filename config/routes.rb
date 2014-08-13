@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  devise_for :admin_users, ActiveAdmin::Devise.config
+  ActiveAdmin.routes(self)
   root 'index#show'
   resources :cities, :path => '/', :controller => :index, :only => [:show]
   get 'get_cities/:country' => 'index#get_cities'
