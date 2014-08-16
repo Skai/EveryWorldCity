@@ -3,5 +3,8 @@
 <%= f.text_field :name, :required => true, :placeholder => 'Your Name' %>
 <%= f.text_field :email, :required => true, :placeholder => 'Your Email' %>
 <%= f.text_area :message, :as => :text, :required => true, :placeholder => 'We still really want to hear from you! Leave us a note:' %>
-<%= f.submit 'Send' %>
+<div class="hold">
+	<a href="" id="btn-close">Close X</a>
+	<%= f.submit 'Send' %>
+</div>
 <% end %>

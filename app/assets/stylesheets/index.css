@@ -153,6 +153,16 @@ p small{
   padding: 5px 0 0;
   display: block;
 }
+noscript{
+  position: fixed;
+  top: 20%;
+  background: #00b597;
+  color: #fff;
+  width:200px;
+  padding: 20px;
+  left: 0;
+  z-index: 50;
+}
 .hold{ width: 100%;}
 .hold:after{
   clear: both;
@@ -483,8 +493,9 @@ h3 span.icon-group{
 /* contact box */
 #contact{
   color: #373339;
-  bottom: -150px;
-  right: 15px;
+  position: fixed;
+  bottom: -100%;
+  right: 55px;
   background: #fff;
   border: 2px solid #00B597;
   -webkit-border-radius: 5px;
@@ -495,13 +506,10 @@ h3 span.icon-group{
   font-size: 15px;
   line-height: 20px;
   width: 260px;
-}
-.active #contact{ 
-  position: fixed;
-  bottom:70px;
   -webkit-transition: bottom 0.5s ease-in-out;
   transition: bottom 0.5s ease-in-out;
 }
+.active #contact{ bottom:70px;}
 #footer #contact p{ margin: 0 0 15px; float: none;}
 #contact input[type='text'],
 #contact input[type='email'],
@@ -528,7 +536,18 @@ h3 span.icon-group{
   display: block;
   margin: 10px 0 0 auto;
 }
-
+#contact input[type="submit"]:hover{
+  color: #00B597;
+  background: #fff;
+  border: 2px solid #00B597;
+  padding: 6px 13px;
+}
+#footer a#btn-close{
+  float: left;
+  color: #ff765e;
+  margin: 10px 0 0;
+}
+#btn-close:hover{ cursor: pointer;}
 
 
 
@@ -577,24 +596,31 @@ h3 span.icon-group{
 .ie8 .ribbon p{ display: none;}
 
 /* footer */
-#footer{
-  background: #1c1a1d;
+#footer{  
   width: 100%;
-  position: absolute;
-  padding: 15px 0;
+  position: absolute;  
   color: #fff;
   font-size: 14px;
   font-weight: 400;
   line-height: 23px;
   bottom: 0;
+  left: 0;
+}
+#footer .wrap{
+  width:100%;
+  background: #1c1a1d;
+  padding: 15px 0;
+  position: relative;
+  z-index: 26;
 }
 #footer .holder{ position: relative;}
-#footer .holder:after{
+#footer .holder:before{
   position: absolute;
   top: -62px;
   right: 0;
   width: 202px;
   height: 50px;
+  content: ' ';
   background: url('/assets/city.png') no-repeat;
 }
 #footer p{
@@ -602,9 +628,8 @@ h3 span.icon-group{
   margin: 0;
 }
 #footer a,
-#footer a:hover,
-#footer a:focus{ color: #fff;}
-.open-qbox{
+#footer a:hover{ color: #fff;}
+#footer a.open-qbox{
   float: right;
   position: relative;
 }
@@ -616,12 +641,12 @@ h3 span.icon-group{
   content:' ';
   width: 0;
   border-style: solid;
-  border-width: 0 5px 5px;
-  border-color:transparent transparent #fff;
-}
-.open-qbox.active:after{
   border-width: 5px 5px 0 5px;
   border-color: #fff transparent transparent;
+}
+.active .open-qbox:after{
+  border-width: 0 5px 5px;
+  border-color:transparent transparent #fff;
 }
 /* media queries */
 @media (max-width: 1100px) {

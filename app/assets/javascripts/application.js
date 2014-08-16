@@ -15,22 +15,21 @@
 //= require turbolinks
 //= require_tree .
 
-jQuery(document).on('click', '#contact-button', function() {
-	contact = $('#contact');
-	
-	if (contact.hasClass('active')) {
-		$(this).removeClass('active');
-	} else {
-		$(this).addClass('active');
-	}
-	 
-	if (contact.children().length == 0){
-		$.ajax({
-  			url: "contacts/new",
-		}).done(function(data) {
-			contact.html(data);
-		})
-	}
-
-	return false;
+jQuery(document).ready(function(){
+	jQuery(document).on('click', '#contact-button', function() {
+		contact = $('#contact');
+		 
+		if (contact.children().length == 0){
+			$.ajax({
+	  			url: "contacts/new",
+			}).done(function(data) {
+				contact.html(data);
+				$('#btn-close').on('click',function(e){
+					e.preventDefault();
+					$('#footer').removeClass('active');
+				});
+			})
+		}
+		return false;
+	});
 });
