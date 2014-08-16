@@ -20,17 +20,15 @@ jQuery(document).on('click', '#contact-button', function() {
 	
 	if (contact.hasClass('active')) {
 		$(this).removeClass('active');
-		contact.removeClass('active').addClass('display-none');
 	} else {
 		$(this).addClass('active');
- 		contact.addClass('active').removeClass('display-none');
 	}
 	 
 	if (contact.children().length == 0){
 		$.ajax({
   			url: "contacts/new",
 		}).done(function(data) {
-			contact.addClass('active').removeClass('display-none').html(data);
+			contact.html(data);
 		})
 	}
 

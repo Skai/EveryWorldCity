@@ -480,12 +480,10 @@ h3 span.icon-group{
   color: #fff;
   text-decoration: none;
 }
-/*comment-box */
-.comment-box{
-  position: fixed;
-  display: none;
+/* contact box */
+#contact{
   color: #373339;
-  bottom: 50px;
+  bottom: -150px;
   right: 15px;
   background: #fff;
   border: 2px solid #00B597;
@@ -497,17 +495,17 @@ h3 span.icon-group{
   font-size: 15px;
   line-height: 20px;
   width: 260px;
-  -webkit-transition: top 0.5s ease-in-out;
-  transition: top 0.5s ease-in-out;
 }
-.active .comment-box{ 
-  display: block;
-  bottom: 50px;
+.active #contact{ 
+  position: fixed;
+  bottom:70px;
+  -webkit-transition: bottom 0.5s ease-in-out;
+  transition: bottom 0.5s ease-in-out;
 }
-#footer .comment-box p{ margin: 0 0 15px; float: none;}
-.comment-box input[type='text'],
-.comment-box input[type='email'],
-.comment-box textarea{
+#footer #contact p{ margin: 0 0 15px; float: none;}
+#contact input[type='text'],
+#contact input[type='email'],
+#contact textarea{
   width: 100% !important;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
@@ -516,8 +514,8 @@ h3 span.icon-group{
   padding: 5px;
   font-size: 13px;
 }
-.comment-box textarea{ height: 150px !important;}
-.comment-box input[type="submit"]{
+#contact textarea{ height: 150px !important;}
+#contact input[type="submit"]{
   -webkit-border-radius: 25px;
   -moz-border-radius: 25px;
   border-radius: 25px;
@@ -683,6 +681,6 @@ h3 span.icon-group{
     height: 20px;
     width: 20px;
   }
-  .comment-box{ right: 5px;}
+ #contact{ right: 5px;}
   #nav{ display: none;}
 }
