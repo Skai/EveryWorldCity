@@ -50,7 +50,7 @@ ActiveRecord::Schema.define(version: 20140812215914) do
   add_index "admin_users", ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true, using: :btree
 
   create_table "cities", force: true do |t|
-    t.string   "country",        limit: 25
+    t.string   "country",        limit: 25,   default: "0"
     t.string   "city",           limit: 40,   default: "0"
     t.float    "latitude"
     t.float    "longitude"

@@ -1,5 +1,5 @@
 ActiveAdmin.register City do
- controller do
+  controller do
     defaults finder: :find_by_friendly_url
     def scoped_collection
       City.unscoped
