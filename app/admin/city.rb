@@ -23,8 +23,8 @@ ActiveAdmin.register City do
   index do
     column :country
     column :city
+    column :friendly_url
     column :wiki_page_id
-    #column :description
     column :created_at
     column :updated_at
     column :is_twitted
