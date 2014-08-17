@@ -1,4 +1,7 @@
 ActiveAdmin.register City do
+  scope :wiki_page_not_blank
+  scope :wiki_page_blank
+  scope :wiki_page_not_exists
   controller do
     defaults finder: :find_by_friendly_url
     def scoped_collection
@@ -21,6 +24,7 @@ ActiveAdmin.register City do
   filter :is_twitted
 
   index do
+    selectable_column
     column :country
     column :city
     column :friendly_url
@@ -28,6 +32,7 @@ ActiveAdmin.register City do
     column :created_at
     column :updated_at
     column :is_twitted
+    actions
   end
   form do |f|
     f.inputs "General" do
