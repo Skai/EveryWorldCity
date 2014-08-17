@@ -285,7 +285,15 @@ h3 span.icon-group{
   border-radius: 5px;
   background: #00B597;
 }
-#nav li:hover:after,
+#nav li:not(.active):hover a:before{
+  width: 14px;
+  height: 14px;
+  top: 4px;
+  left: 4px;
+  -webkit-border-radius: 7px;
+  -moz-border-radius: 7px;
+  border-radius: 7px;
+}
 #nav li.active:after{
   content: '';
   position: absolute;
@@ -321,7 +329,9 @@ h3 span.icon-group{
 }
 #header .holder{ height: 43px;}
 .logo{
-  float: left;
+  position: absolute;
+  top: 5px;
+  left: 15px;
   width: 31%;
   min-width: 288px;
 }
@@ -393,7 +403,7 @@ h3 span.icon-group{
 .map-holder{
   display: inline-block;
   vertical-align: middle;
-  width: 515px;
+  max-width: 515px;
   position: relative;
 }
 .maps-tip{
@@ -408,13 +418,15 @@ h3 span.icon-group{
 }
 #map_canvas{
   width: 100%;
-  height: 500px;
   border: 10px solid #00b597;
   border-radius: 50%;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
   overflow: hidden;
+}
+#map_canvas img{
+  width: 100%;
 }
 /* panoramio photo */
 #photos-panoramio{
@@ -693,19 +705,13 @@ h3 span.icon-group{
 }
 @media (max-width: 580px) {
   .maps-tip{ bottom: -52px;}
-  #map_canvas{ height: 300px;}
-  .map-holder{
+  #map_canvas{ 
     border-radius: 0;
     border-width: 2px;
-    width: 100%;
   }
 }
 @media (max-width: 400px) {
-  .open-qbox{
-    overflow: hidden;
-    height: 20px;
-    width: 20px;
-  }
- #contact{ right: 5px;}
+  #footer{ font-size: 13px;}
+  #contact{ right: 5px;}
   #nav{ display: none;}
 }

@@ -45,8 +45,7 @@ $(document).on('page:change', function() {
   // scrolling Page to top with a lot of content
   $('#nav a').click(function(){
     var goal = $(this).attr('href');
-    $("#nav li.active").removeClass("active");
-    $(this).parent('li').addClass('active')
+    highlightCurrentItem();
     scrollPage(goal);
     return false;
   });
@@ -64,15 +63,15 @@ $(document).on('page:change', function() {
     var $sItem = $("#nav li").eq(sIndex);
     if (!$sItem.hasClass("active")) {
         $("#nav li.active").removeClass("active");
-        $sItem.addClass("active");
+        $sItem.addClass('active');
     }    
   };
 
   highlightCurrentItem();
 
   $(window).scroll(function(e) {
-      //highlightCurrentItem();
-  });   
+      highlightCurrentItem();
+  });  
 
   /* calculate height of section */
   function calcHeight(){
