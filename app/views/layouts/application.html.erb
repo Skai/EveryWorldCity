@@ -7,6 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>EveryWorldCity</title>
   <link rel="shortcut icon" href="images/ico/favicon.ico">
+  <link href='http://fonts.googleapis.com/css?family=Fira+Sans:400,500,700,400italic,500italic' rel='stylesheet' type='text/css'>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
@@ -27,13 +28,16 @@
 </head>
 <body>
   <div class="page">
+    <noscript>Your browser's Javascript option is turned off. To see all features on this page we would like to ask you to turn it on.</noscript>
     <%= yield %>
     <footer id="footer">
-      <div class="holder">
-        <p>&copy; EveryWorldCity 2014</p>
-        <a href="" id='contact-button' class="open-qbox">Don't fear - contact us!</a>
-        <div id="contact"></div>
-      </div>
+      <div class="wrap">
+        <div class="holder">
+          <p>&copy; EveryWorldCity 2014</p>
+          <a href="" id='contact-button' class="open-qbox">Don't fear - contact us!</a>
+        </div>
+      </div>      
+      <div id="contact"></div>
     </footer><!-- / footer -->
   </div><!-- / page -->
 </body>

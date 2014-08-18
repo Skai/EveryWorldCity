@@ -41,12 +41,12 @@
           <p><%= truncate_html(@city.description, length: 1300, omission: '...').html_safe %><small>* material from wiki</small></p>
           <%= link_to "Read full Wiki article", @wiki_url, :target => "_blank", :class => "btn" %>
         </article>
-        <aside class="map-holder">
+        <aside class="map-holder">          
           <div id="map_canvas">
-            <%= image_tag(@staticmap_url) %>
+            <%= image_tag(@staticmap_url) %> 
           </div>
-        </aside>
-        <%= link_to "go to Google maps", @googlemap_url, :target => "_blank", :class => 'maps-tip' %>
+          <%= link_to("go to Google maps", @googlemap_url, :target => "_blank", :class => 'maps-tip') %>
+        </aside>          
       </div>
     </div>
   </div>
