@@ -214,15 +214,15 @@ h1 span{
 h2{
   text-transform: uppercase;
   text-align: center;
-  font-size: 24px;
+  font-size: 26px;
   font-weight: 500;
   line-height: 29px;
-  margin: 0 10px 40px;
+  margin: 0 10px 50px;
 }
 h3{
   font-size:20px;
   font-weight: 500;
-  margin: 0 0 20px;
+  margin: 0 0 30px;
 }
 h3 span[class*="icon-"]{
   background: #00b597;
@@ -364,15 +364,9 @@ h3 span.icon-group{
   width: 100%;
   position: relative;
   padding: 95px 0 80px;
-  max-height: 1000px !important;
-  display: table;
   -webkit-box-sizing: border-box;
   -moz-box-sizing:border-box;
   box-sizing:border-box;
-}
-.section .wrapper{
-  display: table-cell;
-  vertical-align: middle;
 }
 #gallery{  
   background: #373339; 
@@ -418,6 +412,7 @@ h3 span.icon-group{
   text-indent: -9999px;
   background: url('/assets/google-maps.png') no-repeat;
   background-size: cover;
+  overflow: hidden;
 }
 #map_canvas{
   width: 100%;
@@ -571,7 +566,7 @@ h3 span.icon-group{
 #info .box{
   float: left;
   width: 33%;
-  padding: 0 20px 40px;
+  padding: 0 30px 40px;
   text-align: center;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -609,7 +604,6 @@ h3 span.icon-group{
   background: url('/assets//ribbon.png') no-repeat; 
 }
 .ie8 .ribbon p{ display: none;}
-
 /* footer */
 #footer{  
   width: 100%;
@@ -690,6 +684,7 @@ h3 span.icon-group{
   #info .box{
     width: 100%;
     display: block;
+    padding: 0 0 10px;
   }
 }
 @media (max-width: 800px) {
@@ -714,9 +709,13 @@ h3 span.icon-group{
     border-radius: 0;
     border-width: 2px;
   }
+  .section{ padding: 80px 0;}
+  #info .box{ padding: 0 0 10px;}
 }
 @media (max-width: 400px) {
   #footer{ font-size: 13px;}
   #contact{ right: 5px;}
   #nav{ display: none;}
+  h1{ font-size: 26px; margin: 0 0 20px;}
+  h2{ font-size: 24px;margin: 0 0 30px;}
 }

@@ -25,53 +25,46 @@
   </div>
 </header><!-- / header -->
 <section class="section" id="gallery">
-  <div class="wrapper">
-    <div class="holder">
-      <h1><%= @city.city %> / <span><%= @city.country %></span></h1>
-      <div id="photos-panoramio"></div>
-    </div>
+  <div class="holder">
+    <h1><%= @city.city %> / <span><%= @city.country %></span></h1>
+    <div id="photos-panoramio"></div>
   </div>
 </section><!-- / gallery section -->
 <section class="section" id="about">
-  <div class="wrapper">
-    <div class="holder">
-      <h2>Info About <%= @city.city %>:</h2>
-      <div class="hold">
-        <article>
-          <p><%= truncate_html(@city.description, length: 1300, omission: '...').html_safe %><small>* material from wiki</small></p>
-          <%= link_to "Read full Wiki article", @wiki_url, :target => "_blank", :class => "btn" %>
-        </article>
-        <aside class="map-holder">          
-          <div id="map_canvas">
-            <%= image_tag(@staticmap_url) %> 
-          </div>
-          <%= link_to("go to Google maps", @googlemap_url, :target => "_blank", :class => 'maps-tip') %>
-        </aside>          
-      </div>
+  <div class="holder">
+    <h2>Info About <%= @city.city %>:</h2>
+    <div class="hold">
+      <article>
+        <p><%= truncate_html(@city.description, length: 1300, omission: '...').html_safe %><small>* material from wiki</small></p>
+        <%= link_to "Read full Wiki article", @wiki_url, :target => "_blank", :class => "btn" %>
+      </article>
+      <aside class="map-holder">          
+        <div id="map_canvas">
+          <%= image_tag(@staticmap_url) %> 
+        </div>
+        <%= link_to("go to Google maps", @googlemap_url, :target => "_blank", :class => 'maps-tip') %>
+      </aside>
     </div>
   </div>
 </section><!-- / about section -->
-
 <section class="section" id="info">
-  <div class="wrapper">
-    <div class="holder">
-      <h2>And now a few words about:</h2>
-      <div class="hold">
-        <article class="box">
-          <h3><span class="icon-target"></span>Our goals</h3>
-          <p>There are a lot of cities all over the world, which we don't know at all. That's why we have decided to create twitter account EveryWorldCity, following it you will have an opportunity to learn a new city every day - review photos, explore map, read interesting facts.
+  <div class="holder">
+    <h2>And now a few words about:</h2>
+    <div class="hold">
+      <article class="box">
+        <h3><span class="icon-target"></span>Our goals</h3>
+        <p>There are a lot of cities all over the world, which we don't know at all. That's why we have decided to create twitter account EveryWorldCity, following it you will have an opportunity to learn a new city every day - review photos, explore map, read interesting facts.
 Probably namely here you will inspire to a new adventure.</p>
-        </article><!-- box -->
-        <article class="box">
-          <h3><span class="icon-gears"></span>Resource Info</h3>
-          <p>The Data Base has already 10529 cities and it is expanding dynamically. All descriptions and photos for twitter posts were found / gathered with Wikipedia API's help. Based on Panoramio Rest API we prepare the most popular photos for each city. 
+      </article><!-- box -->
+      <article class="box">
+        <h3><span class="icon-gears"></span>Resource Info</h3>
+        <p>The Data Base has already 10529 cities and it is expanding dynamically. All descriptions and photos for twitter posts were found / gathered with Wikipedia API's help. Based on Panoramio Rest API we prepare the most popular photos for each city. 
 <% "The twitter bot posts 2/3 tweets with new random city every day. The map uses Google's Static Map API. You can found codebase on github by url: ... " %></p>
-        </article><!-- box -->
-        <article class="box">
-          <h3><span class="icon-group"></span>Follow us</h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-        </article><!-- box -->
-      </div>
+      </article><!-- box -->
+      <article class="box">
+        <h3><span class="icon-group"></span>Follow us</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+      </article><!-- box -->
     </div>
   </div>
 </section><!-- / about-section -->

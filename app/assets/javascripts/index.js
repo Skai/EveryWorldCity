@@ -1,4 +1,4 @@
-$(document).on('page:change', function() {
+$(document).on('page:change load', function() {
   var xhr, select_country, $select_country, select_city, $select_city;
 
   $select_country = jQuery('#select-country').selectize({
@@ -50,6 +50,8 @@ $(document).on('page:change', function() {
     return false;
   });
 
+  highlightCurrentItem();
+
   function scrollPage(id){
     $('html, body').animate({
       scrollTop: $(id).offset().top      
@@ -60,30 +62,28 @@ $(document).on('page:change', function() {
   function highlightCurrentItem() {
     var h = $(".section:first").height();
     var sIndex = Math.floor($(window).scrollTop() / h);
+    if(sIndex > 2){
+      sIndex = 2;
+    }
     var $sItem = $("#nav li").eq(sIndex);
     if (!$sItem.hasClass("active")) {
         $("#nav li.active").removeClass("active");
         $sItem.addClass('active');
-    }    
+    };   
   };
-
-  highlightCurrentItem();
-
-  $(window).scroll(function(e) {
-      highlightCurrentItem();
-  });  
 
   /* calculate height of section */
-  function calcHeight(){
+  /*function calcHeight(){
     var _height = $(window).height();
     $(".section").css( "height", _height);
-  };
-  calcHeight();
+  };*/
+  
 
-  $(window).resize(calcHeight);
-
-  /* sticky header */
+  $(window).resize(highlightCurrentItem);
+  
   $(window).scroll(function() {
+    highlightCurrentItem();
+    /* sticky header */
     if ($(this).scrollTop() > 100){  
         $('#header').addClass("sticky");
       }
@@ -95,18 +95,5 @@ $(document).on('page:change', function() {
   $('#toggle-search').on('click', function(){
     $('#header').toggleClass('active');
   });
-      
-
-  /* google maps */
-  function initialize() {
-    var map_canvas = document.getElementById('map_canvas');
-    var map_options = {
-      center: new google.maps.LatLng(44.5403, -78.5463),
-      zoom: 8,
-      mapTypeId: google.maps.MapTypeId.ROADMAP
-    }
-    var map = new google.maps.Map(map_canvas, map_options)
-  }
-  google.maps.event.addDomListener(window, 'load', initialize);
 
 });
