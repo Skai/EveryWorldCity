@@ -2,9 +2,9 @@ Rails.application.routes.draw do
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   root 'index#show'
-  resources :cities, :path => '/', :controller => :index, :only => [:show]
+  get 'get_photos' => 'index#get_photos'
   get 'get_cities/:country' => 'index#get_cities'
-  
+  resources :cities, :path => '/', :controller => :index, :only => [:show]
   resources :contacts, :only => [:new, :create]
 
   #resources :cities

@@ -17,10 +17,14 @@ class IndexController < ApplicationController
     @wiki_url = get_wiki_url(@city.wiki_page_id.to_s)
     @googlemap_url = get_googlemap_url(@city.latitude.to_s, @city.longitude.to_s)
     @countries = City.pluck('DISTINCT country').sort
-    @rectangle_coordinates = get_rectangle_coordinates(@city.latitude, @city.longitude, 5).to_json
+    @rectangle_coordinates = get_rectangle_coordinates(@city.latitude, @city.longitude).to_json
   end
 
   def get_cities
     render json: City.select(:id, :city, :friendly_url).where(:country => params[:country]).order(:city)
+  end
+
+  def get_photos
+    render json: get_panoramio_json(params[:latitude].to_f, params[:longitude].to_f)
   end
 end
