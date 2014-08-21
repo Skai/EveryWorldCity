@@ -17,7 +17,6 @@ class IndexController < ApplicationController
     @wiki_url = get_wiki_url(@city.wiki_page_id.to_s)
     @googlemap_url = get_googlemap_url(@city.latitude.to_s, @city.longitude.to_s)
     @countries = City.pluck('DISTINCT country').sort
-    @rectangle_coordinates = get_rectangle_coordinates(@city.latitude, @city.longitude).to_json
   end
 
   def get_cities

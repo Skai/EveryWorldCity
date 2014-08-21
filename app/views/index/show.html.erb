@@ -86,11 +86,30 @@ Probably namely here you will inspire to a new adventure.</p>
 <% if flash[:notice] %>
   <div class="ribbon"><p><%= flash[:notice] %></p></div>
 <% end %>
+
 <script type="text/javascript">
-var request = {
-  'rect': <%= @rectangle_coordinates.html_safe %>
-};
-var options = {'width': 850, 'height': 600}; //should be calculated according to current page size
-var widget = new panoramio.PhotoWidget('photos-panoramio', request, options);
-widget.setPosition(0);
+  var latitude = <%= @city.latitude %>
+  var longitude = <%= @city.longitude %>
+
+$(document).on('page:change', function() {
+  $("#photos-panoramio").owlCarousel({
+    jsonPath : 'http://127.0.0.1:3000/get_photos?latitude=' + latitude + '&longitude=' + longitude,
+    jsonSuccess : customDataSuccess,
+    singleItem:true,
+    lazyLoad : true,
+    navigation : true,
+    autoHeight : true
+  });
+  function customDataSuccess(data){
+    var content = "";
+    for(var i in data["photos"]){
+       
+       var img = data["photos"][i].photo_file_url;
+       var alt = data["photos"][i].photo_title;
+ 
+       content += "<img src=\"" +img+ "\" alt=\"" +alt+ "\">"
+    }
+    $("#photos-panoramio").html(content);
+  }
+});
 </script>
