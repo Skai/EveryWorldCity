@@ -95,4 +95,25 @@ $(document).on('page:change', function() {
   $('#toggle-search').on('click', function(){
     $('#header').toggleClass('active');
   });
+
+  //Initializing  owlCarousel with custom JSON data.
+  $("#photos-panoramio").owlCarousel({
+    jsonPath : '/get_photos?latitude=' + latitude + '&longitude=' + longitude,
+    jsonSuccess : customDataSuccess,
+    singleItem:true,
+    lazyLoad : true,
+    navigation : true,
+    autoHeight : true
+  });
+  function customDataSuccess(data){
+    var content = "";
+    for(var i in data["photos"]){
+      if (data['photos'][i].height < 2000 && data['photos'][i].width < 2000) {
+        var img = data["photos"][i].photo_file_url;
+        var alt = data["photos"][i].photo_title;
+        content += "<img src=\"" +img+ "\" alt=\"" +alt+ "\">"
+      }
+    }
+    $("#photos-panoramio").html(content);
+  }
 });
