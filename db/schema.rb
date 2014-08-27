@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140812215914) do
+ActiveRecord::Schema.define(version: 20140827213547) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -56,7 +56,7 @@ ActiveRecord::Schema.define(version: 20140812215914) do
     t.float    "longitude"
     t.float    "altitude"
     t.text     "description"
-    t.boolean  "is_twitted",                  default: false, null: false
+    t.boolean  "is_in_twitter",               default: false, null: false
     t.datetime "updated_at"
     t.datetime "sent_at"
     t.integer  "wiki_page_id",                default: 0
