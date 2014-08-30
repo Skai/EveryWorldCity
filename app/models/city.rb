@@ -1,3 +1,5 @@
+include ApplicationHelper
+
 class City < ActiveRecord::Base
   default_scope ->                { where.not(:wiki_page_id => nil) }
   default_scope ->                { where.not(:wiki_page_id => -1) }
@@ -7,9 +9,18 @@ class City < ActiveRecord::Base
   scope :is_twitted, ->           { where(:is_in_twitter => true) }
   scope :is_twitted, ->           { where.not(:sent_at => nil) }
   scope :is_not_twitted, ->       { where(:is_in_twitter => false, :sent_at => nil) }
-  scope :will_be_twitted, ->      {where(:is_in_twitter => true, :sent_at => nil)}
+  scope :will_be_twitted, ->      { where(:is_in_twitter => true, :sent_at => nil)}
 
   def to_param
     "#{self.friendly_url}"
+  end
+
+  def self.random
+    self.limit(1).order('RANDOM()').first
+  end
+  
+  def set_city_for_twitter
+    self.is_in_twitter = true
+    self.save
   end
 end
