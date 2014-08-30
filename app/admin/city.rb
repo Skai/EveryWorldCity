@@ -1,4 +1,5 @@
 ActiveAdmin.register City do
+  permit_params :country, :city, :country_code, :friendly_url, :altitude, :latitude, :longitude, :is_in_twitter, :wiki_page_id, :wiki_image_src, :description
   scope :wiki_page_not_blank
   scope :wiki_page_blank
   scope :wiki_page_not_exists
@@ -7,6 +8,7 @@ ActiveAdmin.register City do
   scope :will_be_twitted
 
   controller do
+    #change from using id to using friendly_url
     defaults finder: :find_by_friendly_url
     def scoped_collection
       City.unscoped
