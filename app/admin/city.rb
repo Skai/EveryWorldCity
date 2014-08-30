@@ -19,6 +19,7 @@ ActiveAdmin.register City do
     friendly_url
   end
   
+  #Filters Section
   filter :country
   filter :city
   filter :description
@@ -29,6 +30,7 @@ ActiveAdmin.register City do
   filter :sent_at
   filter :is_in_twitter
 
+  #Index view
   index do
     selectable_column
     column :country
@@ -40,6 +42,8 @@ ActiveAdmin.register City do
     column :is_in_twitter
     actions
   end
+
+  #City form
   form do |f|
     f.inputs "General" do
       f.input :country, :as => :string
@@ -63,16 +67,4 @@ ActiveAdmin.register City do
     #end
     f.actions
   end
-  # See permitted parameters documentation:
-  # https://github.com/gregbell/active_admin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
-  #
-  # permit_params :list, :of, :attributes, :on, :model
-  #
-  # or
-  #
-  # permit_params do
-  #  permitted = [:permitted, :attributes]
-  #  permitted << :other if resource.something?
-  #  permitted
-  # end
 end
