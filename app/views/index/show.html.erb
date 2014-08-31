@@ -1,8 +1,8 @@
 <header id="header">
   <div class="c">
     <div class="holder">
-      <strong class="logo short-logo">
-        <a href="/"><img src="images/logo.gif" class="img-responsive"></a>
+      <strong class="logo">
+        <a href="/"><img src="images/logo.gif"></a>
         <span><%= @city.city %> / <%= @city.country %></span>
       </strong>
       <form action="" role="form" class="select-form">
@@ -25,11 +25,10 @@
   </div>
 </header><!-- / header -->
 <section class="section" id="gallery">
-  <div class="wrapper">
-    <div class="holder">
-      <h1><%= @city.city %> / <span><%= @city.country %></span></h1>
-      <div id="photos-panoramio"></div>
-    </div>
+  <div class="holder">
+    <h1><%= @city.city %> / <span><%= @city.country %></span></h1>
+    <div id="photos-panoramio"></div>
+    <p class="copyright"><%= image_tag 'logo-panoramio.png' %> Photos are copyrighted by their owners</p>
   </div>
 </section><!-- / gallery section -->
 <section class="section" id="about">
@@ -45,7 +44,9 @@
           <div id="map_canvas">
             <%= image_tag(@staticmap_url) %> 
           </div>
-          <%= link_to("go to Google maps", @googlemap_url, :target => "_blank", :class => 'maps-tip') %>
+          <div class="maps-tip">
+          <%= link_to("go to Google maps", @googlemap_url, :target => "_blank") %>
+          </div>
         </aside>          
       </div>
     </div>
