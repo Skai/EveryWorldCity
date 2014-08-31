@@ -2,9 +2,9 @@
   <div class="c">
     <div class="holder">
       <strong class="logo">
-        <a href="/"><img src="images/logo.gif"></a>
-        <span><%= @city.city %> / <%= @city.country %></span>
+        <a href="/"><%= image_tag 'logo.png' %></a>        
       </strong>
+      <span class="city-name"><%= @city.city %></span>
       <form action="" role="form" class="select-form">
         <fieldset>
           <label for="select-beast" class="sr-only">Country:</label>

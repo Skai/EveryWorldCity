@@ -316,35 +316,48 @@ h3 span.icon-group{
   z-index: 9;
 }
 #header .c{  
-  padding: 13px 0 7px;
+  padding: 10px 0;
   background: #0D1F23;
   width: 100%;
   top:-50px;
-  left: 0;
+  left: 0;  
 }
 #header.sticky .c{
   position: fixed;
   top:0;
-  background: rgba(2,26,29,0.8);
+  background: rgba(2,26,29,0.85);
   -webkit-transition: top 0.5s ease-in-out;
   transition: top 0.5s ease-in-out;
 }
-#header .holder{ height: 43px;}
+#header .holder{height: 60px;}
 .logo{
-  position: absolute;
-  top: 5px;
-  left: 15px;
-  width: 31%;
-  min-width: 288px;
+  display: inline-block;
+  vertical-align: middle;
+  height: 60px;
 }
-.logo span,
-.sticky.active .logo span,
+.logo img{
+  height: 100%;
+  width: auto;
+}
+.city-name,
+.sticky.active .city-name,
 #header.active .logo{display: none;}
-.sticky .logo span{display: block;}
+.sticky .city-name{
+  display: inline-block;
+  vertical-align: middle;
+  padding: 0 0 0 20px;
+  color: #fff;
+  line-height: 20px;
+}
 .select-form{
-  float: right;
+  position: absolute;
+  right:15px;
+  top:25%;
   width: 55%;
   min-width: 300px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
 }
 .select-form .selectize-control{
   float: left;
@@ -354,8 +367,8 @@ h3 span.icon-group{
 /* toggle-search */
 #toggle-search{
   position: absolute;
-  right: 20px;
-  top:0;
+  right: 11px;
+  top:12px;
   z-index: 15;
   font-size: 36px;
   color: #00B597;
@@ -366,7 +379,7 @@ h3 span.icon-group{
 .section{
   width: 100%;
   position: relative;
-  padding: 95px 0 80px;
+  padding: 90px 0 80px;
   max-height: 1000px !important;
   display: table;
   -webkit-box-sizing: border-box;
@@ -382,6 +395,7 @@ h3 span.icon-group{
   color: #fff; 
   z-index: 2;
   display: block;
+  padding-top: 110px;
 }
 #gallery .copyright{
   text-align: center;
@@ -711,12 +725,12 @@ h3 span.icon-group{
     min-width: 0;
     opacity:0;
     overflow: hidden;
-    margin-right: 50px;
+    padding-right: 45px;
     transition: all 0.4s ease;
   }
   #toggle-search{ display: block;}
   .active .select-form{
-    width: 85%;
+    width: 94%;
     overflow: inherit;
     opacity:1;   
   }
@@ -734,7 +748,8 @@ h3 span.icon-group{
 @media (max-width: 400px) {
   #footer{ font-size: 13px;}  
   #contact{ right: 5px;}
-  #nav{ display: none;}
+  #nav,
+  .sticky .city-name{ display: none;}
   #photos-panoramio .owl-prev{ left:10px;}
   #photos-panoramio .owl-next{ right:10px;}
 }
