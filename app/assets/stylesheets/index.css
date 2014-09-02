@@ -316,7 +316,7 @@ h3 span.icon-group{
   z-index: 9;
 }
 #header .c{  
-  padding: 10px 0;
+  padding: 7px 0;
   background: #0D1F23;
   width: 100%;
   top:-50px;
@@ -329,15 +329,20 @@ h3 span.icon-group{
   -webkit-transition: top 0.5s ease-in-out;
   transition: top 0.5s ease-in-out;
 }
-#header .holder{height: 60px;}
+#header .holder{height: 55px;}
 .logo{
   display: inline-block;
   vertical-align: middle;
-  height: 60px;
+  height: 55px;
+  width: 200px;
+  overflow: hidden;
+  background: url('/assets/logo.png') no-repeat;
+  background-size: cover;
+  text-indent: -9999px;
 }
-.logo img{
+.logo a{
   height: 100%;
-  width: auto;
+  display: block;
 }
 .city-name,
 .sticky.active .city-name,
@@ -345,14 +350,21 @@ h3 span.icon-group{
 .sticky .city-name{
   display: inline-block;
   vertical-align: middle;
-  padding: 0 0 0 20px;
+  padding: 0 0 0 10px;
   color: #fff;
-  line-height: 20px;
+  width: 34%;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow:ellipsis;
+  font:23px "GothamRoundedMedium", Helvetica, Arial, sans-serif;  
 }
+.sticky .logo{width: 52px;}
 .select-form{
   position: absolute;
   right:15px;
-  top:25%;
+  top:50%;
+  margin: -19px 0 0;
+  height: 36px;
   width: 55%;
   min-width: 300px;
   -webkit-box-sizing: border-box;
@@ -368,7 +380,7 @@ h3 span.icon-group{
 #toggle-search{
   position: absolute;
   right: 11px;
-  top:12px;
+  top:9px;
   z-index: 15;
   font-size: 36px;
   color: #00B597;
@@ -729,6 +741,7 @@ h3 span.icon-group{
     overflow: inherit;
     opacity:1;   
   }
+  .sticky .city-name{ width: 80%;}
 }
 @media (max-width: 580px) {
   .maps-tip{ bottom: -52px;}
@@ -736,6 +749,7 @@ h3 span.icon-group{
     border-radius: 0;
     border-width: 2px;
   }
+  .sticky .city-name{ width: 70%;}
   .section{ min-height: inherit !important;padding: 80px 0;}
   #info .box{ padding-bottom: 20px;}
   #photos-panoramio .owl-item .titel{font-size: 12px;}
@@ -743,10 +757,10 @@ h3 span.icon-group{
 @media (max-width: 400px) {
   #footer{ font-size: 13px;}  
   #contact{ right: 5px;}
-  #nav,
-  .sticky .city-name{ display: none;}
+  #nav{ display: none;}
   #photos-panoramio .owl-prev{ left:10px;}
   #photos-panoramio .owl-next{ right:10px;}
   h1{ font-size: 26px; margin: 0 0 20px;}
   h2{ font-size: 24px;margin: 0 0 30px;}
+  .sticky .city-name{font-size: 20px;width: 65%;}
 }

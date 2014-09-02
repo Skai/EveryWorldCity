@@ -2,9 +2,9 @@
   <div class="c">
     <div class="holder">
       <strong class="logo">
-        <a href="/"><%= image_tag 'logo.png' %></a>        
+        <a href="/" title="EveryWorldCity.com">Every World City</a>      
       </strong>
-      <span class="city-name"><%= @city.city %></span>
+      <span class="city-name"><%= @city.city %> / <%= @city.country %></span>
       <form action="" role="form" class="select-form">
         <fieldset>
           <label for="select-beast" class="sr-only">Country:</label>
@@ -52,25 +52,6 @@
     </div>
   </div>
 </section><!-- / gallery section -->
-<section class="section" id="about">
-  <div class="wrapper">
-    <div class="holder">
-      <h2>Info About <%= @city.city %>:</h2>
-      <div class="hold">
-        <article>
-          <p><%= truncate_html(@city.description, length: 1300, omission: '...').html_safe %><small>* material from wiki</small></p>
-          <%= link_to "Read full Wiki article", @wiki_url, :target => "_blank", :class => "btn" %>
-        </article>
-        <aside class="map-holder">          
-          <div id="map_canvas">
-            <%= image_tag(@staticmap_url) %> 
-          </div>
-          <%= link_to("go to Google maps", @googlemap_url, :target => "_blank", :class => 'maps-tip') %>
-        </aside>
-      </div>
-    </div>
-  </div>
-</section><!-- / about section -->
 <section class="section" id="info">
   <div class="wrapper">
     <div class="holder">
