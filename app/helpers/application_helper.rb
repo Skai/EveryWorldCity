@@ -2,6 +2,12 @@ module ApplicationHelper
   require 'twitter'
   require 'mini_magick'
   IMG_NAME = 'twitter.jpg'
+  TWITTER_TAGS = [
+    '#everyworldcity',
+    '#world',
+    '#travel',
+    '#exploretheworld'
+  ]
 
   def tweet(city)
     begin 
@@ -28,18 +34,24 @@ module ApplicationHelper
         end
       else 
         #if city doesn't have wiki image
-        response = client.update(get_tweet_text(city))
+        #140 symbols because we have no image link
+        response = client.update(get_tweet_text(city), 140)
       end
-      city.touch(:sent_at) if response
+      city.touch(:sent_at)
     rescue => details
+      #remove the city from queue
+      city.is_in_twitter = false
+      city.save
       # TODO add logger
-      p details.backtrace.join("\n")
+      p details.backtrace
     end
   end
 
-  #TODO: Add length checker. Add solution for city with two world.
-  def get_tweet_text(city)
-    "#{city.city}, #{city.country} http://everyworldcity.com/#{city.friendly_url} ##{city.country} ##{city.city} #everyworldcity #world #travel"
+  #TODO: Add solution for city with two world.
+  #Truncate to 118 symbols by default because image link is like http://t.co/1LR5iHgdUE.length = 22, so 118 + 22 = 140.
+  def get_tweet_text(city, length = 118)
+    text = "#{city.city}, #{city.country} http://everyworldcity.com/#{city.friendly_url} ##{city.country} ##{city.city} " + TWITTER_TAGS.join(' ')
+    text.truncate(118, separator: ' ', omission: '')
   end
 
   def add_text_watermark
