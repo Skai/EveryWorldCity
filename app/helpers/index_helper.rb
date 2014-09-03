@@ -9,7 +9,7 @@ module IndexHelper
     :set => :public,
     :size => :original,
     :from => 0,
-    :to => 20,
+    :to => 40,
     :order => :popularity
   }
 
