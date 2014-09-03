@@ -59,7 +59,8 @@ $(document).on('page:change', function() {
   // highlightCurrentItem active nav item 
   function highlightCurrentItem() {
     var h = $(".section:first").height();
-    var sIndex = Math.floor($(window).scrollTop() / h);
+    var sIndex = Math.floor($(window).scrollTop() / h);    
+    if(sIndex > 2) sIndex = 2;     /* hardcode*/
     var $sItem = $("#nav li").eq(sIndex);
     if (!$sItem.hasClass("active")) {
         $("#nav li.active").removeClass("active");
@@ -76,18 +77,23 @@ $(document).on('page:change', function() {
   /* calculate height of section */
   function calcHeight(){
     var _height = $(window).height();
-    $(".section").css( "height", _height);
+    $(".section").css( "min-height", _height);
   };
   calcHeight();
 
-  $(window).resize(calcHeight);
+  $(window).resize(function(){
+    calcHeight();
+    var _width = $(window).innerWidth();
+    if (_width > 767 && $('header').hasClass('active')){
+      $('header').removeClass('active');
+    };
+  });
 
   /* sticky header */
   $(window).scroll(function() {
     if ($(this).scrollTop() > 100){  
         $('#header').addClass("sticky");
-      }
-      else{
+      }else{
         $('#header').removeClass("sticky");
       }
   });
@@ -103,17 +109,25 @@ $(document).on('page:change', function() {
     singleItem:true,
     lazyLoad : true,
     navigation : true,
-    autoHeight : true
+    pagination: false,
+    autoHeight : true,
+    slideSpeed: 600,
+    afterInit: function(){
+     $("#photos-panoramio .owl-item").each(function(){
+        var titel = $(this).find('img').attr('alt');
+        $(this).append('<p class="titel">' + titel + '</p>');
+     });
+    }
   });
   function customDataSuccess(data){
     var content = "";
     for(var i in data["photos"]){
       if (data['photos'][i].height < 2000 && data['photos'][i].width < 2000) {
         var img = data["photos"][i].photo_file_url;
-        var alt = data["photos"][i].photo_title;
-        content += "<img src=\"" +img+ "\" alt=\"" +alt+ "\">"
+        var alt = data["photos"][i].photo_title + ' by ' + data["photos"][i].owner_name;
+        content += "<img src=\"" +img+ "\" alt=\"" +alt+ "\">";
       }
     }
-    $("#photos-panoramio").html(content);
+    $("#photos-panoramio").html(content);  
   }
 });

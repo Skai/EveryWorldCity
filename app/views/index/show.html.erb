@@ -1,10 +1,10 @@
 <header id="header">
   <div class="c">
     <div class="holder">
-      <strong class="logo short-logo">
-        <a href="/"><img src="images/logo.gif" class="img-responsive"></a>
-        <span><%= @city.city %> / <%= @city.country %></span>
+      <strong class="logo">
+        <a href="/" title="EveryWorldCity.com">Every World City</a>      
       </strong>
+      <span class="city-name"><%= @city.city %> / <%= @city.country %></span>
       <form action="" role="form" class="select-form">
         <fieldset>
           <label for="select-beast" class="sr-only">Country:</label>
@@ -25,11 +25,10 @@
   </div>
 </header><!-- / header -->
 <section class="section" id="gallery">
-  <div class="wrapper">
-    <div class="holder">
-      <h1><%= @city.city %> / <span><%= @city.country %></span></h1>
-      <div id="photos-panoramio"></div>
-    </div>
+  <div class="holder">
+    <h1><%= @city.city %> / <span><%= @city.country %></span></h1>
+    <div id="photos-panoramio"></div>
+    <p class="copyright"><%= image_tag 'logo-panoramio.png' %> Photos are copyrighted by their owners</p>
   </div>
 </section><!-- / gallery section -->
 <section class="section" id="about">
@@ -45,13 +44,14 @@
           <div id="map_canvas">
             <%= image_tag(@staticmap_url) %> 
           </div>
-          <%= link_to("go to Google maps", @googlemap_url, :target => "_blank", :class => 'maps-tip') %>
+          <div class="maps-tip">
+          <%= link_to("go to Google maps", @googlemap_url, :target => "_blank") %>
+          </div>
         </aside>          
       </div>
     </div>
   </div>
-</section><!-- / about section -->
-
+</section><!-- / gallery section -->
 <section class="section" id="info">
   <div class="wrapper">
     <div class="holder">
@@ -60,12 +60,12 @@
         <article class="box">
           <h3><span class="icon-target"></span>Our goals</h3>
           <p>There are a lot of cities all over the world, which we don't know at all. That's why we have decided to create twitter account EveryWorldCity, following it you will have an opportunity to learn a new city every day - review photos, explore map, read interesting facts.
-Probably namely here you will inspire to a new adventure.</p>
+  Probably namely here you will inspire to a new adventure.</p>
         </article><!-- box -->
         <article class="box">
           <h3><span class="icon-gears"></span>Resource Info</h3>
           <p>The Data Base has already 10529 cities and it is expanding dynamically. All descriptions and photos for twitter posts were found / gathered with Wikipedia API's help. Based on Panoramio Rest API we prepare the most popular photos for each city. 
-<% "The twitter bot posts 2/3 tweets with new random city every day. The map uses Google's Static Map API. You can found codebase on github by url: ... " %></p>
+  <% "The twitter bot posts 2/3 tweets with new random city every day. The map uses Google's Static Map API. You can found codebase on github by url: ... " %></p>
         </article><!-- box -->
         <article class="box">
           <h3><span class="icon-group"></span>Follow us</h3>

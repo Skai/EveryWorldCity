@@ -144,6 +144,7 @@ a:focus {
 img {
   border: 0;
   vertical-align: middle;
+  max-width: 100%;
 }
 small{
   color: #ff765e;
@@ -214,15 +215,15 @@ h1 span{
 h2{
   text-transform: uppercase;
   text-align: center;
-  font-size: 24px;
+  font-size: 26px;
   font-weight: 500;
   line-height: 29px;
-  margin: 0 10px 40px;
+  margin: 0 10px 50px;
 }
 h3{
   font-size:20px;
   font-weight: 500;
-  margin: 0 0 20px;
+  margin: 0 0 30px;
 }
 h3 span[class*="icon-"]{
   background: #00b597;
@@ -249,7 +250,7 @@ h3 span.icon-group{
   border-radius: 5px 0 0 5px;
   top: 50%;
   z-index: 20;
-  margin: -40px 0 0;
+  margin: -30px 0 0;
 }
 #nav ul{
   margin: 0;
@@ -315,33 +316,60 @@ h3 span.icon-group{
   z-index: 9;
 }
 #header .c{  
-  padding: 13px 0 10px;
-  background: rgba(2,26,29,0.8);
+  padding: 7px 0;
+  background: #0D1F23;
   width: 100%;
   top:-50px;
-  left: 0;
+  left: 0;  
 }
 #header.sticky .c{
   position: fixed;
   top:0;
+  background: rgba(2,26,29,0.85);
   -webkit-transition: top 0.5s ease-in-out;
   transition: top 0.5s ease-in-out;
 }
-#header .holder{ height: 43px;}
+#header .holder{height: 55px;}
 .logo{
-  position: absolute;
-  top: 5px;
-  left: 15px;
-  width: 31%;
-  min-width: 288px;
+  display: inline-block;
+  vertical-align: middle;
+  height: 55px;
+  width: 200px;
+  overflow: hidden;
+  background: url('/assets/logo.png') no-repeat;
+  background-size: cover;
+  text-indent: -9999px;
 }
-.logo span,
-.sticky.active .logo span{display: none;}
-.sticky .logo span{display: block;}
+.logo a{
+  height: 100%;
+  display: block;
+}
+.city-name,
+.sticky.active .city-name,
+#header.active .logo{display: none;}
+.sticky .city-name{
+  display: inline-block;
+  vertical-align: middle;
+  padding: 0 0 0 10px;
+  color: #fff;
+  width: 34%;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow:ellipsis;
+  font:23px "GothamRoundedMedium", Helvetica, Arial, sans-serif;  
+}
+.sticky .logo{width: 52px;}
 .select-form{
-  float: right;
+  position: absolute;
+  right:15px;
+  top:50%;
+  margin: -19px 0 0;
+  height: 36px;
   width: 55%;
   min-width: 300px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
 }
 .select-form .selectize-control{
   float: left;
@@ -351,8 +379,8 @@ h3 span.icon-group{
 /* toggle-search */
 #toggle-search{
   position: absolute;
-  right: 20px;
-  top:0;
+  right: 11px;
+  top:9px;
   z-index: 15;
   font-size: 36px;
   color: #00B597;
@@ -363,21 +391,24 @@ h3 span.icon-group{
 .section{
   width: 100%;
   position: relative;
-  padding: 95px 0 80px;
+  padding: 90px 0 80px;
   max-height: 1000px !important;
   display: table;
   -webkit-box-sizing: border-box;
   -moz-box-sizing:border-box;
   box-sizing:border-box;
 }
-.section .wrapper{
-  display: table-cell;
-  vertical-align: middle;
-}
 #gallery{  
   background: #373339; 
   color: #fff; 
   z-index: 2;
+  display: block;
+  padding-top: 110px;
+}
+#gallery .copyright{
+  text-align: center;
+  font: 12px Arial, Helvetica, sans-serif;
+  margin:5px 0 0;
 }
 .section:not(:last-child):after{
   position: absolute;
@@ -411,13 +442,18 @@ h3 span.icon-group{
 }
 .maps-tip{
   position: absolute;
-  bottom: -22px;
+  bottom: -40px;
   left: -12%;
-  width: 206px;
-  height: 48px;
+  width: 145px;
+  height: 23px;
+  padding: 25px 61px 0 0;
   text-indent: -9999px;
-  background: url('/assets/google-maps.png') no-repeat;
-  background-size: cover;
+  overflow: hidden;
+  background: url('/assets/google-maps.png') no-repeat 0 100%;
+ }
+.maps-tip a{
+  display: block;
+  height: 100%;
 }
 #map_canvas{
   width: 100%;
@@ -428,62 +464,72 @@ h3 span.icon-group{
   box-sizing: border-box;
   overflow: hidden;
 }
-#map_canvas img{
-  width: 100%;
-}
+#map_canvas img{ width: 100%;}
 /* panoramio photo */
+#photos-panoramio .owl-item img{
+  display: block;
+  width: auto;
+  margin:0 auto;
+  max-height: 450px;
+}
+#photos-panoramio .owl-item .titel{
+  opacity: 0;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  text-align: center;
+  margin: 0;
+  padding:7px 10px 8px;
+  background: #000;
+  font: 14px Arial, Helvetica, sans-serif;
+  -webkit-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+}
+#photos-panoramio .owl-item:hover .titel{opacity: 1;}
 #photos-panoramio{
-  margin: 0 auto;
-  max-width: 850px;
   border:2px solid #00b597;
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
   border-radius: 5px;
+  background: #000;
 }
-#photos-panoramio .panoramio-wapi-photo{ overflow: inherit; }
-.panoramio-wapi-photo,
-#photos-panoramio .panoramio-wapi-tos,
-.panoramio-wapi-crop-div{
-  width: 100% !important;
-  padding: 0 !important;  
-}
-.panoramio-wapi-wrapper-div{ margin: 0  !important;}
-.panoramio-wapi-img{
-  width: 100% !important;
-  height: auto !important;
-  background: none;
-}
-
-.panoramio-wapi-arrow{
-  opacity:1 !important;
-  width: 60px !important;  
-  padding: 0 !important; 
-  display: block !important;
+#photos-panoramio .owl-buttons div{
+  width: 60px;
+  position: absolute;
   vertical-align: middle;
-  height: auto !important;
-  top:50% !important;
+  height: auto ;
+  top:50%;
   margin:-30px 0 0;
+  font-size: 0;
+  line-height: 0;
 }
-.panoramio-wapi-arrow:after{
-  content: "\e602";
+#photos-panoramio .owl-prev:after,
+#photos-panoramio .owl-next:after{
   font-family: 'icomoon';
   font-size: 48px;
   color: #00b597;
   background: #232024;
   border-radius: 30px;
-  opacity: 0.6;
+  opacity: 0.5;
   width: 60px;
   height: 60px;
   text-align: center;
   vertical-align: middle;
   display: table-cell;
 }
-.panoramio-wapi-arrow img{ display: none;}
-.panoramio-wapi-prev{ left:-10% !important;}
-.panoramio-wapi-next{ right:-10% !important;}
-.panoramio-wapi-next:after{ content: "\e603";}
-.panoramio-wapi-arrow:hover::after{ opacity: 1;}
-
+#photos-panoramio .owl-prev:after{ 
+  content: "\e602";
+  padding-right: 5px;
+}
+#photos-panoramio .owl-next:after{ 
+  content: "\e603";
+  padding-left: 5px;
+}
+#photos-panoramio .owl-prev{ left:25px;}
+#photos-panoramio .owl-next{ right:25px;}
+#photos-panoramio .owl-prev:hover::after,
+#photos-panoramio .owl-next:hover::after{ opacity: 1;}
 .btn{
   display: inline-block;
   text-transform: uppercase;
@@ -563,25 +609,21 @@ h3 span.icon-group{
   margin: 10px 0 0;
 }
 #btn-close:hover{ cursor: pointer;}
-
-
-
-
 /* info section */
 #info .box{
   float: left;
   width: 33%;
-  padding: 0 20px 40px;
+  padding: 0 30px 20px;
   text-align: center;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
 .ribbon{
-  position: fixed;
-  top: 28px;
+  position: absolute;
+  top: 97px;
   right: -40px;
-  z-index: 10;
+  z-index: 8;
   background: #FF543F;
   padding: 1px 0 1px 1px;
   width: 168px;
@@ -609,7 +651,6 @@ h3 span.icon-group{
   background: url('/assets//ribbon.png') no-repeat; 
 }
 .ie8 .ribbon p{ display: none;}
-
 /* footer */
 #footer{  
   width: 100%;
@@ -666,14 +707,6 @@ h3 span.icon-group{
 /* media queries */
 @media (max-width: 1100px) {
   .ie8 .ribbon{ display: none;}
-  .ribbon{
-    top: 55px;
-    right: 0;
-    -ms-transform:rotate(0);
-    -webkit-transform:rotate(0);
-    transform:rotate(0);
-  }
-  .ribbon p{ border-width: 1px 0 1px 1px;}
   #about article{
     width: 100%;
     display: block;
@@ -690,23 +723,25 @@ h3 span.icon-group{
   #info .box{
     width: 100%;
     display: block;
+    padding-bottom: 40px;
   }
 }
-@media (max-width: 800px) {
+@media (max-width: 767px) {
   .select-form{ 
     width: 0; 
     min-width: 0;
     opacity:0;
     overflow: hidden;
-    margin-right: 50px;
+    padding-right: 45px;
     transition: all 0.4s ease;
   }
   #toggle-search{ display: block;}
   .active .select-form{
-    width: 85%;
+    width: 94%;
     overflow: inherit;
     opacity:1;   
   }
+  .sticky .city-name{ width: 80%;}
 }
 @media (max-width: 580px) {
   .maps-tip{ bottom: -52px;}
@@ -714,9 +749,18 @@ h3 span.icon-group{
     border-radius: 0;
     border-width: 2px;
   }
+  .sticky .city-name{ width: 70%;}
+  .section{ min-height: inherit !important;padding: 80px 0;}
+  #info .box{ padding-bottom: 20px;}
+  #photos-panoramio .owl-item .titel{font-size: 12px;}
 }
 @media (max-width: 400px) {
-  #footer{ font-size: 13px;}
+  #footer{ font-size: 13px;}  
   #contact{ right: 5px;}
   #nav{ display: none;}
+  #photos-panoramio .owl-prev{ left:10px;}
+  #photos-panoramio .owl-next{ right:10px;}
+  h1{ font-size: 26px; margin: 0 0 20px;}
+  h2{ font-size: 24px;margin: 0 0 30px;}
+  .sticky .city-name{font-size: 20px;width: 65%;}
 }
