@@ -40,7 +40,9 @@ ActiveAdmin.register City do
     column :created_at
     column :updated_at
     column :is_in_twitter
-    actions
+    actions do |city|
+      link_to "Preview", city, :target => "_blank"
+    end
   end
 
   #City form
