@@ -249,7 +249,7 @@ h3 span.icon-group{
   padding: 10px 10px 5px;
   border-radius: 5px 0 0 5px;
   top: 50%;
-  z-index: 20;
+  z-index: 27;
   margin: -30px 0 0;
 }
 #nav ul{
@@ -259,7 +259,7 @@ h3 span.icon-group{
   text-align: right;
 }
 #nav li{
- padding: 0 0 5px;
+ margin: 0 0 7px;
  vertical-align: top;
  height: 1%;
  position: relative;
@@ -271,41 +271,41 @@ h3 span.icon-group{
   outline: none;  
   font-size: 0;
   line-height: 0;
-  width: 22px;
-  height: 22px;
+  width: 26px;
+  height: 26px;
 }
 #nav a:before{
   content:'';
   position: absolute;
   top: 6px;
   left: 6px;
-  width: 10px;
-  height: 10px;
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  border-radius: 5px;
+  width: 12px;
+  height: 12px;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  border-radius: 6px;
   background: #00B597;
 }
 #nav li:not(.active):hover a:before{
-  width: 14px;
-  height: 14px;
+  width: 16px;
+  height: 16px;
   top: 4px;
   left: 4px;
-  -webkit-border-radius: 7px;
-  -moz-border-radius: 7px;
-  border-radius: 7px;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  border-radius: 8px;
 }
 #nav li.active:after{
   content: '';
   position: absolute;
   top: 0;
   left: 0;
-  width: 18px;
-  height: 18px;
+  width: 20px;
+  height: 20px;
   border: 2px solid #FF543F;
-  -webkit-border-radius: 11px;
-  -moz-border-radius: 11px;
-  border-radius: 11px;
+  -webkit-border-radius: 13px;
+  -moz-border-radius: 13px;
+  border-radius: 13px;
 }
 /* header */
 #header{
@@ -333,10 +333,10 @@ h3 span.icon-group{
 .logo{
   display: inline-block;
   vertical-align: middle;
-  height: 55px;
-  width: 200px;
+  height: 53px;
+  width: 221px;
   overflow: hidden;
-  background: url('/assets/logo.png') no-repeat;
+  background: url('/assets/logo.svg') no-repeat;
   background-size: cover;
   text-indent: -9999px;
 }
@@ -358,7 +358,7 @@ h3 span.icon-group{
   text-overflow:ellipsis;
   font:23px "GothamRoundedMedium", Helvetica, Arial, sans-serif;  
 }
-.sticky .logo{width: 52px;}
+.sticky .logo{width: 66px;}
 .select-form{
   position: absolute;
   right:15px;
@@ -382,7 +382,7 @@ h3 span.icon-group{
   right: 11px;
   top:9px;
   z-index: 15;
-  font-size: 36px;
+  font-size: 33px;
   color: #00B597;
   display: none;
   cursor: pointer;
@@ -468,10 +468,12 @@ h3 span.icon-group{
 /* panoramio photo */
 #photos-panoramio .owl-item img{
   display: block;
-  width: auto;
   margin:0 auto;
-  max-height: 450px;
+  width: 100%;
+  max-width: 1070px;
+  height: 700px;
 }
+#photos-panoramio .owl-item img.adjusted{ width: auto;}
 #photos-panoramio .owl-item .titel{
   opacity: 0;
   position: absolute;
@@ -648,9 +650,10 @@ h3 span.icon-group{
   overflow: hidden;
   width: 122px;
   height: 119px;
-  background: url('/assets//ribbon.png') no-repeat; 
+  background: url('/assets/ribbon.png') no-repeat; 
 }
 .ie8 .ribbon p{ display: none;}
+.ie8 .logo{ background-image:url('/assets/logo.png'); }
 /* footer */
 #footer{  
   width: 100%;
@@ -737,11 +740,11 @@ h3 span.icon-group{
   }
   #toggle-search{ display: block;}
   .active .select-form{
-    width: 94%;
+    width: 95%;
     overflow: inherit;
     opacity:1;   
   }
-  .sticky .city-name{ width: 80%;}
+  .sticky .city-name{ width: 78%;}
 }
 @media (max-width: 580px) {
   .maps-tip{ bottom: -52px;}
@@ -756,11 +759,11 @@ h3 span.icon-group{
 }
 @media (max-width: 400px) {
   #footer{ font-size: 13px;}  
-  #contact{ right: 5px;}
+  #contact{ right: 8px;}
   #nav{ display: none;}
   #photos-panoramio .owl-prev{ left:10px;}
   #photos-panoramio .owl-next{ right:10px;}
   h1{ font-size: 26px; margin: 0 0 20px;}
   h2{ font-size: 24px;margin: 0 0 30px;}
-  .sticky .city-name{font-size: 20px;width: 65%;}
+  .sticky .city-name{font-size: 20px;width: 60%;}
 }
