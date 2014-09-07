@@ -132,4 +132,13 @@ $(document).on('page:change', function() {
     }
     $("#photos-panoramio").html(content);  
   }
+
+  //Initialization for tweeter buttons.
+  button = $('.twitter-share-button');
+  setTimeout(function(){
+    button.attr('data-url', document.location.href);
+    $.getScript("//platform.twitter.com/widgets.js", function() {
+      twttr.widgets.load();
+    });
+  }, 100);
 });
