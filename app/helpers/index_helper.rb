@@ -9,9 +9,21 @@ module IndexHelper
     :set => :public,
     :size => :original,
     :from => 0,
-    :to => 40,
+    :to => 50,
     :order => :popularity
   }
+
+  MOBILE_BROWSERS = ["playbook", "windows phone", "android", "ipod", "iphone", "opera mini", "blackberry", "palm","hiptop","avantgo","plucker", "xiino","blazer","elaine", "windows ce; ppc;", "windows ce; smartphone;","windows ce; iemobile", "up.browser","up.link","mmp","symbian","smartphone", "midp","wap","vodafone","o2","pocket","kindle", "mobile","pda","psp","treo"]
+
+  # Detects if it is request from mobile device.
+  def is_mobile
+    user_agent = request.headers["HTTP_USER_AGENT"].downcase
+    MOBILE_BROWSERS.each do |m|
+      return true if user_agent.match(m)
+    end
+    false
+  end
+
 
   #Returns request url for panoramin REST API.
   #Input data: 
@@ -21,6 +33,7 @@ module IndexHelper
   #&miny=49.955033919704064&maxx=36.319954802516904&maxy=50.044966080295936&size=original
   def get_panoramio_json (center_lat, center_lon)
     request_params = DEFAULT_PANORAMIO_PARAMS
+    request_params[:size] = :medium if is_mobile
     request_params[:minx] = get_minx(center_lon, center_lat)
     request_params[:miny] = get_miny(center_lat)
     request_params[:maxx] = get_maxx(center_lon, center_lat)
