@@ -339,7 +339,7 @@ h3 span.icon-group{
   height: 53px;
   width: 221px;
   overflow: hidden;
-  background: url('logo.svg') no-repeat;
+  background: image-url('logo.svg') no-repeat;
   background-size: cover;
   text-indent: -9999px;
 }
@@ -652,10 +652,10 @@ h3 span.icon-group{
   overflow: hidden;
   width: 122px;
   height: 119px;
-  background: url('ribbon.png') no-repeat; 
+  background: url('/assets/ribbon.png') no-repeat; 
 }
 .ie8 .ribbon p{ display: none;}
-.ie8 .logo{ background-image:url('logo.png'); }
+.ie8 .logo{ background-image:image-url('logo.png'); }
 /* footer */
 #footer{  
   width: 100%;
@@ -682,7 +682,7 @@ h3 span.icon-group{
   width: 202px;
   height: 50px;
   content: ' ';
-  background: url('city.png') no-repeat;
+  background: image-url('city.png') no-repeat;
 }
 #footer p{
   float: left;
