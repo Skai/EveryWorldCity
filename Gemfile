@@ -33,11 +33,15 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'mail_form'
 
+#let's deploy
+gem 'capistrano'
+gem 'capistrano-rails'
+gem 'capistrano-bundler', '~> 1.1.2'
+gem 'capistrano-rvm'
+
 group :development do
   gem 'sqlite3'
   gem 'tzinfo-data'
-  gem 'capistrano'
-  gem 'capistrano-rails'
   gem 'httpclient'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'

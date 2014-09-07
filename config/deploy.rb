@@ -34,6 +34,7 @@ set :use_sudo, false
 
 # Default value for keep_releases is 5
 # set :keep_releases, 5
+SSHKit.config.command_map[:rake] = "rake"
 
 namespace :deploy do
 
