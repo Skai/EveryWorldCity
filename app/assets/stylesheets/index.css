@@ -2,21 +2,21 @@
 /* font */
 @font-face {
   font-family: 'icomoon';
-  src:url('/assets/icomoon.eot?b06z68');
-  src:url('/assets/icomoon.eot?#iefixb06z68') format('embedded-opentype'),
-    url('/assets/icomoon.woff?b06z68') format('woff'),
-    url('/assets/icomoon.ttf?b06z68') format('truetype'),
-    url('/assets/icomoon.svg?b06z68#icomoon') format('svg');
+  src:url('icomoon.eot?b06z68');
+  src:url('icomoon.eot?#iefixb06z68') format('embedded-opentype'),
+    url('icomoon.woff?b06z68') format('woff'),
+    url('icomoon.ttf?b06z68') format('truetype'),
+    url('icomoon.svg?b06z68#icomoon') format('svg');
   font-weight: normal;
   font-style: normal;
 }
 @font-face {
     font-family: 'GothamRoundedMedium';
-    src: url('/assets/gotham-rounded-medium.eot');
-    src: url('/assets/gotham-rounded-medium.eot') format('embedded-opentype'),
-         url('/assets/gotham-rounded-medium.woff') format('woff'),
-         url('/assets/gotham-rounded-medium.ttf') format('truetype'),
-         url('/assets/gotham-rounded-medium.svg#GothamRoundedMedium') format('svg');
+    src: url('gotham-rounded-medium.eot');
+    src: url('gotham-rounded-medium.eot') format('embedded-opentype'),
+         url('gotham-rounded-medium.woff') format('woff'),
+         url('gotham-rounded-medium.ttf') format('truetype'),
+         url('gotham-rounded-medium.svg#GothamRoundedMedium') format('svg');
 }
 [class^="icon-"], [class*=" icon-"] {
   font-family: 'icomoon';
@@ -339,7 +339,7 @@ h3 span.icon-group{
   height: 53px;
   width: 221px;
   overflow: hidden;
-  background: url('/assets/logo.svg') no-repeat;
+  background: url('logo.svg') no-repeat;
   background-size: cover;
   text-indent: -9999px;
 }
@@ -453,7 +453,7 @@ h3 span.icon-group{
   padding: 25px 61px 0 0;
   text-indent: -9999px;
   overflow: hidden;
-  background: url('/assets/google-maps.png') no-repeat 0 100%;
+  background: url('google-maps.png') no-repeat 0 100%;
  }
 .maps-tip a{
   display: block;
@@ -652,10 +652,10 @@ h3 span.icon-group{
   overflow: hidden;
   width: 122px;
   height: 119px;
-  background: url('/assets/ribbon.png') no-repeat; 
+  background: url('ribbon.png') no-repeat; 
 }
 .ie8 .ribbon p{ display: none;}
-.ie8 .logo{ background-image:url('/assets/logo.png'); }
+.ie8 .logo{ background-image:url('logo.png'); }
 /* footer */
 #footer{  
   width: 100%;
@@ -682,7 +682,7 @@ h3 span.icon-group{
   width: 202px;
   height: 50px;
   content: ' ';
-  background: url('/assets/city.png') no-repeat;
+  background: url('city.png') no-repeat;
 }
 #footer p{
   float: left;
