@@ -93,7 +93,8 @@ $(document).on('page:change', function() {
 
   /* sticky header */
   $(window).scroll(function() {
-    if ($(this).scrollTop() > 100){  
+    var h = $(window).height();
+    if ($(this).scrollTop() > h){  
         $('#header').addClass("sticky");
       }else{
         $('#header').removeClass("sticky");
