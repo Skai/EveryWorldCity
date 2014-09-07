@@ -2,21 +2,21 @@
 /* font */
 @font-face {
   font-family: 'icomoon';
-  src:url('icomoon.eot?b06z68');
-  src:url('icomoon.eot?#iefixb06z68') format('embedded-opentype'),
-    url('icomoon.woff?b06z68') format('woff'),
-    url('icomoon.ttf?b06z68') format('truetype'),
-    url('icomoon.svg?b06z68#icomoon') format('svg');
+  src:font-url('icomoon.eot?b06z68');
+  src:font-url('icomoon.eot?#iefixb06z68') format('embedded-opentype'),
+    font-url('icomoon.woff?b06z68') format('woff'),
+    font-url('icomoon.ttf?b06z68') format('truetype'),
+    font-url('icomoon.svg?b06z68#icomoon') format('svg');
   font-weight: normal;
   font-style: normal;
 }
 @font-face {
     font-family: 'GothamRoundedMedium';
-    src: url('gotham-rounded-medium.eot');
-    src: url('gotham-rounded-medium.eot') format('embedded-opentype'),
-         url('gotham-rounded-medium.woff') format('woff'),
-         url('gotham-rounded-medium.ttf') format('truetype'),
-         url('gotham-rounded-medium.svg#GothamRoundedMedium') format('svg');
+    src: font-url('gotham-rounded-medium.eot');
+    src: font-url('gotham-rounded-medium.eot') format('embedded-opentype'),
+         font-url('gotham-rounded-medium.woff') format('woff'),
+         font-url('gotham-rounded-medium.ttf') format('truetype'),
+         font-url('gotham-rounded-medium.svg#GothamRoundedMedium') format('svg');
 }
 [class^="icon-"], [class*=" icon-"] {
   font-family: 'icomoon';
