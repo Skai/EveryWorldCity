@@ -37,6 +37,7 @@ gem 'mail_form'
 gem 'capistrano'
 gem 'capistrano-rails'
 gem 'capistrano-bundler', '~> 1.1.2'
+gem 'capistrano-rvm'
 
 group :development do
   gem 'sqlite3'
