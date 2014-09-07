@@ -347,7 +347,7 @@ h3 span.icon-group{
   height: 100%;
   display: block;
 }
-.city-name,
+.city-name
 .sticky.active .city-name,
 #header.active .logo{display: none;}
 .sticky .city-name{
@@ -453,7 +453,7 @@ h3 span.icon-group{
   padding: 25px 61px 0 0;
   text-indent: -9999px;
   overflow: hidden;
-  background: url('google-maps.png') no-repeat 0 100%;
+  background: image-url('google-maps.png') no-repeat 0 100%;
  }
 .maps-tip a{
   display: block;
@@ -652,7 +652,7 @@ h3 span.icon-group{
   overflow: hidden;
   width: 122px;
   height: 119px;
-  background: url('/assets/ribbon.png') no-repeat; 
+  background: image-url('ribbon.png') no-repeat; 
 }
 .ie8 .ribbon p{ display: none;}
 .ie8 .logo{ background-image:image-url('logo.png'); }
