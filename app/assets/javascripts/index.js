@@ -84,9 +84,11 @@ $(document).on('page:change', function() {
   $(window).resize(function(){
     calcHeight();
     var _width = $(window).innerWidth();
+    var newHeight = _width/2;
     if (_width > 767 && $('header').hasClass('active')){
       $('header').removeClass('active');
     };
+    $('#photos-panoramio .owl-item img').css( "height", newHeight);
   });
 
   /* sticky header */
@@ -125,8 +127,7 @@ $(document).on('page:change', function() {
       if (data['photos'][i].height < 2000 && data['photos'][i].width < 2000) {
         var img = data["photos"][i].photo_file_url;
         var alt = data["photos"][i].photo_title + ' by ' + data["photos"][i].owner_name;
-        var prop = Math.floor(data['photos'][i].height / data['photos'][i].width);
-        (prop > 0) ? content += "<img src=\"" +img+ "\" alt=\"" +alt+ "\" class=\"adjusted\">": content += "<img src=\"" +img+ "\" alt=\"" +alt+ "\" data-prop=\"" +prop+ "\">";
+        content += "<img src=\"" +img+ "\" alt=\"" +alt+ "\">";
       }
     }
     $("#photos-panoramio").html(content);  

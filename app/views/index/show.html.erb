@@ -26,11 +26,13 @@
 </header><!-- / header -->
 <section class="section" id="gallery">
   <div class="holder">
-    <h1><%= @city.city %> / <span><%= @city.country %></span></h1>
+
+    <h1><%= @city.city %> / <span><%= @city.country %></span>
     <!-- Twitter Post the page-->
     <a href="https://twitter.com/share" class="twitter-share-button" data-text="I liked this city!" data-via="everyworldcity" data-hashtags="everyworldcity,travel">Tweet</a>
       <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
       </script>
+    </h1>
     <div id="photos-panoramio"></div>
     <p class="copyright"><%= image_tag 'logo-panoramio.png' %> Photos are copyrighted by their owners</p>
   </div>
@@ -41,12 +43,12 @@
       <h2>Info About <%= @city.city %>:</h2>
       <div class="hold">
         <article>
-          <p><%= truncate_html(@city.description, length: 1300, omission: '...').html_safe %><small>* material from wiki</small></p>
+          <p><%= truncate_html(@city.description, length: 1000, omission: '...').html_safe %><small class="alt">* material from wiki</small></p>
           <%= link_to "Read full Wiki article", @wiki_url, :target => "_blank", :class => "btn" %>
         </article>
         <aside class="map-holder">          
           <div id="map_canvas">
-            <%= image_tag(@staticmap_url) %> 
+            <%= image_tag(@staticmap_url) %>
           </div>
           <div class="maps-tip">
           <%= link_to("go to Google maps", @googlemap_url, :target => "_blank") %>

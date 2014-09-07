@@ -147,10 +147,10 @@ img {
   max-width: 100%;
 }
 small{
-  color: #ff765e;
   font-size: 0.8em;
 }
-p small{
+small.alt{
+  color: #ff765e;
   padding: 5px 0 0;
   display: block;
 }
@@ -211,6 +211,7 @@ h1 span{
   text-transform: none;
   font-size: 24px;
   font-weight: normal;
+  padding-right: 15px;
 }
 h2{
   text-transform: uppercase;
@@ -220,6 +221,8 @@ h2{
   line-height: 29px;
   margin: 0 10px 50px;
 }
+.hold h2{ margin: 0 0 25px;}
+#about .hold h3{ margin: 0 0 15px;}
 h3{
   font-size:20px;
   font-weight: 500;
@@ -398,6 +401,7 @@ h3 span.icon-group{
   -moz-box-sizing:border-box;
   box-sizing:border-box;
 }
+.twitter-share-button{ padding: 5px 0 0;}
 #gallery{  
   background: #373339; 
   color: #fff; 
@@ -442,8 +446,8 @@ h3 span.icon-group{
 }
 .maps-tip{
   position: absolute;
-  bottom: -40px;
-  left: -12%;
+  bottom: -45px;
+  left: 5%;
   width: 145px;
   height: 23px;
   padding: 25px 61px 0 0;
@@ -469,11 +473,9 @@ h3 span.icon-group{
 #photos-panoramio .owl-item img{
   display: block;
   margin:0 auto;
-  width: 100%;
-  max-width: 1070px;
-  height: 700px;
+  width: auto; 
+  height: 600px;
 }
-#photos-panoramio .owl-item img.adjusted{ width: auto;}
 #photos-panoramio .owl-item .titel{
   opacity: 0;
   position: absolute;
@@ -488,7 +490,7 @@ h3 span.icon-group{
   -webkit-transition: all 0.5s ease-in-out;
   transition: all 0.5s ease-in-out;
 }
-#photos-panoramio .owl-item:hover .titel{opacity: 1;}
+#photos-panoramio:hover .owl-item .titel{opacity: 1;}
 #photos-panoramio{
   border:2px solid #00b597;
   -webkit-border-radius: 5px;
@@ -509,7 +511,7 @@ h3 span.icon-group{
 #photos-panoramio .owl-prev:after,
 #photos-panoramio .owl-next:after{
   font-family: 'icomoon';
-  font-size: 48px;
+  font-size: 42px;
   color: #00b597;
   background: #232024;
   border-radius: 30px;
@@ -528,8 +530,8 @@ h3 span.icon-group{
   content: "\e603";
   padding-left: 5px;
 }
-#photos-panoramio .owl-prev{ left:25px;}
-#photos-panoramio .owl-next{ right:25px;}
+#photos-panoramio .owl-prev{ left:20px;}
+#photos-panoramio .owl-next{ right:20px;}
 #photos-panoramio .owl-prev:hover::after,
 #photos-panoramio .owl-next:hover::after{ opacity: 1;}
 .btn{
@@ -572,7 +574,7 @@ h3 span.icon-group{
   -webkit-transition: bottom 0.5s ease-in-out;
   transition: bottom 0.5s ease-in-out;
 }
-.active #contact{ bottom:70px;}
+.active #contact{ bottom:80px;}
 #footer #contact p{ margin: 0 0 15px; float: none;}
 #contact input[type='text'],
 #contact input[type='email'],
@@ -684,13 +686,15 @@ h3 span.icon-group{
 }
 #footer p{
   float: left;
-  margin: 0;
+  margin: 0 20px 0 0;
 }
-#footer a,
-#footer a:hover{ color: #fff;}
+#footer a{ text-decoration: underline;}
+#footer a:hover{ text-decoration: none;}
 #footer a.open-qbox{
   float: right;
   position: relative;
+  color: #fff;
+  text-decoration: none;
 }
 .open-qbox:after{
   position: absolute;
@@ -756,6 +760,11 @@ h3 span.icon-group{
   .section{ min-height: inherit !important;padding: 80px 0;}
   #info .box{ padding-bottom: 20px;}
   #photos-panoramio .owl-item .titel{font-size: 12px;}
+  #twitter-account{
+    position: absolute;
+    top: 16px;
+    left: 15px;
+  }
 }
 @media (max-width: 400px) {
   #footer{ font-size: 13px;}  
@@ -763,7 +772,8 @@ h3 span.icon-group{
   #nav{ display: none;}
   #photos-panoramio .owl-prev{ left:10px;}
   #photos-panoramio .owl-next{ right:10px;}
-  h1{ font-size: 26px; margin: 0 0 20px;}
-  h2{ font-size: 24px;margin: 0 0 30px;}
+  h1, h2,h3{ margin: 0 0 20px;}
+  h1{ font-size: 26px; }
+  h2{ font-size: 24px;}
   .sticky .city-name{font-size: 20px;width: 60%;}
 }
