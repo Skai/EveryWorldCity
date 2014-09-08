@@ -7,7 +7,6 @@ module IndexHelper
   CITY_RADIUS = 5
   DEFAULT_PANORAMIO_PARAMS = {
     :set => :public,
-    :size => :original,
     :from => 0,
     :to => 50,
     :order => :popularity
@@ -33,7 +32,7 @@ module IndexHelper
   #&miny=49.955033919704064&maxx=36.319954802516904&maxy=50.044966080295936&size=original
   def get_panoramio_json (center_lat, center_lon)
     request_params = DEFAULT_PANORAMIO_PARAMS
-    request_params[:size] = :medium if is_mobile
+    request_params[:size] = is_mobile ? :medium : :original
     request_params[:minx] = get_minx(center_lon, center_lat)
     request_params[:miny] = get_miny(center_lat)
     request_params[:maxx] = get_maxx(center_lon, center_lat)
