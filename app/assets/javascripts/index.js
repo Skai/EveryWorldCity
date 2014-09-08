@@ -125,7 +125,7 @@ $(document).on('page:change', function() {
   function customDataSuccess(data){
     var content = "";
     for(var i in data["photos"]){
-      if (data['photos'][i].height < 2000 && data['photos'][i].width < 2000) {
+      if (data['photos'][i].height < 3200 && data['photos'][i].width < 3200) {
         var img = data["photos"][i].photo_file_url;
         var alt = data["photos"][i].photo_title + ' by ' + data["photos"][i].owner_name;
         content += "<img src=\"" +img+ "\" alt=\"" +alt+ "\">";
