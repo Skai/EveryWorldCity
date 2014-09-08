@@ -8,7 +8,7 @@ module IndexHelper
   DEFAULT_PANORAMIO_PARAMS = {
     :set => :public,
     :from => 0,
-    :to => 50,
+    :to => 30,
     :order => :popularity
   }
 
