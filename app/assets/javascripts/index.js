@@ -83,13 +83,18 @@ $(document).on('page:change', function() {
 
   $(window).resize(function(){
     calcHeight();
-    var _width = $(window).innerWidth();
-    var newHeight = _width/2;
+    var _width = $(window).innerWidth();    
     if (_width > 767 && $('header').hasClass('active')){
       $('header').removeClass('active');
-    };
-    $('#photos-panoramio .owl-item img').css( "height", newHeight);
+    };    
+    changeImageHeight();
   });
+
+  function changeImageHeight(){
+    var _width = $(window).innerWidth(),
+        newHeight = _width/2;
+    $('#photos-panoramio .owl-item img').css( "height", newHeight);
+  };
 
   /* sticky header */
   $(window).scroll(function() {
@@ -120,6 +125,7 @@ $(document).on('page:change', function() {
         var titel = $(this).find('img').attr('alt');
         $(this).append('<p class="titel">' + titel + '</p>');
      });
+     changeImageHeight();
     }
   });
   function customDataSuccess(data){

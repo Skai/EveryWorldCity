@@ -485,7 +485,8 @@ h3 span.icon-group{
   text-align: center;
   margin: 0;
   padding:7px 10px 8px;
-  background: #000;
+  background:#000;
+  background: rgba(0,0,0,0.75);
   font: 14px Arial, Helvetica, sans-serif;
   -webkit-transition: all 0.5s ease-in-out;
   transition: all 0.5s ease-in-out;
@@ -496,7 +497,7 @@ h3 span.icon-group{
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
   border-radius: 5px;
-  background: #000;
+  background: #0d1f23;
 }
 #photos-panoramio .owl-buttons div{
   width: 60px;
@@ -513,9 +514,9 @@ h3 span.icon-group{
   font-family: 'icomoon';
   font-size: 42px;
   color: #00b597;
-  background: #232024;
+  background: #fff;
   border-radius: 30px;
-  opacity: 0.5;
+  opacity: 0.35;
   width: 60px;
   height: 60px;
   text-align: center;
@@ -749,9 +750,10 @@ h3 span.icon-group{
     opacity:1;   
   }
   .sticky .city-name{ width: 78%;}
+  #nav{ display:none;}
 }
 @media (max-width: 580px) {
-  .maps-tip{ bottom: -52px;}
+  .maps-tip{ bottom: -52px;}  
   #map_canvas{ 
     border-radius: 0;
     border-width: 2px;
