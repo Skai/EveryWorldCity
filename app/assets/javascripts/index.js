@@ -109,12 +109,13 @@ $(document).on('page:change', function() {
   $("#photos-panoramio").owlCarousel({
     jsonPath : '/get_photos?latitude=' + latitude + '&longitude=' + longitude,
     jsonSuccess : customDataSuccess,
+    responsive: true,
     singleItem:true,
     lazyLoad : true,
     navigation : true,
     pagination: false,
     autoHeight : true,
-    slideSpeed: 600,
+    slideSpeed: 500,
     afterInit: function(){
      $("#photos-panoramio .owl-item").each(function(){
         var titel = $(this).find('img').attr('alt');
@@ -125,7 +126,7 @@ $(document).on('page:change', function() {
   function customDataSuccess(data){
     var content = "";
     for(var i in data["photos"]){
-      if (data['photos'][i].height < 3200 && data['photos'][i].width < 3200) {
+      if (data['photos'][i].height < 2500 && data['photos'][i].width < 2500) {
         var img = data["photos"][i].photo_file_url;
         var alt = data["photos"][i].photo_title + ' by ' + data["photos"][i].owner_name;
         content += "<img src=\"" +img+ "\" alt=\"" +alt+ "\">";
