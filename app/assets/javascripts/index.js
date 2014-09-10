@@ -119,7 +119,7 @@ $(document).on('page:change', function() {
     lazyLoad : true,
     navigation : true,
     pagination: false,
-    autoHeight : true,
+    autoHeight : false,
     slideSpeed: 500,
     afterInit: function(){
      $("#photos-panoramio .owl-item").each(function(){
