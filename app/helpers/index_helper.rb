@@ -91,7 +91,7 @@ module IndexHelper
     value * (Math::PI / 180)
   end
 
-  def get_staticmap_url(latitude, longitude, marker_color = '0x00b597', label = 'E')
+  def get_staticmap_url(latitude, longitude, marker_color = '0xff765e', label = '*')
     "http://maps.googleapis.com/maps/api/staticmap?center=#{latitude},#{longitude}&zoom=6&size=600x600&language=en&sensor=true&markers=color:#{marker_color}%7Clabel:#{label}%7C#{latitude},#{longitude}"
   end
 
