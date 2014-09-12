@@ -598,7 +598,7 @@ h3 span.icon-group{
 #contact{
   color: #373339;
   position: fixed;
-  bottom: -100%;
+  bottom:-350px;
   right: 55px;
   background: #fff;
   border: 2px solid #00B597;
@@ -613,8 +613,8 @@ h3 span.icon-group{
   -webkit-transition: bottom 0.5s ease-in-out;
   transition: bottom 0.5s ease-in-out;
 }
-.active #contact{ bottom:80px;}
-#footer #contact p{ margin: 0 0 15px; float: none;}
+#contact.active { bottom:80px;}
+#contact p{ margin: 0 0 15px; float: none;}
 #contact input[type='text'],
 #contact input[type='email'],
 #contact textarea{
@@ -646,7 +646,7 @@ h3 span.icon-group{
   border: 2px solid #00B597;
   padding: 6px 13px;
 }
-#footer a#btn-close{
+#contact a#btn-close{
   float: left;
   color: #ff765e;
   margin: 10px 0 0;
@@ -765,6 +765,9 @@ h3 span.icon-group{
   }
   .maps-tip{ left: 19%;}
 }
+@media (max-width: 1070px){
+  #nav{ display:none;}
+}
 @media (max-width: 940px) {
   #info .box{
     width: 100%;
@@ -773,6 +776,15 @@ h3 span.icon-group{
   }
 }
 @media (max-width: 767px) {
+  #contact{ 
+    position: absolute;
+    right:50%;
+    margin:0 -151px 0 0;
+  }
+  .stop-scrolling {
+    height: 100%;
+    overflow: hidden;
+  }
   .select-form{ 
     width: 0; 
     min-width: 0;
@@ -788,7 +800,6 @@ h3 span.icon-group{
     opacity:1;   
   }
   .sticky .city-name{ width: 78%;}
-  #nav{ display:none;}
   #photos-panoramio .owl-prev:after,
   #photos-panoramio .owl-next:after{
     width:40px;
@@ -824,8 +835,6 @@ h3 span.icon-group{
 }
 @media (max-width: 400px) {
   #footer{ font-size: 13px;}  
-  #contact{ right: 8px;}
-  #nav{ display: none;}
   #photos-panoramio .owl-prev{ left:10px;}
   #photos-panoramio .owl-next{ right:10px;}
   h1, h2,h3{ margin: 0 0 20px;}

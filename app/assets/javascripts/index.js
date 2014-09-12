@@ -39,8 +39,30 @@ $(document).on('page:change', function() {
 
   $('.open-qbox').click(function(e){
     e.preventDefault();
-    $('#footer').toggleClass('active');
+    $('#contact').toggleClass('active');
   });
+
+  /* detect Mobile devices */
+  var isMobile = {
+      Android: function() {
+          return navigator.userAgent.match(/Android/i);
+      },
+      BlackBerry: function() {
+          return navigator.userAgent.match(/BlackBerry/i);
+      },
+      iOS: function() {
+          return navigator.userAgent.match(/iPhone|iPad|iPod/i);
+      },
+      Opera: function() {
+          return navigator.userAgent.match(/Opera Mini/i);
+      },
+      Windows: function() {
+          return navigator.userAgent.match(/IEMobile/i);
+      },
+      any: function() {
+          return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows());
+      }
+  };
 
   // scrolling Page to top with a lot of content
   $('#nav a').click(function(){
@@ -98,7 +120,7 @@ $(document).on('page:change', function() {
 
   /* sticky header */
   $(window).scroll(function() {
-    var h = $(window).height();
+    var h = $('#gallery').height();
     if ($(this).scrollTop() > h){  
         $('#header').addClass("sticky");
       }else{

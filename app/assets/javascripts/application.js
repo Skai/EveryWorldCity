@@ -23,10 +23,15 @@ jQuery(document).ready(function(){
 			$.ajax({
 	  			url: "contacts/new",
 			}).done(function(data) {
+				$('body').addClass('stop-scrolling');
+				/*if( isMobile.any()){
+					$('body').unbind('touchmove');
+				    $('body.stop-scrolling').bind('touchmove', function(e){e.preventDefault()});
+				};*/
 				contact.html(data);
 				$('#btn-close').on('click',function(e){
 					e.preventDefault();
-					$('#footer').removeClass('active');
+					$('#contact').removeClass('active');
 				});
 			})
 		}
