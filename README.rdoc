@@ -1,8 +1,8 @@
 
-##EveryWirldCity.com
+==EveryWirldCity.com
 
 There are a lot of cities all over the world, which we don't know at all. 
-That's why we have decided to create twitter account [@everyworldcity](https://twitter.com/everyworldcity). 
+That's why we have decided to create twitter account @everyworldcity[https://twitter.com/everyworldcity]. 
 Following it you will have an opportunity to learn a new city every day - review photos, explore map, read interesting facts. 
 Probably namely here you will inspire to a new adventure.
 The Data Base has already 10530 cities and it is expanding dynamically. 
@@ -16,4 +16,3 @@ Every day the new random city(ies) will be tweeted via Rake task and Twitter API
 * Rails version 4.1.1 
 * Database is PostgreSQL 9.3.1
 * Requires ImageMagic on board.
-
