@@ -23,4 +23,4 @@ Every day the new random city(ies) will be tweeted via Rake task and Twitter API
 
 * run bundle install to get all gems required for currect work.
 
-* set up a scheduled task to run Rake task tweet.rake[lib/tasks/tweet.rake]
+* set up a scheduled task to run Rake task tweet.rake[https://github.com/Skai/EveryWorldCity/blob/master/lib/tasks/tweet.rake]
