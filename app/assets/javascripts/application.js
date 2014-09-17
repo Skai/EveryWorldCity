@@ -18,23 +18,14 @@
 jQuery(document).ready(function(){
 	jQuery(document).on('click', '#contact-button', function() {
 		contact = $('#contact');
-		 
-		if (contact.children().length == 0){
+		if (contact.children().length == 0){			
 			$.ajax({
 	  			url: "contacts/new",
 			}).done(function(data) {
-				$('body').addClass('stop-scrolling');
-				/*if( isMobile.any()){
-					$('body').unbind('touchmove');
-				    $('body.stop-scrolling').bind('touchmove', function(e){e.preventDefault()});
-				};*/
-				contact.html(data);
-				$('#btn-close').on('click',function(e){
-					e.preventDefault();
-					$('#contact').removeClass('active');
-				});
-			})
-		}
+				contact.html(data);			
+			});		
+		};
 		return false;
 	});
+
 });

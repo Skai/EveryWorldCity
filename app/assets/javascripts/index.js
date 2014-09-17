@@ -37,32 +37,18 @@ $(document).on('page:change', function() {
   select_country = $select_country[0].selectize;
   select_city.disable();
 
-  $('.open-qbox').click(function(e){
+  $('#contact-button').click(function(e){
     e.preventDefault();
-    $('#contact').toggleClass('active');
+    //$('body').toggleClass('stop-scrolling');
+    $('body').toggleClass('contact-active');
+     //$('body').unbind('touchmove');
+    //$('body.stop-scrolling').bind('touchmove', function(e){e.preventDefault()});
   });
 
-  /* detect Mobile devices */
-  var isMobile = {
-      Android: function() {
-          return navigator.userAgent.match(/Android/i);
-      },
-      BlackBerry: function() {
-          return navigator.userAgent.match(/BlackBerry/i);
-      },
-      iOS: function() {
-          return navigator.userAgent.match(/iPhone|iPad|iPod/i);
-      },
-      Opera: function() {
-          return navigator.userAgent.match(/Opera Mini/i);
-      },
-      Windows: function() {
-          return navigator.userAgent.match(/IEMobile/i);
-      },
-      any: function() {
-          return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows());
-      }
-  };
+  $('body').on('click','#btn-close',function(e){
+    e.preventDefault();
+    $('body').removeClass('contact-active');
+  });
 
   // scrolling Page to top with a lot of content
   $('#nav a').click(function(){

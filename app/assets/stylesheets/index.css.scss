@@ -598,7 +598,7 @@ h3 span.icon-group{
 #contact{
   color: #373339;
   position: fixed;
-  bottom:-350px;
+  bottom:-100%;
   right: 55px;
   background: #fff;
   border: 2px solid #00B597;
@@ -609,12 +609,16 @@ h3 span.icon-group{
   z-index: 25;
   font-size: 15px;
   line-height: 20px;
-  width: 260px;
+  width: 300px;
   -webkit-transition: bottom 0.5s ease-in-out;
   transition: bottom 0.5s ease-in-out;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
 }
-#contact.active { bottom:80px;}
-#contact p{ margin: 0 0 15px; float: none;}
+.contact-active #contact { bottom:75px;}
+#contact p{ margin: 0 0 15px;}
+#contact .hold{ padding:10px 0 0;}
 #contact input[type='text'],
 #contact input[type='email'],
 #contact textarea{
@@ -638,7 +642,7 @@ h3 span.icon-group{
   padding: 8px 15px;
   width: 75px;
   display: block;
-  margin: 10px 0 0 auto;
+  margin: 0 0 0 auto;
 }
 #contact input[type="submit"]:hover{
   color: #00B597;
@@ -646,10 +650,11 @@ h3 span.icon-group{
   border: 2px solid #00B597;
   padding: 6px 13px;
 }
-#contact a#btn-close{
+#contact #btn-close{
   float: left;
   color: #ff765e;
-  margin: 10px 0 0;
+  margin: 5px 0 0 -5px;
+  padding: 5px;
 }
 #btn-close:hover{ cursor: pointer;}
 /* info section */
@@ -676,6 +681,21 @@ h3 span.icon-group{
   -ms-transform:rotate(45deg);
   -webkit-transform:rotate(45deg);
   transform:rotate(45deg);
+}
+.ribbon2{
+  background: url('random.svg') no-repeat;
+  background-size: cover;
+    font-size: 12px;
+    line-height: 15px;
+    padding: 20px 10px 0;
+    position: absolute;
+    right: 10px;
+    text-align: center;
+    top: 55px;
+    width: 85px;
+    height: 88px;
+    z-index: 25;
+    color:#fff;
 }
 .ribbon p{
   margin: 0;
@@ -705,12 +725,8 @@ h3 span.icon-group{
   line-height: 23px;
   bottom: 0;
   left: 0;
-}
-#footer .wrap{
-  width:100%;
-  background: #1c1a1d;
-  padding: 15px 0;
-  position: relative;
+  background:#1C1A1D;
+  padding:15px 0;
   z-index: 26;
 }
 #footer .holder{ position: relative;}
@@ -729,13 +745,13 @@ h3 span.icon-group{
 }
 #footer a{ text-decoration: underline;}
 #footer a:hover{ text-decoration: none;}
-#footer a.open-qbox{
+#footer a#contact-button{
   float: right;
   position: relative;
   color: #fff;
   text-decoration: none;
 }
-.open-qbox:after{
+#contact-button:after{
   position: absolute;
   top: 50%;
   right: -15px;
@@ -743,12 +759,12 @@ h3 span.icon-group{
   content:' ';
   width: 0;
   border-style: solid;
-  border-width: 5px 5px 0 5px;
-  border-color: #fff transparent transparent;
-}
-.active .open-qbox:after{
   border-width: 0 5px 5px;
   border-color:transparent transparent #fff;
+}
+.contact-active #contact-button:after{
+  border-width: 5px 5px 0 5px;
+  border-color: #fff transparent transparent;
 }
 /* media queries */
 @media (max-width: 1100px) {
@@ -776,15 +792,6 @@ h3 span.icon-group{
   }
 }
 @media (max-width: 767px) {
-  #contact{ 
-    position: absolute;
-    right:50%;
-    margin:0 -151px 0 0;
-  }
-  .stop-scrolling {
-    height: 100%;
-    overflow: hidden;
-  }
   .select-form{ 
     width: 0; 
     min-width: 0;
@@ -816,6 +823,43 @@ h3 span.icon-group{
   }
   #photos-panoramio .owl-prev{left:0;}
   #photos-panoramio .owl-next{ right:0;}
+}
+@media(max-width:640px){
+  #contact{
+    position: absolute; /* + forbidden scroll on Mobile */
+    right:50%;
+    width:84%;
+    margin:0 -42% 0 0;
+    padding:15px 20px;
+  }
+  /*.stop-scrolling .overlay{
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.3);
+  }*/
+  .contact-active #contact{
+    z-index: 27px;
+  }
+  /*.stop-scrolling {
+    height: 100%;
+    overflow: hidden;
+  }*/
+}
+@media(max-width:640px) and (orientation : landscape) {
+  #contact input[type="text"], #contact input[type="email"]{
+    float:left;
+    width:49% !important;
+  }
+  #contact input[type="email"]{  float:right;}
+  #contact textarea{
+    clear: both;
+    display: block;
+    height:75px !important;
+  }
 }
 @media (max-width: 580px) {
   .maps-tip{ bottom: -52px;}  
