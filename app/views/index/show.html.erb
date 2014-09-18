@@ -20,7 +20,7 @@
           </select>
         </fieldset>
       </form><!-- / select-form -->
-      <span id="toggle-search" class="icon-search"></span>
+      <span id="toggle-search" class="icon-search"></span>      
     </div>
   </div>
 </header><!-- / header -->
@@ -33,6 +33,9 @@
     </h1>
     <div id="photos-panoramio"></div>
     <p class="copyright"><%= image_tag 'logo-panoramio.png' %> Photos are copyrighted by their owners</p>
+    <% if flash[:notice] %>
+    <div class="ribbon"><p><%= flash[:notice] %></p></div>
+    <% end %>
   </div>
 </section><!-- / gallery section -->
 <section class="section" id="about">
@@ -46,11 +49,9 @@
         </article>
         <aside class="map-holder">          
           <div id="map_canvas">
-            <%= image_tag(@staticmap_url) %>
+           <%= link_to(image_tag(@staticmap_url, :alt => "logo", :title => "Home"), @googlemap_url, :target => "_blank") %>
           </div>
-          <div class="maps-tip">
-          <%= link_to("go to Google maps", @googlemap_url, :target => "_blank") %>
-          </div>
+          <div class="maps-tip">go to Google maps</div>
         </aside>          
       </div>
     </div>
@@ -89,10 +90,6 @@
 </ul>
 </nav><!-- / nav -->
 <a class="sr-only" href="#gallery">Skip to main content</a>
-<% if flash[:notice] %>
-  <div class="ribbon"><p><%= flash[:notice] %></p></div>
-<% end %>
-
 <script type="text/javascript">
   var latitude = <%= @city.latitude %>
   var longitude = <%= @city.longitude %>

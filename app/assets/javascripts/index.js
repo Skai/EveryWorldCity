@@ -146,7 +146,7 @@ $(document).on('page:change', function() {
         content += "<img src=\"" +img+ "\" alt=\"" +alt+ "\">";
       }
     }
-    $("#photos-panoramio").html(content);  
+    $("#photos-panoramio").html(content);
   }
 
   //Initialization for tweeter buttons.
