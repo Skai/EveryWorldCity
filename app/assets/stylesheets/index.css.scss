@@ -123,6 +123,17 @@ mark {
     background: #ff0;
     color: #000;
 }
+ul,
+ol{
+  margin:0 0 20px;
+  padding:0;
+  list-style:circle;
+}
+ul li{
+  vertical-align:middle;
+  height:1%;
+  padding: 0 0 5px 15px;
+}
 html{ height: 100%;}
 body {
   font:18px/26px 'Fira Sans', Helvetica, Arial, sans-serif;
