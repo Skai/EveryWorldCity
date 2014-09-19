@@ -26,11 +26,15 @@
 </header><!-- / header -->
 <section class="section" id="gallery">
   <div class="holder">
-
-    <h1><%= @city.city %> / <span><%= @city.country %></span>
-    <!-- Twitter Post the page-->
-    <a href="https://twitter.com/share" class="twitter-share-button" data-text="I liked this city!" data-via="everyworldcity" data-hashtags="everyworldcity,travel"></a>
-    </h1>
+    <h1><%= @city.city %> / <span><%= @city.country %></span></h1>
+    <div class="socials-btn">
+      <!-- Twitter Post the page-->
+      <a href="https://twitter.com/share" class="twitter-share-button" data-text="I liked this city!" data-via="everyworldcity" data-hashtags="everyworldcity,travel"></a>
+      <!-- Facebook Button-->
+      <div id="fb-root"></div>
+    
+    <div class="fb-like" data-layout="button_count" data-action="like" data-show-faces="true" data-share="true"></div>
+    </div>
     <div id="photos-panoramio"></div>
     <p class="copyright"><%= image_tag 'logo-panoramio.png' %> Photos are copyrighted by their owners</p>
     <% if flash[:notice] %>

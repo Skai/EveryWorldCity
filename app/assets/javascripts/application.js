@@ -22,10 +22,9 @@ jQuery(document).ready(function(){
 			$.ajax({
 	  			url: "contacts/new",
 			}).done(function(data) {
-				contact.html(data);			
+				contact.html(data);	
 			});		
-		};
+		}
 		return false;
 	});
-
 });

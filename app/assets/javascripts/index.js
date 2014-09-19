@@ -149,7 +149,7 @@ $(document).on('page:change', function() {
     $("#photos-panoramio").html(content);
   }
 
-  //Initialization for tweeter buttons.
+  //Initialization for twitter and facebook buttons.
   button = $('.twitter-share-button');
   setTimeout(function(){
     button.attr('data-url', document.location.href);

@@ -206,6 +206,7 @@ h1{
   font:30px "GothamRoundedMedium", Helvetica, Arial, sans-serif;
   margin: 0 0 35px;
   text-transform: uppercase;
+  float:left;
 }
 h1 span{
   text-transform: none;
@@ -390,6 +391,11 @@ h3 span.icon-group{
   display: none;
   cursor: pointer;
 }
+.socials-btn,
+.twitter-share-button{
+  float:left;
+}
+.fb-like{ float:left !important; width:auto !important; margin-top:1px;}
 /* gallery section */
 .section{
   width: 100%;
@@ -401,7 +407,6 @@ h3 span.icon-group{
   -moz-box-sizing:border-box;
   box-sizing:border-box;
 }
-.twitter-share-button{ padding: 5px 0 0;}
 #gallery{  
   background: #373339; 
   color: #fff; 
@@ -492,6 +497,7 @@ h3 span.icon-group{
 }
 #photos-panoramio:hover .owl-item .titel{opacity: 1;}
 #photos-panoramio{
+  clear:both;
   border:2px solid #00b597;
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
