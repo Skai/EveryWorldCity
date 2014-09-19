@@ -204,10 +204,10 @@ noscript{
 }
 h1{
   font:30px "GothamRoundedMedium", Helvetica, Arial, sans-serif;
-  margin: 0 0 35px;
-  text-transform: uppercase;
-  float:left;
+  margin: 0 0 10px;
+  text-transform: uppercase;  
 }
+.hold  h1{float:left;}
 h1 span{
   text-transform: none;
   font-size: 24px;
@@ -391,11 +391,12 @@ h3 span.icon-group{
   display: none;
   cursor: pointer;
 }
-.socials-btn,
-.twitter-share-button{
-  float:left;
+.socials-btn{ float:left;padding:5px 0 35px;}
+.twitter-share-button,
+#fb-root{ 
+  display: inline-block;
+  vertical-align: bottom;
 }
-.fb-like{ float:left !important; width:auto !important; margin-top:1px;}
 /* gallery section */
 .section{
   width: 100%;
@@ -493,17 +494,62 @@ h3 span.icon-group{
   background: rgba(0,0,0,0.75);
   font: 14px Arial, Helvetica, sans-serif;
   -webkit-transition: all 0.5s ease-in-out;
+  -moz-transition: all 0.5s ease-in-out;
   transition: all 0.5s ease-in-out;
 }
 #photos-panoramio:hover .owl-item .titel{opacity: 1;}
 #photos-panoramio{
-  clear:both;
   border:2px solid #00b597;
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
   border-radius: 5px;
   background: #0d1f23;
-  min-height:350px;
+  position: relative;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+#photos-panoramio.loading{
+  padding-bottom: 54%;
+  width: 100%;
+}
+#photos-panoramio.loading:before{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #0d1f23;
+  top: 0;
+  left: 0;
+  content: '';
+  z-index: 10;
+}
+#photos-panoramio.loading:after{
+  position: absolute;
+  top:50%;
+  left: 50%;
+  margin: -20px 0 0 -20px;
+  width: 40px;
+  height: 40px;
+  border: 6px solid #21B095;
+  border-right-color: transparent;
+  border-radius: 50%;
+  box-shadow: 0 0 25px 2px #eee;
+  content:'';
+  z-index: 11;
+  -webkit-animation: load_spin 1s linear infinite;
+  -moz-animation: load_spin 1s linear infinite;
+  -o-animation: load_spin 1s linear infinite;
+  animation: load_spin 1s linear infinite;
+}
+@-webkit-keyframes load_spin{
+  from { -webkit-transform: rotate(0deg);   opacity: 0.4; }
+  50%  { -webkit-transform: rotate(180deg); opacity: 1.0; }
+  to   { -webkit-transform: rotate(360deg); opacity: 0.4; }
+}
+@keyframes load_spin{
+  from { transform: rotate(0deg);   opacity: 0.4; }
+  50%  { transform: rotate(180deg); opacity: 1.0; }
+  to   { transform: rotate(360deg); opacity: 0.4; }
 }
 #photos-panoramio .owl-buttons div{
   width: 60px;
@@ -557,7 +603,8 @@ h3 span.icon-group{
   display: inline-block;
   vertical-align: top;
 }
-.btn:hover{
+.btn:hover,
+.btn:active{
   background: #00b597;
   color: #fff;
   text-decoration: none;
@@ -616,6 +663,7 @@ h3 span.icon-group{
   font-size: 15px;
   line-height: 20px;
   width: 300px;
+  -moz-transition: bottom 0.5s ease-in-out;
   -webkit-transition: bottom 0.5s ease-in-out;
   transition: bottom 0.5s ease-in-out;
   -webkit-box-sizing: border-box;
@@ -805,32 +853,17 @@ h3 span.icon-group{
   }
   #photos-panoramio .owl-prev{left:0;}
   #photos-panoramio .owl-next{ right:0;}
-  #photos-panoramio{min-height:200px;}
+  .socials-btn,.hold h1{ float: none; padding-top: 0;}
 }
 @media(max-width:640px){
   #contact{
-    position: absolute; /* + forbidden scroll on Mobile */
+    position: absolute;
     right:50%;
     width:84%;
     margin:0 -42% 0 0;
     padding:15px 20px;
   }
-  /*.stop-scrolling .overlay{
-    display: block;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0,0,0,0.3);
-  }*/
-  .contact-active #contact{
-    z-index: 27px;
-  }
-  /*.stop-scrolling {
-    height: 100%;
-    overflow: hidden;
-  }*/
+  .contact-active #contact{ z-index: 27px;}
 }
 @media(max-width:640px) and (orientation : landscape) {
   #contact input[type="text"], #contact input[type="email"]{
@@ -843,7 +876,6 @@ h3 span.icon-group{
     display: block;
     height:75px !important;
   }
-  #photos-panoramio{min-height:inherit;}
 }
 @media (max-width: 580px) {
   .maps-tip{ bottom: -52px;}  
@@ -860,12 +892,12 @@ h3 span.icon-group{
     top: 16px;
     left: 15px;
   }
-  #photos-panoramio{min-height:inherit;}
 }
 @media (max-width: 400px) {
   #footer{ font-size: 13px;}  
-  h1, h2,h3{ margin: 0 0 20px;}
-  h1{ font-size: 26px; }
+  h2,h3{ margin: 0 0 20px;}
+  .socials-btn{ padding-bottom: 25px;}
+  h1{ font-size: 26px; margin: 0 0 10px;}
   h2{ font-size: 24px;}
   .sticky .city-name{font-size: 20px;width: 60%;}
 }

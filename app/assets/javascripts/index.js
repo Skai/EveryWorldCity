@@ -145,9 +145,12 @@ $(document).on('page:change', function() {
         var alt = data["photos"][i].photo_title + ' by ' + data["photos"][i].owner_name;
         content += "<img src=\"" +img+ "\" alt=\"" +alt+ "\">";
       }
-    }
-    $("#photos-panoramio").html(content);
-  }
+    }; 
+    $("#photos-panoramio").html(content).css('padding-bottom','0');    
+    setTimeout(function(){
+      $('#photos-panoramio').removeClass('loading');
+    }, 1800);
+  };   
 
   //Initialization for twitter and facebook buttons.
   button = $('.twitter-share-button');
