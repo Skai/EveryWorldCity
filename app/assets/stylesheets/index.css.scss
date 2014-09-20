@@ -43,9 +43,6 @@
 .icon-sort-down:before {
   content: "\f0dd";
 }
-/*.icon-bullseye:before {
-  content: "\f140";
-}*/
 .icon-target:before { /* --- used */
   content: "\e600";
 }
@@ -126,9 +123,9 @@ mark {
 ul,
 ol{
   margin:0 0 20px;
-  padding:0;
-  list-style:circle;
+  padding:0;  
 }
+ul{list-style:circle;}
 ul li{
   vertical-align:middle;
   height:1%;
@@ -218,7 +215,7 @@ h1{
   margin: 0 0 10px;
   text-transform: uppercase;  
 }
-.hold  h1{float:left;}
+.hold  h1{float:left; margin-right:20px;}
 h1 span{
   text-transform: none;
   font-size: 24px;
@@ -405,9 +402,14 @@ h3 span.icon-group{
 }
 .socials-btn{ float:left;padding:5px 0 35px;}
 .twitter-share-button,
-#fb-root{ 
-  display: inline-block;
+.socials-btn .fb-like{ 
+  display: inline-block !important;
   vertical-align: bottom;
+}
+.socials-btn .fb-like{ 
+  width: auto !important;
+  height: 26px !important;
+  overflow: hidden;
 }
 /* gallery section */
 .section{
@@ -515,15 +517,15 @@ h3 span.icon-group{
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
   border-radius: 5px;
-  background: #0d1f23;
+  background: #0d1f23 image-url('earth-icon.png') no-repeat 50% 50%;
+  background-size:auto 45%;
   position: relative;
+  opacity: 1 !important;
+  padding-bottom: 54%;
+  width: 100%;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
-}
-#photos-panoramio.loading{
-  padding-bottom: 54%;
-  width: 100%;
 }
 #photos-panoramio.loading:before{
   position: absolute;
@@ -865,7 +867,7 @@ h3 span.icon-group{
   }
   #photos-panoramio .owl-prev{left:0;}
   #photos-panoramio .owl-next{ right:0;}
-  .socials-btn,.hold h1{ float: none; padding-top: 0;}
+  .socials-btn,.hold h1{ float: none; padding-top: 0; margin-right:0;}
 }
 @media(max-width:640px){
   #contact{
