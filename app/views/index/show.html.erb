@@ -36,7 +36,7 @@
       </div>
     </div>
     <div id="photos-panoramio" class="loading"></div>
-    <p class="copyright"><%= image_tag 'logo-panoramio.png' %> Photos are copyrighted by their owners</p>
+    <p class="copyright"><%= image_tag 'logo-panoramio.png' %> Photos are copyrighted by their owners.</p>
     <% if flash[:notice] %>
     <div class="ribbon"><p><%= flash[:notice] %></p></div>
     <% end %>
@@ -48,7 +48,7 @@
       <h2>Info About <%= @city.city %>:</h2>
       <div class="hold">
         <article>
-          <p><%= truncate_html(@city.description, length: 1000, omission: '...').html_safe %><small class="alt">* material from wiki</small></p>
+          <p><%= truncate_html(@city.description, length: 1000, omission: '...').html_safe %><small class="alt">* material from wikipedia.org</small></p>
           <%= link_to "Read full Wiki article", @wiki_url, :target => "_blank", :class => "btn" %>
         </article>
         <aside class="map-holder">          
@@ -68,7 +68,7 @@
       <div class="hold">
         <article class="box">
           <h3><span class="icon-target"></span>Our goals</h3>
-          <p>There are a lot of cities all over the world, which we don't know at all. That's why we have decided to create twitter account EveryWorldCity, following it you will have an opportunity to learn a new city every day - review photos, explore map, read interesting facts.
+          <p>There are a lot of cities all over the world, which we don't know at all. That's why we have decided to create this site and  twitter account EveryWorldCity, following it you will have an opportunity to learn new cities every day - review photos, explore map, read interesting facts.
   Probably namely here you will inspire to a new adventure.</p>
         </article><!-- box -->
         <article class="box">
