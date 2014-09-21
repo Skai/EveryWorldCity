@@ -1,5 +1,5 @@
 ActiveAdmin.register City do
-  permit_params :country, :city, :country_code, :friendly_url, :altitude, :latitude, :longitude, :is_in_twitter, :wiki_page_id, :wiki_image_src, :description
+  permit_params :country, :city, :friendly_url, :altitude, :latitude, :longitude, :is_in_twitter, :wiki_page_id, :wiki_image_src, :description
   scope :wiki_page_not_blank
   scope :wiki_page_blank
   scope :wiki_page_not_exists
@@ -50,7 +50,6 @@ ActiveAdmin.register City do
     f.inputs "General" do
       f.input :country, :as => :string
       f.input :city
-      f.input :country_code
       f.input :friendly_url
       f.input :altitude
       f.input :latitude
