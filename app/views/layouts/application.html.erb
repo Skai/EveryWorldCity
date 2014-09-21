@@ -14,6 +14,10 @@
   <meta name="robots" content="INDEX,FOLLOW" />
   <meta name="revisit-after" content="1 days" />
   <meta name="description" content="Find and learn a lot of cities all around the world with EveryWorldCity.com. Following us you will have an opportunity to learn new cities every day - view photos, explore maps, read interesting facts." />
+  <% #Adding meta tags from view %>
+  <% if content_for?(:head) %>
+  <%= yield(:head) %>
+  <% end %>
   <title>EveryWorldCity</title>
   <%= favicon_link_tag 'favicon.ico' %>
   <link href='http://fonts.googleapis.com/css?family=Fira+Sans:400,500,700,400italic,500italic' rel='stylesheet' type='text/css'>
