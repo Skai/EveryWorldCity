@@ -18,7 +18,7 @@
 jQuery(document).ready(function(){
 	jQuery(document).on('click', '#contact-button', function() {
 		contact = $('#contact');
-		if (contact.children().length == 0){			
+		if (contact.children().length <= 1){			
 			$.ajax({
 	  			url: "contacts/new",
 			}).done(function(data) {

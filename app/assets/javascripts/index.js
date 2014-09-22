@@ -37,19 +37,6 @@ $(document).on('page:change', function() {
   select_country = $select_country[0].selectize;
   select_city.disable();
 
-  $('#contact-button').click(function(e){
-    e.preventDefault();
-    //$('body').toggleClass('stop-scrolling');
-    $('body').toggleClass('contact-active');
-     //$('body').unbind('touchmove');
-    //$('body.stop-scrolling').bind('touchmove', function(e){e.preventDefault()});
-  });
-
-  $('body').on('click','#btn-close',function(e){
-    e.preventDefault();
-    $('body').removeClass('contact-active');
-  });
-
   // scrolling Page to top with a lot of content
   $('#nav a').click(function(){
     var goal = $(this).attr('href');
