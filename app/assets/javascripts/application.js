@@ -14,17 +14,3 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
-
-jQuery(document).ready(function(){
-	jQuery(document).on('click', '#contact-button', function() {
-		contact = $('#contact');
-		if (contact.children().length <= 1){			
-			$.ajax({
-	  			url: "contacts/new",
-			}).done(function(data) {
-				contact.html(data);	
-			});		
-		}
-		return false;
-	});
-});
