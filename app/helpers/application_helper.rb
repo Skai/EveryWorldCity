@@ -47,10 +47,16 @@ module ApplicationHelper
     end
   end
 
-  #TODO: Add solution for city with two world.
-  #Truncate to 118 symbols by default because image link is like http://t.co/1LR5iHgdUE.length = 22, so 118 + 22 = 140.
   def get_tweet_text(city, length = 118)
-    text = "#{city.city}, #{city.country} http://everyworldcity.com/#{city.friendly_url} ##{city.country} ##{city.city} " + TWITTER_TAGS.join(' ')
+    #if city name consists of 2 and more words.
+    city_tag = city.city.split(' ').join()
+
+    #if county name consists of 2 and more words.
+    country_tag = city.country.split(' ').join()
+
+    text = "#{city.city}, #{city.country} http://everyworldcity.com/#{city.friendly_url} ##{country_tag} ##{city_tag} " + TWITTER_TAGS.join(' ')
+    
+    #Truncate to 118 symbols by default because image link is like http://t.co/1LR5iHgdUE.length = 22, so 118 + 22 = 140.
     text.truncate(118, separator: ' ', omission: '')
   end
 
