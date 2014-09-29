@@ -57,7 +57,7 @@ module ApplicationHelper
     text = "#{city.city}, #{city.country} http://everyworldcity.com/#{city.friendly_url} ##{country_tag} ##{city_tag} " + TWITTER_TAGS.join(' ')
     
     #Truncate to 118 symbols by default because image link is like http://t.co/1LR5iHgdUE.length = 22, so 118 + 22 = 140.
-    text.truncate(118, separator: ' ', omission: '')
+    text.truncate(length, separator: ' ', omission: '')
   end
 
   def add_text_watermark
