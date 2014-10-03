@@ -365,7 +365,7 @@ h3 span.icon-group{
   vertical-align: middle;
   padding: 0 0 0 10px;
   color: #fff;
-  width: 34%;
+  width: 32%;
   overflow: hidden;
   white-space: nowrap;
   text-overflow:ellipsis;
@@ -400,14 +400,14 @@ h3 span.icon-group{
   display: none;
   cursor: pointer;
 }
-.socials-btn{ float:left;padding:5px 0 35px;}
+.socials-btn{ float:left;padding:5px 0 30px;height: 26px;}
 .twitter-share-button,
 .socials-btn .fb-like{ 
   display: inline-block !important;
   vertical-align: bottom;
 }
 .socials-btn .fb-like{ 
-  width: auto !important;
+  width: 160px !important;
   height: 26px !important;
   overflow: hidden;
 }

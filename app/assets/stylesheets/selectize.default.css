@@ -244,10 +244,11 @@
   overflow: hidden;
 }
 .selectize-dropdown [data-selectable] .highlight {
-  background: rgba(125, 168, 208, 0.2);
+  background: #00b597;
   -webkit-border-radius: 1px;
   -moz-border-radius: 1px;
   border-radius: 1px;
+  color:#fff;
 }
 .selectize-dropdown [data-selectable],
 .selectize-dropdown .optgroup-header {
@@ -262,7 +263,7 @@
   cursor: default;
 }
 .selectize-dropdown .active {
-  background-color: #f5fafd;
+  background-color: #eef1f2;
   color: #495c68;
 }
 .selectize-dropdown .active.create {
