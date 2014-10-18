@@ -8,7 +8,7 @@ module IndexHelper
   DEFAULT_PANORAMIO_PARAMS = {
     :set => :public,
     :from => 0,
-    :to => 30,
+    :to => 40,
     :order => :popularity
   }
 
@@ -40,7 +40,15 @@ module IndexHelper
     
     client = HTTPClient.new
     response = client.get(PANORAMIO_REQUEST_URI , request_params)
-    response.status == 200 ? (response.body) : false
+    
+    return false if response.status != 200
+    
+    result = JSON.parse(response.body)
+    result['photos'].each_with_index do |item, index|
+      result['photos'][index]['photo_file_url'] = item['photo_file_url'].gsub('original', '1920x1280')
+    end
+
+    result
   end
 
   #Returns coordinates of the rectangle - southwest and northeast corners.

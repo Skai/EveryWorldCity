@@ -111,7 +111,6 @@ $(document).on('page:change', function() {
     jsonSuccess : customDataSuccess,
     responsive: true,
     singleItem:true,
-    lazyLoad : true,
     navigation : true,
     pagination: false,
     autoHeight : false,
@@ -127,11 +126,9 @@ $(document).on('page:change', function() {
   function customDataSuccess(data){
     var content = "";
     for(var i in data["photos"]){
-      if (data['photos'][i].height < 2500 && data['photos'][i].width < 2500) {
-        var img = data["photos"][i].photo_file_url;
-        var alt = data["photos"][i].photo_title + ' by ' + data["photos"][i].owner_name;
-        content += "<img src=\"" +img+ "\" alt=\"" +alt+ "\">";
-      }
+      var img = data["photos"][i].photo_file_url;
+      var alt = data["photos"][i].photo_title + ' by ' + data["photos"][i].owner_name;
+      content += "<img src=\"" + img + "\" alt=\"" +alt+ "\">";
     };
     if(content.length > 0){
       $("#photos-panoramio").html(content).css('padding-bottom','0');    
