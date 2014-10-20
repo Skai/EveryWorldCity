@@ -521,7 +521,7 @@ h3 span.icon-group{
   background-size:auto 45%;
   position: relative;
   opacity: 1 !important;
-  padding-bottom: 54%;
+  padding-bottom: 55%;
   width: 100%;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -828,6 +828,7 @@ h3 span.icon-group{
 }
 @media (max-width: 1070px){
   #nav{ display:none;}
+  .section{ min-height: inherit !important;padding: 80px 0;}
 }
 @media (max-width: 940px) {
   #info .box{
@@ -899,7 +900,6 @@ h3 span.icon-group{
     border-width: 2px;
   }
   .sticky .city-name{ width: 70%;}
-  .section{ min-height: inherit !important;padding: 80px 0;}
   #info .box{ padding-bottom: 20px;}
   #photos-panoramio .owl-item .titel{font-size: 12px;}
   #twitter-account{

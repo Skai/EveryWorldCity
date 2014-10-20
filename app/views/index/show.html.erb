@@ -46,46 +46,42 @@
   </div>
 </section><!-- / gallery section -->
 <section class="section" id="about">
-  <div class="wrapper">
-    <div class="holder">
-      <h2>About <%= @city.city %>:</h2>
-      <div class="hold">
-        <article>
-          <p><%= truncate_html(@city.description, length: 1000, omission: '...').html_safe %><small class="alt">* material from wikipedia.org</small></p>
-          <%= link_to "Read full Wiki article", @wiki_url, :target => "_blank", :class => "btn" %>
-        </article>
-        <aside class="map-holder">          
-          <div id="map_canvas">
-           <%= link_to(image_tag(@staticmap_url, :alt => "logo", :title => "Home"), @googlemap_url, :target => "_blank") %>
-          </div>
-          <div class="maps-tip">go to Google maps</div>
-        </aside>          
-      </div>
+  <div class="holder">
+    <h2>About <%= @city.city %>:</h2>
+    <div class="hold">
+      <article>
+        <p><%= truncate_html(@city.description, length: 1000, omission: '...').html_safe %><small class="alt">* material from wikipedia.org</small></p>
+        <%= link_to "Read full Wiki article", @wiki_url, :target => "_blank", :class => "btn" %>
+      </article>
+      <aside class="map-holder">          
+        <div id="map_canvas">
+         <%= link_to(image_tag(@staticmap_url, :alt => "logo", :title => "Home"), @googlemap_url, :target => "_blank") %>
+        </div>
+        <div class="maps-tip">go to Google maps</div>
+      </aside>
     </div>
   </div>
 </section><!-- / gallery section -->
 <section class="section" id="info">
-  <div class="wrapper">
-    <div class="holder">
-      <h2>And now a few words about:</h2>
-      <div class="hold">
-        <article class="box">
-          <h3><span class="icon-target"></span>Our goals</h3>
-          <p>There are a lot of cities all over the world, which we don't know at all. That's why we have decided to create this site and  twitter account EveryWorldCity, following it you will have an opportunity to learn new cities every day - review photos, explore map, read interesting facts.
-  Probably namely here you will be inspired to a new adventure.</p>
-        </article><!-- box -->
-        <article class="box">
-          <h3><span class="icon-gears"></span>Resource Info</h3>
-          <p>The Data Base has already <%= @city_count %> cities and it is expanding dynamically. All descriptions and photos for twitter posts were found/gathered with Wikipedia API's help. Based on Panoramio Rest API we prepare the most popular photos for each city. The map uses Google's Static Map API. Every day the new random city will be tweeted via Ruby script and Twitter API.</p>
-          <a href="https://github.com/Skai/EveryWorldCity" target="_blank" class="github">gitHub</a>
-        </article><!-- box -->
-        <article class="box">
-          <h3><span class="icon-group"></span>Follow us</h3>
-          <p>We are the couple of Web-developers. All our spare time we spend on rock climbing, active rest and travelling. We are keen on discovering new places, that's why this resource has been developed. Follow us and explore the World with us!</p>
-          <!-- Twitter Follow us -->
-          <a href="https://twitter.com/everyworldcity" class="twitter-follow-button" data-show-count="false" data-size="large">Follow @everyworldcity</a>
-        </article><!-- box -->
-      </div>
+  <div class="holder">
+    <h2>And now a few words about:</h2>
+    <div class="hold">
+      <article class="box">
+        <h3><span class="icon-target"></span>Our goals</h3>
+        <p>There are a lot of cities all over the world, which we don't know at all. That's why we have decided to create this site and  twitter account EveryWorldCity, following it you will have an opportunity to learn new cities every day - review photos, explore map, read interesting facts.
+Probably namely here you will be inspired to a new adventure.</p>
+      </article><!-- box -->
+      <article class="box">
+        <h3><span class="icon-gears"></span>Resource Info</h3>
+        <p>The Data Base has already <%= @city_count %> cities and it is expanding dynamically. All descriptions and photos for twitter posts were found/gathered with Wikipedia API's help. Based on Panoramio Rest API we prepare the most popular photos for each city. The map uses Google's Static Map API. Every day the new random city will be tweeted via Ruby script and Twitter API.</p>
+        <a href="https://github.com/Skai/EveryWorldCity" target="_blank" class="github">gitHub</a>
+      </article><!-- box -->
+      <article class="box">
+        <h3><span class="icon-group"></span>Follow us</h3>
+        <p>We are the couple of Web-developers. All our spare time we spend on rock climbing, active rest and travelling. We are keen on discovering new places, that's why this resource has been developed. Follow us and explore the World with us!</p>
+        <!-- Twitter Follow us -->
+        <a href="https://twitter.com/everyworldcity" class="twitter-follow-button" data-show-count="false" data-size="large">Follow @everyworldcity</a>
+      </article><!-- box -->
     </div>
   </div>
 </section><!-- / about-section -->
