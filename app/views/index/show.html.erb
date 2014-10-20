@@ -48,7 +48,7 @@
 <section class="section" id="about">
   <div class="wrapper">
     <div class="holder">
-      <h2>Info About <%= @city.city %>:</h2>
+      <h2>About <%= @city.city %>:</h2>
       <div class="hold">
         <article>
           <p><%= truncate_html(@city.description, length: 1000, omission: '...').html_safe %><small class="alt">* material from wikipedia.org</small></p>
