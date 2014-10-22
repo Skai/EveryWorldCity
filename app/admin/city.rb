@@ -56,11 +56,15 @@ ActiveAdmin.register City do
       f.input :longitude
       f.input :is_in_twitter
     end
+    f.inputs "Twitter Image" do
+      f.form_buffers.last << f.template.image_tag(f.object.wiki_image_src, :height => 600)
+    end
     f.inputs "Content" do
       f.input :wiki_page_id
       f.input :wiki_image_src
       f.input :description
     end
+
     #f.inputs "Tome Box" do
     #  f.input :created_at
     #  f.input :updated_at
