@@ -128,7 +128,12 @@ $(document).on('page:change', function() {
     for(var i in data["photos"]){
       var img = data["photos"][i].photo_file_url;
       var alt = data["photos"][i].photo_title + ' by ' + data["photos"][i].owner_name;
-      content += "<img src=\"" + img + "\" alt=\"" +alt+ "\">";
+      var escapedAlt = alt.replace(/&/g, '&amp;')
+                      .replace(/>/g, '&gt;')
+                      .replace(/</g, '&lt;')
+                      .replace(/"/g, '&quot;')
+                      .replace(/'/g, '&apos;');
+      content += "<img src=\"" + img + "\" alt=\"" + escapedAlt + "\">";
     };
     if(content.length > 0){
       $("#photos-panoramio").html(content).css('padding-bottom','0');    
