@@ -4,7 +4,7 @@
 There are a lot of cities all over the world, which we don't know at all. 
 That's why we have decided to create twitter account @everyworldcity[https://twitter.com/everyworldcity]. 
 Following it you will have an opportunity to learn a new city every day - review photos, explore map, read interesting facts. 
-Probably namely here you will inspire to a new adventure.
+Probably namely here you will be inspired to a new adventure.
 The Data Base has already 10530 cities and it is expanding dynamically. 
 All descriptions and photos for twitter posts were found/gathered with Wikipedia API's help. 
 Based on Panoramio Rest API we prepare the most popular photos for each city. 
