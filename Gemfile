@@ -9,6 +9,7 @@ gem 'activeadmin', github: 'activeadmin/active_admin'
 gem 'devise'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'
+gem 'paperclip'
 #For adding watermarks to wiki image.
 gem "mini_magick"
 # Use Uglifier as compressor for JavaScript assets

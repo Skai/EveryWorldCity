@@ -62,6 +62,7 @@ ActiveAdmin.register City do
     f.inputs "Content" do
       f.input :wiki_page_id
       f.input :wiki_image_src
+      f.input :copyright_text
       f.input :description
     end
 

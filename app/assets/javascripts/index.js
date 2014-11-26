@@ -143,7 +143,7 @@ $(document).on('page:change', function() {
     }else{
       $('#photos-panoramio').removeClass('loading');
     };    
-  };   
+  };
 
   //Initialization for twitter and facebook buttons.
   button = $('.twitter-share-button');
