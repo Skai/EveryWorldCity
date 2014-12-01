@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141125224426) do
+ActiveRecord::Schema.define(version: 20141130215715) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -50,20 +50,24 @@ ActiveRecord::Schema.define(version: 20141125224426) do
   add_index "admin_users", ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true, using: :btree
 
   create_table "cities", force: true do |t|
-    t.string   "country",        limit: 25,   default: "0"
-    t.string   "city",           limit: 40,   default: "0"
+    t.string   "country",                    limit: 25,   default: "0"
+    t.string   "city",                       limit: 40,   default: "0"
     t.float    "latitude"
     t.float    "longitude"
     t.float    "altitude"
     t.text     "description"
-    t.boolean  "is_in_twitter",               default: false, null: false
+    t.boolean  "is_in_twitter",                           default: false, null: false
     t.datetime "updated_at"
     t.datetime "sent_at"
-    t.integer  "wiki_page_id",                default: 0
-    t.string   "wiki_image_src", limit: 1500
+    t.integer  "wiki_page_id",                            default: 0
+    t.string   "wiki_image_src",             limit: 1500
     t.datetime "created_at"
-    t.string   "friendly_url",   limit: 1024
+    t.string   "friendly_url",               limit: 1024
     t.string   "copyright_text"
+    t.string   "twitter_image_file_name"
+    t.string   "twitter_image_content_type"
+    t.integer  "twitter_image_file_size"
+    t.datetime "twitter_image_updated_at"
   end
 
   add_index "cities", ["friendly_url"], name: "cities_friendly_url_key", unique: true, using: :btree

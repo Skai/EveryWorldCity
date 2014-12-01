@@ -10,6 +10,23 @@ class City < ActiveRecord::Base
   scope :is_twitted, ->           { where.not(:sent_at => nil) }
   scope :is_not_twitted, ->       { where(:is_in_twitter => false, :sent_at => nil) }
   scope :will_be_twitted, ->      { where(:is_in_twitter => true, :sent_at => nil)}
+  
+  before_save :check_twitter_image
+  attr_writer :remove_twitter_image
+  has_attached_file :twitter_image, :styles => { 
+    :medium => "1000x1000>", 
+    :thumb => "300x300>"
+  }, :default_url => "/missing.png"
+ 
+  validates_attachment_content_type :twitter_image, content_type: /\Aimage\/.*\Z/
+  
+  def remove_twitter_image
+    @remove_twitter_image || false
+  end
+ 
+  def check_twitter_image
+    self.twitter_image=nil if self.remove_twitter_image == "1"
+  end 
 
   def to_param
     "#{self.friendly_url}"

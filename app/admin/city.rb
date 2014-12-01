@@ -1,5 +1,5 @@
 ActiveAdmin.register City do
-  permit_params :country, :city, :friendly_url, :altitude, :latitude, :longitude, :is_in_twitter, :wiki_page_id, :wiki_image_src, :description
+  permit_params :country, :city, :friendly_url, :altitude, :latitude, :longitude, :is_in_twitter, :wiki_page_id, :wiki_image_src, :description, :twitter_image, :remove_twitter_image
   scope :wiki_page_not_blank
   scope :wiki_page_blank
   scope :wiki_page_not_exists
@@ -46,7 +46,7 @@ ActiveAdmin.register City do
   end
 
   #City form
-  form do |f|
+  form :html => {:multipart => true} do |f|
     f.inputs "General" do
       f.input :country, :as => :string
       f.input :city
@@ -56,13 +56,13 @@ ActiveAdmin.register City do
       f.input :longitude
       f.input :is_in_twitter
     end
-    f.inputs "Twitter Image" do
-      f.form_buffers.last << f.template.image_tag(f.object.wiki_image_src, :height => 600)
-    end
+    
     f.inputs "Content" do
       f.input :wiki_page_id
       f.input :wiki_image_src
       f.input :copyright_text
+      f.input :twitter_image, :required => false, :as => :file, :hint => image_tag(f.object.twitter_image.url(:medium))
+      f.input :remove_twitter_image, as: :boolean, required: false, label: "Remove Twitter Image"
       f.input :description
     end
 
