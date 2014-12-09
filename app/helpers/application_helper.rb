@@ -1,7 +1,11 @@
 module ApplicationHelper
   require 'twitter'
   require 'mini_magick'
+  
   IMG_NAME = 'twitter.jpg'
+  EWC_COPYRIGHT = '© www.everyworldcity.com'
+  WIKI_COPYRIGHT = '© wikipedia.org'
+
   TWITTER_TAGS = [
     '#everyworldcity',
     '#world',
@@ -28,7 +32,7 @@ module ApplicationHelper
         File.open(IMG_NAME,'rb') do |file|
           add_text_watermark
           response = client.update_with_media(
-            get_tweet_text(city), 
+            get_tweet_text(city),
             file
           )
         end
@@ -42,7 +46,6 @@ module ApplicationHelper
       #remove the city from queue
       city.is_in_twitter = false
       city.save
-      # TODO add logger
       p details.backtrace
     end
   end
@@ -56,17 +59,24 @@ module ApplicationHelper
 
     text = "#{city.city}, #{city.country} http://everyworldcity.com/#{city.friendly_url} ##{country_tag} ##{city_tag} " + TWITTER_TAGS.join(' ')
     
-    #Truncate to 118 symbols by default because image link is like http://t.co/1LR5iHgdUE.length = 22, so 118 + 22 = 140.
+    #Truncate to 118 symbols by default because image link is like 'http://t.co/1LR5iHgdUE'.length = 22, so 118 + 22 = 140.
     text.truncate(length, separator: ' ', omission: '')
   end
 
-  def add_text_watermark
+  def add_text_watermark(copyright = WIKI_COPYRIGHT)
     if File.exist?(IMG_NAME)
       image = MiniMagick::Image.open(IMG_NAME)
-      result = image.composite(MiniMagick::Image.open("copyright.png", "jpg")) do |c|
-        c.gravity "southeast"
+      image.combine_options do |c|
+        c.gravity 'Southeast'
+        c.pointsize '21'
+        c.font "Helvetica"
+        c.draw "text 3,0 '#{copyright} \n'"
+        c.fill("#fff")
+        c.draw "text 0,0 '#{copyright} \n'"
+        c.fill("#000")
       end
-      result.write IMG_NAME
+
+      image.write(IMG_NAME)
     end
   end
 end

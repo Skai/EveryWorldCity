@@ -6,4 +6,9 @@ namespace :delayed do
     #Set flag for city wich will be twitted the next day.
     #City.random.set_city_for_twitter
   end
+
+  desc "Task for testing imagemagick."
+  task test: :environment do 
+    add_text_watermark('text')
+  end
 end
