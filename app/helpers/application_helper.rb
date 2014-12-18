@@ -3,8 +3,8 @@ module ApplicationHelper
   require 'mini_magick'
   
   IMG_NAME = 'twitter.jpg'
-  EWC_COPYRIGHT = '© www.everyworldcity.com'
-  WIKI_COPYRIGHT = '© wikipedia.org'
+  EWC_COPYRIGHT = "© www.everyworldcity.com"
+  WIKI_COPYRIGHT = "© wikipedia.org"
 
   TWITTER_TAGS = [
     '#everyworldcity',
