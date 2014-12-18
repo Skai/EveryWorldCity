@@ -1,3 +1,4 @@
+#encoding: utf-8
 module ApplicationHelper
   require 'twitter'
   require 'mini_magick'
