@@ -1,5 +1,5 @@
 ActiveAdmin.register City do
-  permit_params :country, :city, :friendly_url, :altitude, :latitude, :longitude, :is_in_twitter, :wiki_page_id, :wiki_image_src, :description, :twitter_image, :remove_twitter_image
+  permit_params :country, :city, :friendly_url, :altitude, :latitude, :longitude, :is_in_twitter, :wiki_page_id, :wiki_image_src, :description, :twitter_image, :remove_twitter_image, :copyright_text
   scope :wiki_page_not_blank
   scope :wiki_page_blank
   scope :wiki_page_not_exists
@@ -59,9 +59,9 @@ ActiveAdmin.register City do
     
     f.inputs "Content" do
       f.input :wiki_page_id
-      f.input :wiki_image_src
+      f.input :wiki_image_src, :hint => image_tag(f.object.wiki_image_src, :height => 600)
       f.input :copyright_text
-      f.input :twitter_image, :required => false, :as => :file, :hint => image_tag(f.object.twitter_image.url(:medium))
+      f.input :twitter_image, :required => false, :as => :file, :hint => image_tag(f.object.twitter_image.url(:thumb))
       f.input :remove_twitter_image, as: :boolean, required: false, label: "Remove Twitter Image"
       f.input :description
     end

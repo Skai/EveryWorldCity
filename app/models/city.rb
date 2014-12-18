@@ -14,9 +14,12 @@ class City < ActiveRecord::Base
   before_save :check_twitter_image
   attr_writer :remove_twitter_image
   has_attached_file :twitter_image, :styles => { 
-    :medium => "1000x1000>", 
+    :medium => "1600x1600>", 
     :thumb => "300x300>"
-  }, :default_url => "/missing.png"
+  }, 
+  :default_url => "/missing.png",
+  :path => ":rails_root/public/images/:id/:style/:filename",
+  :url => "/images/:id/:style/:filename"
  
   validates_attachment_content_type :twitter_image, content_type: /\Aimage\/.*\Z/
   

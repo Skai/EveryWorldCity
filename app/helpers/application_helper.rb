@@ -14,39 +14,56 @@ module ApplicationHelper
   ]
 
   def tweet(city)
-    begin 
+    begin
       client = Twitter::REST::Client.new do |config| #should be moved for secure reasone
         config.consumer_key        = ENV['TWITTER_CONSUMER_KEY']
         config.consumer_secret     = ENV['TWITTER_CONSUMER_SECRET']
         config.access_token        = ENV['TWITTER_ACCESS_TOKEN']
         config.access_token_secret = ENV['TWITTER_ACCESS_TOKEN_SECRET']
       end
-    
-      unless city.wiki_image_src.nil?
-        file_url = city.wiki_image_src
-        open(file_url) do |f|
-          File.open(IMG_NAME,'wb') do |file|
-            file.puts f.read
-          end
-        end
-        File.open(IMG_NAME,'rb') do |file|
-          add_text_watermark
-          response = client.update_with_media(
-            get_tweet_text(city),
-            file
-          )
-        end
-      else 
+
+      if !city.twitter_image_file_name.nil?
+        copyright = city.copyright_text.empty? ? EWC_COPYRIGHT : city.copyright_text
+        copy_file_for_post(city)
+      elsif !city.wiki_image_src.nil?
+        copyright = city.copyright_text.empty? ? WIKI_COPYRIGHT : city.copyright_text
+        download_file_for_post(city)
+      else
         #if city doesn't have wiki image
         #140 symbols because we have no image link
-        response = client.update(get_tweet_text(city), 140)
+        return client.update(get_tweet_text(city), 140)
       end
+
+      add_text_watermark(copyright)
+      
+      File.open(IMG_NAME,'rb') do |file|
+        client.update_with_media(
+          get_tweet_text(city),
+          file
+        )
+      end
+    
       city.touch(:sent_at)
     rescue => details
       #remove the city from queue
       city.is_in_twitter = false
       city.save
       p details.backtrace
+    end
+  end
+
+  def copy_file_for_post(city)
+    FileUtils.copy_file(
+      "#{Rails.root}/public/images/#{city.id}/medium/#{city.twitter_image_file_name}",
+      IMG_NAME
+    )
+  end
+
+  def download_file_for_post(city)
+    open(city.wiki_image_src) do |f|
+      File.open(IMG_NAME,'wb') do |file|
+        file.puts f.read
+      end
     end
   end
 
