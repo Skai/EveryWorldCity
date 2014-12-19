@@ -40,11 +40,11 @@
 .icon-group:before { /* --- used */
   content: "\f0c0";
 }
-.icon-sort-down:before {
-  content: "\f0dd";
-}
 .icon-target:before { /* --- used */
   content: "\e600";
+}
+/*.icon-sort-down:before {
+  content: "\f0dd";
 }
 .icon-cogs:before {
   content: "\e605";
@@ -60,7 +60,7 @@
 }
 .icon-search:before {
   content: "\e604";
-}
+}*/
 html {
   height: 100%;
   -ms-text-size-adjust: 100%;
@@ -117,8 +117,8 @@ input,button {
   line-height: normal;
 }
 mark {
-    background: #ff0;
-    color: #000;
+  background: #ff0;
+  color: #000;
 }
 ul,
 ol{
@@ -133,7 +133,7 @@ ul li{
 }
 html{ height: 100%;}
 body {
-  font:18px/26px 'Fira Sans', Helvetica, Arial, sans-serif;
+  font:19px/26px 'Fira Sans', Helvetica, Arial, sans-serif;
   color: #373339;
   background: #fff;
   margin: 0;
@@ -155,7 +155,7 @@ img {
   max-width: 100%;
 }
 small{
-  font-size: 0.8em;
+  font-size: 0.9rem;
 }
 small.alt{
   color: #ff5f47;
@@ -179,7 +179,7 @@ noscript{
   content: '';
 }
 .holder{
-  max-width: 1100px;
+  max-width: 1200px;
   padding: 0 15px;
   margin: 0 auto;
   position: relative;
@@ -196,7 +196,6 @@ noscript{
 .right-text{ text-align: right;}
 .page{
   width: 100%;
-  min-height: 100%;
   overflow: hidden;
   position: relative;
 }
@@ -211,21 +210,21 @@ noscript{
   border: 0;
 }
 h1{
-  font:30px "GothamRoundedMedium", Helvetica, Arial, sans-serif;
+  font:2.2rem "GothamRoundedMedium", Helvetica, Arial, sans-serif;
   margin: 0 0 10px;
   text-transform: uppercase;  
 }
 .hold  h1{float:left; margin-right:20px;}
 h1 span{
   text-transform: none;
-  font-size: 24px;
+  font-size: 1.8rem;
   font-weight: normal;
   padding-right: 15px;
 }
 h2{
   text-transform: uppercase;
   text-align: center;
-  font-size: 26px;
+  font-size: 2rem;
   font-weight: 500;
   line-height: 29px;
   margin: 0 10px 50px;
@@ -233,7 +232,7 @@ h2{
 .hold h2{ margin: 0 0 25px;}
 #about .hold h3{ margin: 0 0 15px;}
 h3{
-  font-size:20px;
+  font-size:1.9rem;
   font-weight: 500;
   margin: 0 0 30px;
 }
@@ -257,12 +256,10 @@ h3 span.icon-group{
 /* nav */
 #nav{
   position: fixed;
-  right: 0;
+  right: 100px;
   padding: 10px 10px 5px;
-  border-radius: 5px 0 0 5px;
-  top: 50%;
+  top: 41%;
   z-index: 27;
-  margin: -30px 0 0;
 }
 #nav ul{
   margin: 0;
@@ -411,30 +408,32 @@ h3 span.icon-group{
   height: 26px !important;
   overflow: hidden;
 }
-/* gallery section */
 .section{
   width: 100%;
   position: relative;
-  padding: 90px 0 80px;
-  max-height: 1000px !important;
-  display: table;
+  padding: 9rem 0 10rem;
+  /*max-height: 1000px !important;
+  display: table;*/
   -webkit-box-sizing: border-box;
   -moz-box-sizing:border-box;
   box-sizing:border-box;
 }
+/* gallery section */
 #gallery{  
-  background: #373339; 
+  background: #324150 url('bg.svg') repeat-x 0 100%;
+  background-size: 1500px 300px;
   color: #fff; 
   z-index: 2;
   display: block;
-  padding-top: 110px;
+  position: relative;
 }
 #gallery .copyright{
   text-align: center;
-  font: 12px Arial, Helvetica, sans-serif;
+  font: 13px Arial, Helvetica, sans-serif;
   margin:5px 0 0;
 }
-.section:not(:last-child):after{
+#gallery .holder{ position: static;}
+/*.section:not(:last-child):after{
   position: absolute;
   bottom:  -40px;
   left: 50%;
@@ -445,9 +444,10 @@ h3 span.icon-group{
   border: 20px solid #373339;
   border-color:#373339 transparent transparent;
 }
-#about:after{  border-color:#efefef transparent transparent !important;}
+#about:after{  border-color:#efefef transparent transparent !important;}*/
+
 /* about section */
-#about { background: #efefef;}
+#about { background: #ECECEC;}
 #about .hold{ position: relative;}
 #about article{
   display: inline-block;
@@ -480,7 +480,7 @@ h3 span.icon-group{
 }
 #map_canvas{
   width: 100%;
-  border: 10px solid #00b597;
+  border: 7px solid #00b597;
   border-radius: 50%;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -505,21 +505,21 @@ h3 span.icon-group{
   margin: 0;
   padding:7px 10px 8px;
   background:#000;
-  background: rgba(0,0,0,0.75);
-  font: 14px Arial, Helvetica, sans-serif;
+  background: rgba(0,0,0,0.6);
+  font: 0.9rem Arial, Helvetica, sans-serif;
   -webkit-transition: all 0.5s ease-in-out;
   -moz-transition: all 0.5s ease-in-out;
   transition: all 0.5s ease-in-out;
 }
 #photos-panoramio:hover .owl-item .titel{opacity: 1;}
 #photos-panoramio{
-  border:2px solid #00b597;
+  /*border:2px solid #00b597;*/
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
   border-radius: 5px;
   background: #0d1f23 image-url('earth-icon.png') no-repeat 50% 50%;
   background-size:auto 45%;
-  position: relative;
+  /*position: relative;*/
   opacity: 1 !important;
   padding-bottom: 55%;
   width: 100%;
@@ -527,7 +527,12 @@ h3 span.icon-group{
   -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
-.owl-wrapper-outer{background: #0d1f23;}
+.owl-wrapper-outer{
+  background: #0d1f23;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+}
 #photos-panoramio.loading:before{
   position: absolute;
   width: 100%;
@@ -572,20 +577,19 @@ h3 span.icon-group{
   vertical-align: middle;
   height: auto ;
   top:50%;
-  margin:-30px 0 0;
+  margin:-35px 0 0;
   font-size: 0;
   line-height: 0;
 }
 #photos-panoramio .owl-prev:after,
 #photos-panoramio .owl-next:after{
   font-family: 'icomoon';
-  font-size: 42px;
+  font-size: 44px;
   color: #00b597;
   background: #fff;
-  border-radius: 30px;
   opacity: 0.15;
-  width: 60px;
-  height: 60px;
+  width: 80px;
+  height: 70px;
   text-align: center;
   vertical-align: middle;
   display: table-cell;
@@ -593,13 +597,15 @@ h3 span.icon-group{
 #photos-panoramio .owl-prev:after{ 
   content: "\e602";
   padding-right: 5px;
+  border-radius: 0 5px 5px 0;
 }
 #photos-panoramio .owl-next:after{ 
   content: "\e603";
   padding-left: 5px;
+  border-radius: 5px 0 0 5px;
 }
-#photos-panoramio .owl-prev{ left:20px;}
-#photos-panoramio .owl-next{ right:20px;}
+#photos-panoramio .owl-prev{ left:0;}
+#photos-panoramio .owl-next{ right:0;}
 #photos-panoramio .owl-prev:hover::after,
 #photos-panoramio .owl-next:hover::after{ opacity: 1;}
 .btn{
@@ -745,7 +751,7 @@ h3 span.icon-group{
   position: absolute;
   right: 10px;
   text-align: center;
-  top: -45px;
+  top: 45px;
   width: 95px;
   height: 37px;
   z-index: 25;
@@ -769,7 +775,7 @@ h3 span.icon-group{
   line-height: 23px;
   bottom: 0;
   left: 0;
-  background:#1C1A1D;
+  background:#324150;
   padding:15px 0;
   z-index: 26;
 }
@@ -812,7 +818,7 @@ h3 span.icon-group{
   border-color: #fff transparent transparent;
 }
 /* media queries */
-@media (max-width: 1100px) {
+@media (max-width: 1100px) {  
   .ie8 .ribbon{ display: none;}
   #about article{
     width: 100%;
@@ -828,9 +834,10 @@ h3 span.icon-group{
 }
 @media (max-width: 1070px){
   #nav{ display:none;}
-  .section{ min-height: inherit !important;padding: 80px 0;}
+  /*.section{ min-height: inherit !important;padding: 80px 0;}*/
 }
 @media (max-width: 940px) {
+  body{font-size: 16px;}
   #info .box{
     width: 100%;
     display: block;
@@ -853,7 +860,7 @@ h3 span.icon-group{
     opacity:1;   
   }
   .sticky .city-name{ width: 78%;}
-  #photos-panoramio .owl-prev:after,
+  /*#photos-panoramio .owl-prev:after,
   #photos-panoramio .owl-next:after{
     width:40px;
     height:40px;
@@ -868,7 +875,7 @@ h3 span.icon-group{
     margin:-20px 0 0;
   }
   #photos-panoramio .owl-prev{left:0;}
-  #photos-panoramio .owl-next{ right:0;}
+  #photos-panoramio .owl-next{ right:0;}*/
   .socials-btn,.hold h1{ float: none; padding-top: 0; margin-right:0;}
 }
 @media(max-width:640px){
@@ -895,8 +902,10 @@ h3 span.icon-group{
 }
 @media (max-width: 580px) {
   .maps-tip{ bottom: -52px;}  
-  #map_canvas{ 
-    border-radius: 0;
+  #map_canvas{
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
     border-width: 2px;
   }
   .sticky .city-name{ width: 70%;}
@@ -912,7 +921,7 @@ h3 span.icon-group{
   #footer{ font-size: 13px;}  
   h2,h3{ margin: 0 0 20px;}
   .socials-btn{ padding-bottom: 25px;}
-  h1{ font-size: 26px; margin: 0 0 10px;}
-  h2{ font-size: 24px;}
+  /*h1{ font-size: 26px; margin: 0 0 10px;}
+  h2{ font-size: 24px;}*/
   .sticky .city-name{font-size: 20px;width: 60%;}
 }

@@ -74,10 +74,10 @@ $(document).on('page:change', function() {
     var _height = $(window).height();
     $(".section").css( "min-height", _height);
   };
-  calcHeight();
+  //calcHeight();
 
   $(window).resize(function(){
-    calcHeight();
+    //calcHeight();
     var _width = $(window).innerWidth();    
     if (_width > 767 && $('header').hasClass('active')){
       $('header').removeClass('active');
