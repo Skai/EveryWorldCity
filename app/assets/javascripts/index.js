@@ -33,51 +33,21 @@ $(document).on('page:change', function() {
     }
   });
 
+  
+
   select_city  = $select_city[0].selectize;
   select_country = $select_country[0].selectize;
   select_city.disable();
 
-  // scrolling Page to top with a lot of content
-  $('#nav a').click(function(){
-    var goal = $(this).attr('href');
-    highlightCurrentItem();
-    scrollPage(goal);
-    return false;
-  });
-
-  function scrollPage(id){
-    $('html, body').animate({
-      scrollTop: $(id).offset().top      
-     }, 1000);    
-  };
-
-  // highlightCurrentItem active nav item 
-  function highlightCurrentItem() {
-    var h = $(".section:first").height();
-    var sIndex = Math.floor($(window).scrollTop() / h);    
-    if(sIndex > 2) sIndex = 2;     /* hardcode*/
-    var $sItem = $("#nav li").eq(sIndex);
-    if (!$sItem.hasClass("active")) {
-        $("#nav li.active").removeClass("active");
-        $sItem.addClass('active');
-    }    
-  };
-
-  highlightCurrentItem();
-
-  $(window).scroll(function(e) {
-      highlightCurrentItem();
-  });  
-
   /* calculate height of section */
-  function calcHeight(){
+  function calcHeight(box){
     var _height = $(window).height();
-    $(".section").css( "min-height", _height);
+    box.css( "min-height", _height);
   };
-  //calcHeight();
+  calcHeight($("#gallery"));
 
   $(window).resize(function(){
-    //calcHeight();
+    calcHeight($("#gallery"));
     var _width = $(window).innerWidth();    
     if (_width > 767 && $('header').hasClass('active')){
       $('header').removeClass('active');
@@ -88,7 +58,20 @@ $(document).on('page:change', function() {
   function changeImageHeight(){
     var _width = $(window).innerWidth(),
         newHeight = _width/2;
-    $('#photos-panoramio .owl-item img').css( "height", newHeight);
+
+    $("#photos-panoramio .owl-item img").each(function(){
+        $(this).one("load", function() {
+          var theImage = new Image();
+          theImage.src = $(this).attr("src");
+          var imgWidth = theImage.width,
+              imgHeight = theImage.height,      
+              dif = imgWidth/imgHeight;
+        if(dif < 2.3){
+          $(this).css( "height", newHeight);
+        };
+        //$(this).parents('.owl-item').addClass('alt');
+      });      
+    });
   };
 
   /* sticky header */
@@ -136,7 +119,7 @@ $(document).on('page:change', function() {
       content += "<img src=\"" + img + "\" alt=\"" + escapedAlt + "\">";
     };
     if(content.length > 0){
-      $("#photos-panoramio").html(content).css('padding-bottom','0');    
+      $("#photos-panoramio").html(content).css('padding-bottom','0');      
       setTimeout(function(){
         $('#photos-panoramio').removeClass('loading');
       }, 1800);

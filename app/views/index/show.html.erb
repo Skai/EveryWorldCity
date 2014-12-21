@@ -12,7 +12,7 @@
         <fieldset>
           <label for="select-beast" class="sr-only">Country:</label>
           <select id="select-country">
-            <option value="" disabled selected>Select country...</option>
+            <option value="" selected><%= @city.country %></option>
               <% @countries.each do |country| %>
                 <option value="<%= country %>"><%= country %></option>
             <% end %>
@@ -85,13 +85,6 @@ Probably namely here you will be inspired to a new adventure.</p>
     </div>
   </div>
 </section><!-- / about-section -->
-<nav id="nav">
-<ul>
-    <li><a href="#gallery">Photos</a></li>
-    <li><a href="#about">About</a></li>
-    <li><a href="#info">Info</a></li>
-</ul>
-</nav><!-- / nav -->
 <a class="sr-only" href="#gallery">Skip to main content</a>
 <script type="text/javascript">
   var latitude = <%= @city.latitude %>
