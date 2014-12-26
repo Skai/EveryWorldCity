@@ -12,7 +12,7 @@
         <fieldset>
           <label for="select-beast" class="sr-only">Country:</label>
           <select id="select-country">
-            <option value="" disabled selected>Select country...</option>
+            <option value="<%= @city.country %>" selected><%= @city.country %></option>
               <% @countries.each do |country| %>
                 <option value="<%= country %>"><%= country %></option>
             <% end %>
@@ -47,7 +47,7 @@
 </section><!-- / gallery section -->
 <section class="section" id="about">
   <div class="holder">
-    <h2>About <%= @city.city %>:</h2>
+    <h2>About <%= @city.city %></h2>
     <div class="hold">
       <article>
         <p><%= truncate_html(@city.description, length: 1000, omission: '...').html_safe %><small class="alt">* material from wikipedia.org</small></p>
@@ -64,7 +64,7 @@
 </section><!-- / gallery section -->
 <section class="section" id="info">
   <div class="holder">
-    <h2>And now a few words about:</h2>
+    <h2>And now a few words about</h2>
     <div class="hold">
       <article class="box">
         <h3><span class="icon-target"></span>Our goals</h3>
@@ -85,13 +85,6 @@ Probably namely here you will be inspired to a new adventure.</p>
     </div>
   </div>
 </section><!-- / about-section -->
-<nav id="nav">
-<ul>
-    <li><a href="#gallery">Photos</a></li>
-    <li><a href="#about">About</a></li>
-    <li><a href="#info">Info</a></li>
-</ul>
-</nav><!-- / nav -->
 <a class="sr-only" href="#gallery">Skip to main content</a>
 <script type="text/javascript">
   var latitude = <%= @city.latitude %>
