@@ -12,7 +12,7 @@
         <fieldset>
           <label for="select-beast" class="sr-only">Country:</label>
           <select id="select-country">
-            <option value="" selected><%= @city.country %></option>
+            <option value="<%= @city.country %>" selected><%= @city.country %></option>
               <% @countries.each do |country| %>
                 <option value="<%= country %>"><%= country %></option>
             <% end %>

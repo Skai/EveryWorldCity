@@ -37,7 +37,12 @@ $(document).on('page:change', function() {
 
   select_city  = $select_city[0].selectize;
   select_country = $select_country[0].selectize;
-  select_city.disable();
+
+  var selectedCountry = jQuery('#select-country').val();  
+  if(selectedCountry.length){
+    select_country.setValue(selectedCountry);
+  };
+  //select_city.disable();
 
   /* calculate height of section */
   function calcHeight(box){
