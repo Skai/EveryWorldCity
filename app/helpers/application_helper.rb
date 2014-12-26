@@ -2,6 +2,8 @@
 module ApplicationHelper
   require 'twitter'
   require 'mini_magick'
+  require 'open-uri'
+
   
   IMG_NAME = 'twitter.jpg'
   EWC_COPYRIGHT = "© www.everyworldcity.com"
@@ -49,6 +51,7 @@ module ApplicationHelper
       #remove the city from queue
       city.is_in_twitter = false
       city.save
+      p details.message
       p details.backtrace
     end
   end
