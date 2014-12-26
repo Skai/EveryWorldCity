@@ -56,13 +56,25 @@ $(document).on('page:change', function() {
     if (_width > 767 && $('header').hasClass('active')){
       $('header').removeClass('active');
     };    
-    changeImageHeight();
+    changeImageSize();
   });
 
-  function changeImageHeight(){
+  function changeImageSize(){
     var _width = $(window).innerWidth(),
         newHeight = _width/2;
-    $('#photos-panoramio .owl-item img').css( "height", newHeight);
+
+    $("#photos-panoramio .owl-item img").each(function(){
+        //$(this).one("load", function() {
+          var theImage = new Image();
+          theImage.src = $(this).attr("src");
+          var imgWidth = theImage.width,
+              imgHeight = theImage.height,      
+              dif = imgWidth/imgHeight;
+        if(dif < 2.3){
+          $(this).css( "height", newHeight);
+        };
+      //});      
+    });
   };
 
   /* sticky header */
@@ -86,12 +98,13 @@ $(document).on('page:change', function() {
       items: 1,
       nav : true,
       dots: false,
+      smartSpeed: 500,
       onInitialized: function(){
        $("#photos-panoramio .owl-item").each(function(){
           var titel = $(this).find('img').attr('alt');
           $(this).append('<p class="titel">' + titel + '</p>');
        });
-       changeImageHeight();
+       changeImageSize();
       }
     });
   }

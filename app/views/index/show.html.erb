@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <% content_for :head do %>
   <meta property="og:title" content="<%= @city.city %> / <%= @city.country %>" />
 <% end %>
@@ -39,7 +38,7 @@
         <div class="fb-like" data-layout="button_count" data-action="like" data-show-faces="true" data-share="true"></div>
       </div>
     </div>
-    <div id="photos-panoramio" class="loading"></div>
+    <div id="photos-panoramio" class="loading owl-carousel"></div>
     <p class="copyright"><%= image_tag 'logo-panoramio.png' %> Photos are copyrighted by their owners.</p>
     <% if flash[:notice] %>
     <div class="ribbon"><p><%= flash[:notice] %></p></div>
@@ -91,104 +90,3 @@ Probably namely here you will be inspired to a new adventure.</p>
   var latitude = <%= @city.latitude %>
   var longitude = <%= @city.longitude %>
 </script>
-=======
-<% content_for :head do %>
-  <meta property="og:title" content="<%= @city.city %> / <%= @city.country %>" />
-<% end %>
-<header id="header">
-  <div class="c">
-    <div class="holder">
-      <strong class="logo">
-        <a href="/" title="EveryWorldCity.com">Every World City</a>      
-      </strong>
-      <span class="city-name"><%= @city.city %> / <%= @city.country %></span>
-      <form action="" role="form" class="select-form">
-        <fieldset>
-          <label for="select-beast" class="sr-only">Country:</label>
-          <select id="select-country">
-            <option value="" disabled selected>Select country...</option>
-              <% @countries.each do |country| %>
-                <option value="<%= country %>"><%= country %></option>
-            <% end %>
-          </select>
-          <label for="select-beast" class="sr-only">City:</label>
-          <select id="select-city">
-            <option value="">Pick a city...</option>
-          </select>
-        </fieldset>
-      </form><!-- / select-form -->
-      <span id="toggle-search" class="icon-search"></span>      
-    </div>
-  </div>
-</header><!-- / header -->
-<section class="section" id="gallery">
-  <div class="holder">
-    <div class="hold">
-      <h1><%= @city.city %> / <span><%= @city.country %></span></h1>
-      <div class="socials-btn">
-        <!-- Twitter Post the page-->
-        <a href="https://twitter.com/share" class="twitter-share-button" data-text="I liked this city!" data-via="everyworldcity" data-hashtags="everyworldcity,travel"></a>
-        <!-- Facebook Button-->
-        <div class="fb-like" data-layout="button_count" data-action="like" data-show-faces="true" data-share="true"></div>
-      </div>
-    </div>
-    <div id="photos-panoramio" class="loading owl-carousel"></div>
-    <p class="copyright"><%= image_tag 'logo-panoramio.png' %> Photos are copyrighted by their owners.</p>
-    <% if flash[:notice] %>
-    <div class="ribbon"><p><%= flash[:notice] %></p></div>
-    <% end %>
-  </div>
-</section><!-- / gallery section -->
-<section class="section" id="about">
-  <div class="holder">
-    <h2>About <%= @city.city %>:</h2>
-    <div class="hold">
-      <article>
-        <p><%= truncate_html(@city.description, length: 1000, omission: '...').html_safe %><small class="alt">* material from wikipedia.org</small></p>
-        <%= link_to "Read full Wiki article", @wiki_url, :target => "_blank", :class => "btn" %>
-      </article>
-      <aside class="map-holder">          
-        <div id="map_canvas">
-         <%= link_to(image_tag(@staticmap_url, :alt => "logo", :title => "Home"), @googlemap_url, :target => "_blank") %>
-        </div>
-        <div class="maps-tip">go to Google maps</div>
-      </aside>
-    </div>
-  </div>
-</section><!-- / gallery section -->
-<section class="section" id="info">
-  <div class="holder">
-    <h2>And now a few words about:</h2>
-    <div class="hold">
-      <article class="box">
-        <h3><span class="icon-target"></span>Our goals</h3>
-        <p>There are a lot of cities all over the world, which we don't know at all. That's why we have decided to create this site and  twitter account EveryWorldCity, following it you will have an opportunity to learn new cities every day - review photos, explore map, read interesting facts.
-Probably namely here you will be inspired to a new adventure.</p>
-      </article><!-- box -->
-      <article class="box">
-        <h3><span class="icon-gears"></span>Resource Info</h3>
-        <p>The Data Base has already <%= @city_count %> cities and it is expanding dynamically. All descriptions and photos for twitter posts were found/gathered with Wikipedia API's help. Based on Panoramio Rest API we prepare the most popular photos for each city. The map uses Google's Static Map API. Every day the new random city will be tweeted via Ruby script and Twitter API.</p>
-        <a href="https://github.com/Skai/EveryWorldCity" target="_blank" class="github">gitHub</a>
-      </article><!-- box -->
-      <article class="box">
-        <h3><span class="icon-group"></span>Follow us</h3>
-        <p>We are the couple of Web-developers. All our spare time we spend on rock climbing, active rest and travelling. We are keen on discovering new places, that's why this resource has been developed. Follow us and explore the World with us!</p>
-        <!-- Twitter Follow us -->
-        <a href="https://twitter.com/everyworldcity" class="twitter-follow-button" data-show-count="false" data-size="large">Follow @everyworldcity</a>
-      </article><!-- box -->
-    </div>
-  </div>
-</section><!-- / about-section -->
-<nav id="nav">
-<ul>
-    <li><a href="#gallery">Photos</a></li>
-    <li><a href="#about">About</a></li>
-    <li><a href="#info">Info</a></li>
-</ul>
-</nav><!-- / nav -->
-<a class="sr-only" href="#gallery">Skip to main content</a>
-<script type="text/javascript">
-  var latitude = <%= @city.latitude %>
-  var longitude = <%= @city.longitude %>
-</script>
->>>>>>> master

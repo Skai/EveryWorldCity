@@ -34,33 +34,18 @@
 .icon-question-circle:before {
   content: "\f059";
 }
-.icon-gears:before { /* --- used */
+.icon-gears:before {
   content: "\f085";
 }
-.icon-group:before { /* --- used */
+.icon-group:before {
   content: "\f0c0";
 }
-.icon-target:before { /* --- used */
+.icon-target:before {
   content: "\e600";
-}
-/*.icon-sort-down:before {
-  content: "\f0dd";
-}
-.icon-cogs:before {
-  content: "\e605";
-}
-.icon-play:before {
-  content: "\e601";
-}
-.icon-arrow-left:before {
-  content: "\e602";
-}
-.icon-arrow-right:before {
-  content: "\e603";
 }
 .icon-search:before {
   content: "\e604";
-}*/
+}
 html {
   height: 100%;
   -ms-text-size-adjust: 100%;
@@ -352,11 +337,6 @@ h3 span.icon-group{
   width: 100%;
   position: relative;
   padding: 9em 0 10em;
-  /*max-height: 1000px !important;
-  display: table;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing:border-box;
-  box-sizing:border-box;*/
 }
 /* gallery section */
 #gallery{  
@@ -454,21 +434,19 @@ h3 span.icon-group{
 }
 #photos-panoramio:hover .owl-item .titel{opacity: 1;}
 #photos-panoramio{
-  /*border:2px solid #00b597;*/
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
   border-radius: 5px;
   background: #0d1f23 image-url('earth-icon.png') no-repeat 50% 50%;
   background-size:auto 45%;
-  /*position: relative;*/
   opacity: 1 !important;
-  padding-bottom: 55%;
-  /*width: 100%;*/
+  padding-bottom: 53%;
+  display: block;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
-.owl-wrapper-outer{
+.owl-stage-outer{
   background: #0d1f23;
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
@@ -513,7 +491,7 @@ h3 span.icon-group{
   50%  { transform: rotate(180deg); opacity: 1.0; }
   to   { transform: rotate(360deg); opacity: 0.4; }
 }
-#photos-panoramio .owl-buttons div{
+#photos-panoramio .owl-nav div{
   width: 60px;
   position: absolute;
   vertical-align: middle;
@@ -528,7 +506,7 @@ h3 span.icon-group{
   font-size: 44px;
   color: #00b597;
   background: #fff;
-  opacity: 0.15;
+  opacity: 0.2;
   width: 60px;
   height: 70px;
   text-align: center;
@@ -811,22 +789,6 @@ h3 span.icon-group{
   }
   .sticky .city-name{ width: 78%;}
   #gallery{ background-size: 700px 140px;}
-  /*#photos-panoramio .owl-prev:after,
-  #photos-panoramio .owl-next:after{
-    width:40px;
-    height:40px;
-    -webkit-border-radius:22px;
-    -moz-border-radius:22px;
-    border-radius:22px;
-    font-size:33px;
-  }
-  #photos-panoramio .owl-buttons div{
-    width:40px;
-    padding:0 15px;
-    margin:-20px 0 0;
-  }
-  #photos-panoramio .owl-prev{left:0;}
-  #photos-panoramio .owl-next{ right:0;}*/
   .socials-btn,.hold h1{ float: none; padding-top: 0; margin-right:0;}
 }
 @media(max-width:640px){
@@ -873,7 +835,7 @@ h3 span.icon-group{
     height: 50px;
     font-size: 34px;   
   }
-  #photos-panoramio .owl-buttons div{
+  #photos-panoramio .owl-nav div{
     width: 40px; 
     height: 50px;
   }
