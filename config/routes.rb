@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   root 'index#show'
   get 'get_photos' => 'index#get_photos'
   get 'get_cities/:country' => 'index#get_cities'
+  post 'tweet_now' => 'admin/dashboard#tweet_now'
   resources :cities, :path => '/', :controller => :index, :only => [:show]
   resources :contacts, :only => [:new, :create]
 

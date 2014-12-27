@@ -1,15 +1,18 @@
+include ApplicationHelper
+
 ActiveAdmin.register_page "Dashboard" do
 
   menu priority: 1, label: proc{ I18n.t("active_admin.dashboard") }
 
-  content title: proc{ I18n.t("active_admin.dashboard") } do
-    #div class: "blank_slate_container", id: "dashboard_default_message" do
-    #  span class: "blank_slate" do
-    #    span I18n.t("active_admin.dashboard_welcome.welcome")
-    #    small I18n.t("active_admin.dashboard_welcome.call_to_action")
-    #  end
-    #end
+  controller do
+    def tweet_now
+      #call ApplicationHelper
+      tweet(City.will_be_twitted.first)
+      redirect_to(:action=>'index')
+    end
+  end
 
+  content title: proc{ I18n.t("active_admin.dashboard") } do
     columns do
       column do
         panel "Recent Tweets" do
@@ -18,6 +21,9 @@ ActiveAdmin.register_page "Dashboard" do
               li link_to([city.city, city.country].join(', '), city_path(city))
             end
           end
+        end
+        panel "EveryWorldCity" do
+          para %(Currently deployed: #{`git describe --tags --abbrev=0`}, #{link_to(`git rev-parse --short HEAD`, "https://github.com/Skai/EveryWorldCity/commit/#{`git rev-parse HEAD`}")}).html_safe
         end
       end
 
@@ -31,6 +37,9 @@ ActiveAdmin.register_page "Dashboard" do
               li link_to([city.city, city.country].join(', '), edit_admin_city_path(city))
             end         
           end
+        end
+        panel "Tweet Now" do
+          button_to "Post New City To Twitter Now", {:action=> :tweet_now}, data: {:confirm => 'Are you sure? It will post new tweet right now!'}
         end
       end
     end
