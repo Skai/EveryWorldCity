@@ -1,4 +1,6 @@
 $(document).on('page:change', function() {
+  
+  //================  Initializing Selectizer ==============
   var xhr, select_country, $select_country, select_city, $select_city;
 
   $select_country = jQuery('#select-country').selectize({
@@ -40,7 +42,7 @@ $(document).on('page:change', function() {
   if(selectedCountry.length){
     select_country.setValue(selectedCountry);
   };
-  //select_city.disable();
+  //================  End selectizer init ==============
 
 
   /* calculate height of section */
@@ -89,9 +91,10 @@ $(document).on('page:change', function() {
     $('#header').toggleClass('active');
   });
 
-  //================  Initializing owlCarousel with custom JSON data   ==============.
+  //================  Initializing owlCarousel with custom JSON data   ==============
+  var panoramio = $("#photos-panoramio");
   function initCarousel() {
-    $(".owl-carousel").owlCarousel({
+    panoramio.owlCarousel({
       loop: true,
       items: 1,
       nav : true,
@@ -106,28 +109,32 @@ $(document).on('page:change', function() {
     });
   }
 
-  $.getJSON(
-    '/get_photos?latitude=' + latitude + '&longitude=' + longitude,
-    function(data) {
-      var content = "";
-      for(var i in data["photos"]){
-        var img = data["photos"][i].photo_file_url;
-        var alt = data["photos"][i].photo_title + ' by ' + data["photos"][i].owner_name;
-        content += "<img src=\"" + img + "\" alt=\"" + escapeAlt(alt) + "\">";
-      };
+  if (panoramio.html().length == 0) {
+    $.getJSON(
+      '/get_photos?latitude=' + latitude + '&longitude=' + longitude,
+      function(data) {
+        var content = "";
+        for(var i in data["photos"]){
+          var img = data["photos"][i].photo_file_url;
+          var alt = data["photos"][i].photo_title + ' by ' + data["photos"][i].owner_name;
+          content += "<img src=\"" + img + "\" alt=\"" + escapeAlt(alt) + "\">";
+        };
 
-      if (content.length > 0){
-        $("#photos-panoramio").html(content);   
-        initCarousel(); 
-        setTimeout(function(){
-          changeImageSize();         
-          $('#photos-panoramio').removeClass('loading');
-        }, 1500);
-      } else {
-        $('#photos-panoramio').removeClass('loading');
-      };
-    }
-  );
+        if (content.length > 0){
+          panoramio.html(content);   
+          setTimeout(function(){
+            initCarousel();
+            changeImageSize();         
+            panoramio.removeClass('loading');
+          }, 1500);
+        } else {
+          panoramio.removeClass('loading');
+        };
+      }
+    );
+  } else {
+    initCarousel();
+  }
 
   function escapeAlt(alt) {
     return alt.replace(/&/g, '&amp;')
@@ -136,8 +143,9 @@ $(document).on('page:change', function() {
               .replace(/"/g, '&quot;')
               .replace(/'/g, '&apos;');
   }
+  //=============== end initialization carousel ========================================
 
-  //Initialization for twitter and facebook buttons.
+  //=============== Initialization for twitter and facebook buttons ====================
   button = $('.twitter-share-button');
   setTimeout(function(){
     button.attr('data-url', document.location.href);
