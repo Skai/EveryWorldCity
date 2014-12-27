@@ -53,7 +53,7 @@ $(document).on('page:change', function() {
   $(window).resize(function(){
     calcHeight($("#gallery"));
     var _width = $(window).innerWidth();    
-    if (_width > 767 && $('header').hasClass('active')){
+    if (_width > 768 && $('header').hasClass('active')){
       $('header').removeClass('active');
     };    
     changeImageSize();
@@ -64,16 +64,14 @@ $(document).on('page:change', function() {
         newHeight = _width/2;
 
     $("#photos-panoramio .owl-item img").each(function(){
-        //$(this).one("load", function() {
-          var theImage = new Image();
-          theImage.src = $(this).attr("src");
-          var imgWidth = theImage.width,
-              imgHeight = theImage.height,      
-              dif = imgWidth/imgHeight;
-        if(dif < 2.3){
-          $(this).css( "height", newHeight);
-        };
-      //});      
+      var theImage = new Image();
+      theImage.src = $(this).attr("src");
+      var imgWidth = theImage.width,
+          imgHeight = theImage.height,
+          dif = imgWidth/imgHeight;
+      if(dif < 2.3){
+        $(this).css( "height", newHeight);
+      }; 
     });
   };
 
@@ -98,13 +96,12 @@ $(document).on('page:change', function() {
       items: 1,
       nav : true,
       dots: false,
-      smartSpeed: 500,
+      smartSpeed: 400,
       onInitialized: function(){
        $("#photos-panoramio .owl-item").each(function(){
           var titel = $(this).find('img').attr('alt');
           $(this).append('<p class="titel">' + titel + '</p>');
        });
-       changeImageSize();
       }
     });
   }
@@ -120,11 +117,12 @@ $(document).on('page:change', function() {
       };
 
       if (content.length > 0){
-        $("#photos-panoramio").html(content).css('padding-bottom','0');   
+        $("#photos-panoramio").html(content);   
         initCarousel(); 
         setTimeout(function(){
+          changeImageSize();         
           $('#photos-panoramio').removeClass('loading');
-        }, 1800);
+        }, 1500);
       } else {
         $('#photos-panoramio').removeClass('loading');
       };
