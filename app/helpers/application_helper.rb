@@ -53,6 +53,9 @@ module ApplicationHelper
       city.save
       p details.message
       p details.backtrace
+
+      #do it again with the next city.
+      tweet(City.will_be_twitted.first)
     end
   end
 
