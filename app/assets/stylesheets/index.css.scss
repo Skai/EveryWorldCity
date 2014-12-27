@@ -149,11 +149,12 @@ small.alt{
 }
 noscript{
   position: fixed;
-  top: 20%;
-  background: #00b597;
+  top: 0;
+  background: #ff5f47;
   color: #fff;
-  width:200px;
-  padding: 20px;
+  width:100%;
+  padding: 20px 0;
+  text-align:center;
   left: 0;
   z-index: 50;
 }
@@ -440,7 +441,6 @@ h3 span.icon-group{
   background: #0d1f23 image-url('earth-icon.png') no-repeat 50% 50%;
   background-size:auto 45%;
   opacity: 1 !important;
-  padding-bottom: 53%;
   display: block;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -452,7 +452,11 @@ h3 span.icon-group{
   -moz-border-radius: 5px;
   border-radius: 5px;
 }
-#photos-panoramio.loading{position: relative;}
+#photos-panoramio.loading{ 
+  height:600px; 
+  overflow:hidden;
+  position:relative;
+}
 #photos-panoramio.loading:before{
   position: absolute;
   width: 100%;
@@ -762,6 +766,7 @@ h3 span.icon-group{
 }
 @media (max-width: 1070px){
   .section{ padding: 6em 0 7em;}
+  #photos-panoramio.loading{ height:520px;}
   /*.section{ min-height: inherit !important;padding: 80px 0;}*/
 }
 @media (max-width: 940px) {
@@ -772,7 +777,7 @@ h3 span.icon-group{
     padding-bottom: 40px;
   }
 }
-@media (max-width: 767px) {
+@media (max-width: 768px) {
   .select-form{ 
     width: 0; 
     min-width: 0;
@@ -790,6 +795,7 @@ h3 span.icon-group{
   .sticky .city-name{ width: 78%;}
   #gallery{ background-size: 700px 140px;}
   .socials-btn,.hold h1{ float: none; padding-top: 0; margin-right:0;}
+  #photos-panoramio.loading{ height:384px;}
 }
 @media(max-width:640px){
   #contact{
@@ -800,6 +806,7 @@ h3 span.icon-group{
     padding:15px 20px;
   }
   .contact-active #contact{ z-index: 27px;}
+  #photos-panoramio.loading{ height:320px;}
 }
 @media(max-width:640px) and (orientation : landscape) {
   #contact input[type="text"], #contact input[type="email"]{
@@ -849,4 +856,5 @@ h3 span.icon-group{
   h2{ font-size: 24px;}
   h3{ font-size: 22px;}
   .sticky .city-name{font-size: 20px;width: 60%;}
+  #photos-panoramio.loading{ height:200px;}
 }
