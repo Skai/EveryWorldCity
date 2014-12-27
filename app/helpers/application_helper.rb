@@ -55,7 +55,9 @@ module ApplicationHelper
       p details.backtrace
 
       #do it again with the next city.
-      tweet(City.will_be_twitted.first)
+      if City.will_be_twitted.count > 0
+        tweet(City.will_be_twitted.first)
+      end  
     end
   end
 
