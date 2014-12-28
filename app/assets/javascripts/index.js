@@ -128,7 +128,7 @@ $(document).on('page:change', function() {
             panoramio.removeClass('loading');
           }, 1500);
         } else {
-          panoramio.removeClass('loading');
+          panoramio.addClass('empty');
         };
       }
     );

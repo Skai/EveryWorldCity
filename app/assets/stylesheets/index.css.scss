@@ -218,13 +218,21 @@ h2{
   line-height: 29px;
   margin: 0 10px 50px;
 }
-.hold h2{ margin: 0 0 25px;}
-#about .hold h3{ margin: 0 0 15px;}
+.hold h2{ 
+  margin: 0 0 25px;
+  font-size: 1.5rem;
+  text-transform: none;
+  text-align: left;
+}
+#about .hold h3{ 
+  margin: 0 0 15px;
+  font-size: 1.3rem;
+}
 h3{
   font-size: 28px;
-  font-size:1.9rem;
+  font-size:1.7rem;
   font-weight: 500;
-  margin: 0 0 30px;
+  margin: 0 0 35px;
 }
 h3 span[class*="icon-"]{
   background: #00b597;
@@ -485,6 +493,8 @@ h3 span.icon-group{
   -o-animation: load_spin 1s linear infinite;
   animation: load_spin 1s linear infinite;
 }
+#photos-panoramio.empty:before,
+#photos-panoramio.empty:after{display:none;}
 @-webkit-keyframes load_spin{
   from { -webkit-transform: rotate(0deg);   opacity: 0.4; }
   50%  { -webkit-transform: rotate(180deg); opacity: 1.0; }
@@ -674,7 +684,7 @@ h3 span.icon-group{
   position: absolute;
   right: 10px;
   text-align: center;
-  top: 45px;
+  top: 65px;
   width: 95px;
   height: 37px;
   z-index: 25;
