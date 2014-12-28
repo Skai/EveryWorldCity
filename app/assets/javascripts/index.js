@@ -124,7 +124,7 @@ $(document).on('page:change', function() {
           $('#photos-panoramio').removeClass('loading');
         }, 1500);
       } else {
-        $('#photos-panoramio').removeClass('loading');
+        $('#photos-panoramio').addClass('empty');
       };
     }
   );
