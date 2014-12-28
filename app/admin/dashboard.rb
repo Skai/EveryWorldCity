@@ -22,9 +22,9 @@ ActiveAdmin.register_page "Dashboard" do
             end
           end
         end
-        panel "EveryWorldCity" do
-          para %(Currently deployed: #{`git describe --tags --abbrev=0`}, #{link_to(`git rev-parse --short HEAD`, "https://github.com/Skai/EveryWorldCity/commit/#{`git rev-parse HEAD`}")}).html_safe
-        end
+        #panel "EveryWorldCity" do
+        #  para %(Currently deployed: #{`git describe --tags --abbrev=0`}, #{link_to(`git rev-parse --short HEAD`, "https://github.com/Skai/EveryWorldCity/commit/#{`git rev-parse HEAD`}")}).html_safe
+        #end
       end
 
       column do
