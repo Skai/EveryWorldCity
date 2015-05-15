@@ -5,7 +5,7 @@ gem 'rails', '4.1.1'
 # Use postgresql as the database for Active Record
 gem 'pg'
 gem 'twitter'
-gem 'activeadmin', github: 'activeadmin/active_admin'
+gem 'activeadmin', github: 'activeadmin'
 gem 'devise'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'
@@ -23,9 +23,6 @@ gem 'coffee-rails', '~> 4.0.0'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
-
-# Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
-gem 'turbolinks'
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.0'
@@ -46,19 +43,10 @@ group :development do
   gem 'httpclient'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
-  #DISABLE_PRY_RAILS=1 rails console
-  gem 'pry'
-  gem 'pry-rails'
-  gem 'pry-remote'
-  gem 'pry-nav'
-  #gem 'binding_of_caller'
-  #gem 'better_errors'
+  gem 'better_errors'
 end
 
-# Use ActiveModel has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
-
 # Use debugger
-# gem 'debugger', group: [:development, :test]
+gem 'debugger', group: [:development, :test]
 
 

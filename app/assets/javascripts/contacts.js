@@ -10,7 +10,7 @@ $(document).on("ajax:success", "form.new_contact", function(e, data, status, xhr
     $('#contact').html(errorMsg);
 });
 
-$(document).on('page:change', function() {
+$(document).ready(function() {
 	//open contact form.
 	jQuery(document).on('click', '#contact-button', function() {
 		contact = $('#contact');

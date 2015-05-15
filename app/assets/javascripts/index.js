@@ -1,4 +1,4 @@
-$(document).on('page:change', function() {
+$(document).ready(function() {
   
   //================  Initializing Selectizer ==============
   var xhr, select_country, $select_country, select_city, $select_city;
