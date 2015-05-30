@@ -44,7 +44,5 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'better_errors'
+  gem 'debugger'
 end
-
-# Use debugger
-gem 'debugger', group: [:development, :test]
