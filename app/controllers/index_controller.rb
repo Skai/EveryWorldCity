@@ -1,22 +1,19 @@
 class IndexController < ApplicationController
   include IndexHelper
-  
-  def show
-    #go to random city for homepage.
-    if params[:id].nil?
-      @city = City.random
-      flash[:notice] = "It's a random city"
-      redirect_to @city
-      return
-    end
 
+  def index
+    @countries = City.pluck('DISTINCT country').sort
+    @city = nil
+    @city_count = City.unscoped.count
+  end
+
+  def show
     @city = City.find_by_friendly_url(params[:id])
     raise ActiveRecord::RecordNotFound if @city.nil?
     @staticmap_url = get_staticmap_url(@city.latitude.to_s, @city.longitude.to_s)
     @wiki_url = get_wiki_url(@city.wiki_page_id.to_s)
     @googlemap_url = get_googlemap_url(@city.latitude.to_s, @city.longitude.to_s)
     @countries = City.pluck('DISTINCT country').sort
-    @city_count = City.unscoped.count
   end
 
   def get_cities
