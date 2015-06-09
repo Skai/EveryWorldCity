@@ -17,7 +17,7 @@ Every day the new random city(ies) will be tweeted via Rake task and Twitter API
 * Database is PostgreSQL 9.3.1
 * Requires ImageMagic on board.
 
-*Deployment guide:*
+*Deployment:*
 
 * get rails (and all realated).
 
