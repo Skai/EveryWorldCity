@@ -1,11 +1,11 @@
 language: ruby
-
 rvm:
 	- 2.0.0
 	- 2.1.0
-
+branches:
+  only:
+    - master
 addons:
   postgresql: '9.3'
-
 before_script:
   - psql -c 'create database every_world_city;' -U postgres
