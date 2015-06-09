@@ -1,7 +1,4 @@
 language: ruby
-branches:
-	only:
-  	- master
 addons:
 	postgresql: "9.3"
 before_script:
