@@ -1,6 +1,6 @@
 class IndexController < ApplicationController
   include IndexHelper
-  
+
   def show
     #go to random city for homepage.
     if params[:id].nil?
