@@ -2,6 +2,6 @@ language: ruby
 rvm:
   - 2.0.0-p353
 addons:
-  postgresql:  "9.3"
+  postgresql: "9.3"
 before_script:
-  - psql -c 'create database every_world_city;' -U postgres
+  - psql -c 'create database every_world_city_test;' -U postgres
