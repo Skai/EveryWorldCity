@@ -1,5 +1,5 @@
 
-==EveryWirldCity.com
+==EveryWirldCity.com  {<img src="https://travis-ci.org/Skai/EveryWorldCity.svg?branch=master" alt="Build Status" />}[https://travis-ci.org/Skai/EveryWorldCity]
 
 There are a lot of cities all over the world, which we don't know at all. 
 That's why we have decided to create twitter account @everyworldcity[https://twitter.com/everyworldcity]. 
