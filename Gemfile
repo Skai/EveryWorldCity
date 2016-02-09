@@ -32,11 +32,7 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'mail_form'
 gem 'httpclient'
 
-#let's deploy
-# gem 'capistrano', '3.2.1'
-# gem 'capistrano-rails'
-# gem 'capistrano-bundler', '~> 1.1.2'
-# gem 'capistrano-rvm'
+gem 'rails_12factor'
 
 group :development do
   gem 'sqlite3'
