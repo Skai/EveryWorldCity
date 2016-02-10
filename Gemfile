@@ -5,7 +5,7 @@ gem 'rails', '4.1.1'
 # Use postgresql as the database for Active Record
 gem 'pg'
 gem 'twitter'
-gem 'activeadmin', github: 'activeadmin/active_admin'
+gem 'activeadmin', github: 'activeadmin'
 gem 'devise'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'
