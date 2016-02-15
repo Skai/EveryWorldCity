@@ -5,7 +5,7 @@
   <div class="c">
     <div class="holder">
       <strong class="logo">
-        <a href="/" title="EveryWorldCity.com">Every World City</a>      
+        <a href="/" title="EveryWorldCity.com">Every World City</a>
       </strong>
       <span class="city-name"><%= @city.city %> / <%= @city.country %></span>
       <form action="" role="form" class="select-form">
@@ -23,7 +23,7 @@
           </select>
         </fieldset>
       </form><!-- / select-form -->
-      <span id="toggle-search" class="icon-search"></span>      
+      <span id="toggle-search" class="icon-search"></span>
     </div>
   </div>
 </header><!-- / header -->
@@ -41,27 +41,21 @@
     <div id="photos-panoramio" class="loading owl-carousel"></div>
     <p class="copyright"><%= image_tag 'logo-panoramio.png' %> Photos are copyrighted by their owners.</p>
     <% if flash[:notice] %>
-    <div class="ribbon"><p><%= flash[:notice] %></p></div>
     <% end %>
   </div>
 </section><!-- / gallery section -->
 <section class="section" id="about">
   <div class="holder">
     <h2>About <%= @city.city %></h2>
-    <div class="hold">
-      <article>
-        <p><%= truncate_html(@city.description, length: 1000, omission: '...').html_safe %><small class="alt">* material from wikipedia.org</small></p>
+      <p><%= truncate_html(@city.description, length: 1000, omission: '...').html_safe %><small class="alt">* material from wikipedia.org</small></p>
         <%= link_to "Read full Wiki article", @wiki_url, :target => "_blank", :class => "btn" %>
-      </article>
-      <aside class="map-holder">          
-        <div id="map_canvas">
-         <%= link_to(image_tag(@staticmap_url, :alt => "logo", :title => "Home"), @googlemap_url, :target => "_blank") %>
-        </div>
-        <div class="maps-tip">go to Google maps</div>
-      </aside>
-    </div>
   </div>
-</section><!-- / gallery section -->
+</section><!-- / about section -->
+<section class="section" id="map">
+    <div id="map_canvas">
+     <%= link_to(image_tag(@staticmap_url, :alt => "logo", :title => "Home"), @googlemap_url, :target => "_blank") %>
+    </div>
+</section><!-- / map section -->
 <section class="section" id="info">
   <div class="holder">
     <h2>And now a few words about</h2>
@@ -84,7 +78,7 @@ Probably namely here you will be inspired to a new adventure.</p>
       </article><!-- box -->
     </div>
   </div>
-</section><!-- / about-section -->
+</section><!-- / info-section -->
 <a class="sr-only" href="#gallery">Skip to main content</a>
 <script type="text/javascript">
   var latitude = <%= @city.latitude %>
