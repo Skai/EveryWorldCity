@@ -5,7 +5,7 @@
   <div class="c">
     <div class="holder">
       <strong class="logo">
-        <a href="/" title="EveryWorldCity.com">Every World City</a>      
+        <a href="/" title="EveryWorldCity.com">Every World City</a>
       </strong>
       <span class="city-name"><%= @city.city %> / <%= @city.country %></span>
       <form action="" role="form" class="select-form">
@@ -23,7 +23,7 @@
           </select>
         </fieldset>
       </form><!-- / select-form -->
-      <span id="toggle-search" class="icon-search"></span>      
+      <span id="toggle-search" class="icon-search"></span>
     </div>
   </div>
 </header><!-- / header -->
@@ -35,7 +35,7 @@
         <!-- Twitter Post the page-->
         <a href="https://twitter.com/share" class="twitter-share-button" data-text="I liked this city!" data-via="everyworldcity" data-hashtags="everyworldcity,travel"></a>
         <!-- Facebook Button-->
-        <div class="fb-like" data-layout="button_count" data-action="like" data-show-faces="true" data-share="true"></div>
+        <div class="fb-like" data-href="http://everyworldcity.com/" data-layout="button_count" data-action="like" data-show-faces="true" data-share="true"></div>
       </div>
     </div>
     <div id="photos-panoramio" class="loading owl-carousel"></div>
@@ -53,7 +53,7 @@
         <p><%= truncate_html(@city.description, length: 1000, omission: '...').html_safe %><small class="alt">* material from wikipedia.org</small></p>
         <%= link_to "Read full Wiki article", @wiki_url, :target => "_blank", :class => "btn" %>
       </article>
-      <aside class="map-holder">          
+      <aside class="map-holder">
         <div id="map_canvas">
          <%= link_to(image_tag(@staticmap_url, :alt => "logo", :title => "Home"), @googlemap_url, :target => "_blank") %>
         </div>

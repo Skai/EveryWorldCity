@@ -13,7 +13,8 @@
   <meta name="content-language" content="EN" />
   <meta name="robots" content="INDEX,FOLLOW" />
   <meta name="revisit-after" content="1 days" />
-  <meta name="description" content="Find and learn a lot of cities all around the world with EveryWorldCity.com. Following us you will have an opportunity to learn new cities every day - view photos, explore maps, read interesting facts." />
+  <meta name="description" content="Find a lot of new cities all around the world with EveryWorldCity.com. Following us you will have an opportunity to learn new cities every day - view photos, explore maps, read interesting facts. Let's go traveling!" />
+
   <% #Adding meta tags from view %>
   <% if content_for?(:head) %>
   <%= yield(:head) %>
@@ -30,6 +31,7 @@
   <![endif]-->
 </head>
 <body>
+  <div id="fb-root"></div>
   <div class="page">
     <noscript>Your browser's Javascript option is turned off. To see all features on this page we would like to ask you to turn it on.</noscript>
     <%= yield %>
