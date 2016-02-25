@@ -376,36 +376,20 @@ h3 span.icon-group{
   -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
-/*.map-holder{
-  display: inline-block;
-  vertical-align: middle;
-  max-width: 515px;
-  position: relative;
+/* map section */
+#map{
+  border:1px solid #00B597;
+  border-width: 7px 0;
+  padding: 0;
 }
-.maps-tip{
-  position: absolute;
-  bottom: -45px;
-  left: 5%;
-  width: 206px;
-  height: 48px;
-  text-indent: -9999px;
-  overflow: hidden;
-  background: image-url('google-maps.png') no-repeat 0 100%;
- }
-.maps-tip a{
-  display: block;
-  height: 100%;
-}*/
-#map_canvas{
+#map a.map-image{
+  display: none;
+}
+#map-canvas{
   width: 100%;
-  border: 7px solid #00b597;
-  border-radius: 50%;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  overflow: hidden;
+  height: 600px;
 }
-#map_canvas img{ width: 100%;}
+
 /* panoramio photo */
 #photos-panoramio .owl-item{
   display: inline-block;
@@ -767,11 +751,6 @@ h3 span.icon-group{
     padding:0 0 40px;
     text-align: center;
   }
-  .map-holder{
-    display: block;
-    margin: 0 auto;
-  }
-  .maps-tip{ left: 19%;}
   #gallery{ background-size: 1000px 200px;}
 }
 @media (max-width: 1070px){
@@ -806,6 +785,12 @@ h3 span.icon-group{
   #gallery{ background-size: 700px 140px;}
   .socials-btn,.hold h1{ float: none; padding-top: 0; margin-right:0;}
   #photos-panoramio.loading{ height:384px;}
+  #map-canvas{
+    display: none;
+  }
+  #map a.map-image{
+    display: block;
+  }
 }
 @media(max-width:640px){
   #contact{
@@ -831,13 +816,6 @@ h3 span.icon-group{
   }
 }
 @media (max-width: 580px) {
-  .maps-tip{ bottom: -52px;}
-  #map_canvas{
-    -moz-border-radius: 5px;
-    -webkit-border-radius: 5px;
-    border-radius: 5px;
-    border-width: 2px;
-  }
   .sticky .city-name{ width: 70%;}
   #info .box{ padding-bottom: 20px;}
   #photos-panoramio .owl-item .titel{font-size: 12px;}

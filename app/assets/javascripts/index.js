@@ -1,5 +1,5 @@
 $(document).ready(function() {
-  
+
   //================  Initializing Selectizer ==============
   var xhr, select_country, $select_country, select_city, $select_city;
 
@@ -37,8 +37,8 @@ $(document).ready(function() {
 
   select_city  = $select_city[0].selectize;
   select_country = $select_country[0].selectize;
-  
-  var selectedCountry = jQuery('#select-country').val();  
+
+  var selectedCountry = jQuery('#select-country').val();
   if(selectedCountry.length){
     select_country.setValue(selectedCountry);
   };
@@ -54,10 +54,10 @@ $(document).ready(function() {
 
   $(window).resize(function(){
     calcHeight($("#gallery"));
-    var _width = $(window).innerWidth();    
+    var _width = $(window).innerWidth();
     if (_width > 768 && $('header').hasClass('active')){
       $('header').removeClass('active');
-    };    
+    };
     changeImageSize();
   });
 
@@ -73,14 +73,14 @@ $(document).ready(function() {
           dif = imgWidth/imgHeight;
       if(dif < 2.3){
         $(this).css( "height", newHeight);
-      }; 
+      };
     });
   };
 
   /* sticky header */
   $(window).scroll(function() {
     var h = $('#gallery').height();
-    if ($(this).scrollTop() > h){  
+    if ($(this).scrollTop() > h){
         $('#header').addClass("sticky");
       }else{
         $('#header').removeClass("sticky");
@@ -121,10 +121,10 @@ $(document).ready(function() {
         };
 
         if (content.length > 0){
-          panoramio.html(content);   
+          panoramio.html(content);
           setTimeout(function(){
             initCarousel();
-            changeImageSize();         
+            changeImageSize();
             panoramio.removeClass('loading');
           }, 1500);
         } else {
