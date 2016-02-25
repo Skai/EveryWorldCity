@@ -345,7 +345,7 @@ h3 span.icon-group{
 .section{
   width: 100%;
   position: relative;
-  padding: 9em 0 10em;
+  padding: 8em 0;
 }
 /* gallery section */
 #gallery{
@@ -790,6 +790,13 @@ h3 span.icon-group{
   }
   #map a.map-image{
     display: block;
+    max-height: 300px;
+    overflow: hidden;
+  }
+
+  #map a.map-image img{
+    display: block;
+    width: 100%;
   }
 }
 @media(max-width:640px){

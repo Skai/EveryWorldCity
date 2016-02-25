@@ -80,14 +80,22 @@ Probably namely here you will be inspired to a new adventure.</p>
 </section><!-- / info-section -->
 <a class="sr-only" href="#gallery">Skip to main content</a>
 <script type="text/javascript">
-  var latitude = <%= @city.latitude %>;
-  var longitude = <%= @city.longitude %>;
+  var latitude = <%= @city.latitude %>,
+      longitude = <%= @city.longitude %>,
+      map;
 
-  var map;
   function initMap() {
+    var myLatLng = {lat: latitude, lng: longitude};
+
     map = new google.maps.Map(document.getElementById('map-canvas'), {
-      center: {lat: latitude, lng: longitude},
-      zoom: 8
+      center: myLatLng,
+      zoom: 8,
+      scrollwheel: false
+    });
+
+    var marker = new google.maps.Marker({
+      position: myLatLng,
+      map: map
     });
   };
 
