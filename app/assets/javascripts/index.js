@@ -153,4 +153,22 @@ $(document).ready(function() {
       twttr.widgets.load();
     });
   }, 100);
+
+    $('.map-image').hide();
+
+    //=============== simple parallax scrolling ====================
+
+        /*var $bgobj = $('section#gallery');
+
+        $(window).scroll(function() {
+            var iScrollTop = $(window).scrollTop();
+            if (iScrollTop > 200) {
+                var yPos = -(iScrollTop / 2);
+                var coords = '50% '+ yPos + 'px';
+
+                $bgobj.css({ backgroundPosition: coords });
+            }
+
+        });*/
+
 });
