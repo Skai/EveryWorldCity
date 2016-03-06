@@ -128,7 +128,7 @@
 }
 .selectize-input {
   border: 1px solid #d0d0d0;
-  padding: 9px 8px 7px;
+  padding: 0 22px 0 8px;
   display: inline-block;
   width: 100%;
   overflow: hidden;
@@ -142,6 +142,15 @@
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
   border-radius: 3px;
+  height: 38px;
+    line-height: 37px;
+
+}
+.selectize-input .item{
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    width: 100%;
 }
 .selectize-control.multi .selectize-input.has-items {
   padding: 5px 8px 2px;
@@ -290,7 +299,7 @@
   display: block;
   position: absolute;
   top: 50%;
-  right: 15px;
+  right: 10px;
   margin-top: -3px;
   width: 0;
   height: 0;
