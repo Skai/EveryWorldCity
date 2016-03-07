@@ -45,15 +45,7 @@ $(document).ready(function() {
   //================  End selectizer init ==============
 
 
-  /* calculate height of section */
-  function calcHeight(box){
-    var _height = $(window).height();
-    box.css( "min-height", _height);
-  };
-  calcHeight($("#gallery"));
-
   $(window).resize(function(){
-    calcHeight($("#gallery"));
     var _width = $(window).innerWidth();
     if (_width > 768 && $('header').hasClass('active')){
       $('header').removeClass('active');

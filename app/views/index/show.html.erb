@@ -87,15 +87,49 @@ Probably namely here you will be inspired to a new adventure.</p>
   function initMap() {
     var myLatLng = {lat: latitude, lng: longitude};
 
+    var customStyles = new google.maps.StyledMapType([
+            {
+              featureType: "all",
+                stylers: [
+                 { saturation: -70 }
+                ]
+            },
+            {
+              featureType: "road.arterial",
+                elementType: "geometry",
+                stylers: [
+                  { hue: "#00ffee" },
+                  { saturation: 50 }
+                ]
+            },
+            {
+              featureType: "poi.business",
+                elementType: "labels",
+                stylers: [
+                  { visibility: "off" }
+                ]
+            }
+          ], {
+            name: 'Custom Style'
+        });
+
+    var customMapTypeId = 'custom_style';
+
+
     map = new google.maps.Map(document.getElementById('map-canvas'), {
       center: myLatLng,
       zoom: 8,
       scrollwheel: false
     });
 
+    map.mapTypes.set(customMapTypeId, customStyles);
+    map.setMapTypeId(customMapTypeId);
+
+
     var marker = new google.maps.Marker({
       position: myLatLng,
-      map: map
+      map: map,
+      icon: 'http://www.everyworldcity.com/assets/favicon.ico'
     });
   };
 
