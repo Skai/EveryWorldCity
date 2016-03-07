@@ -356,20 +356,33 @@ h3 span.icon-group{
 }
 /* gallery section */
 #gallery{
-  background: #324150 image-url('bg.svg') repeat-x 0 100%;
-  background-size: 1500px 300px;
+  background: #324150;
   color: #fff;
   z-index: 2;
   -webkit-box-sizing: border-box;
   -moz-box-sizing:border-box;
   box-sizing:border-box;
 }
+.parallax-bg{
+  width: 100%;
+  height: 100%;
+  background: image-url('bg.svg') repeat-x 0 100%;
+  -webkit-background-size: 1500px 300px;
+  -moz-background-size: 1500px 300px;
+  background-size: 1500px 300px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
 #gallery .copyright{
   text-align: right;
   font: 13px Arial, Helvetica, sans-serif;
   margin:5px 0 0;
 }
-#gallery .holder{ position: static;}
+#gallery .holder{
+  position: static;
+}
 /* about section */
 #about {
   background: image-url('bg-cell.jpg');
@@ -781,7 +794,11 @@ h3 span.icon-group{
     padding:0 0 40px;
     text-align: center;
   }
-  #gallery{ background-size: 1000px 200px;}
+  #gallery .parallax-bg{
+    -webkit-background-size: 1000px 200px;
+    -moz-background-size: 1000px 200px;
+    background-size: 1000px 200px;
+  }
 }
 @media (max-width: 1070px){
   #photos-panoramio.loading{ height:520px;}
@@ -811,10 +828,16 @@ h3 span.icon-group{
     opacity:1;
   }
   .sticky .city-name{ width: 78%;}
-  #gallery{ background-size: 700px 140px;}
+  #gallery{
+    background: #324150 image-url('bg.svg') repeat-x 0 100%;
+    -webkit-background-size: 700px 140px;
+    -moz-background-size: 700px 140px;
+    background-size: 700px 140px;
+  }
   .socials-btn,.hold h1{ float: none; padding-top: 0; margin-right:0;}
   #photos-panoramio.loading{ height:384px;}
-  #map-canvas{
+  #map-canvas,
+  #gallery .parallax-bg{
     display: none;
   }
 
@@ -822,7 +845,7 @@ h3 span.icon-group{
     display:block !important;
   }
 
-  #map{height: 300px;}
+  #map{height: 250px;}
 }
 @media(max-width:640px){
   #contact{
@@ -878,6 +901,6 @@ h3 span.icon-group{
   .sticky .city-name{font-size: 20px;width: 60%;}
   #photos-panoramio.loading{ height:200px;}
   #map a.map-image img{
-    margin-top: -25%;
+    margin-top: -28%;
   }
 }

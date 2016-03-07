@@ -149,18 +149,15 @@ $(document).ready(function() {
     $('.map-image').hide();
 
     //=============== simple parallax scrolling ====================
+    /*$window = $(window);
 
-        /*var $bgobj = $('section#gallery');
-
+    if($('.parallax-bg').is(":visible")) {
+        var $scrollObj = $('.parallax-bg'),
+            yPos, k = 2;
         $(window).scroll(function() {
-            var iScrollTop = $(window).scrollTop();
-            if (iScrollTop > 200) {
-                var yPos = -(iScrollTop / 2);
-                var coords = '50% '+ yPos + 'px';
-
-                $bgobj.css({ backgroundPosition: coords });
-            }
-
-        });*/
+            yPos =  - ($window.scrollTop() / k) + 'px';
+            $scrollObj.css({ 'left': yPos });
+        });
+    };*/
 
 });
