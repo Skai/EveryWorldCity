@@ -24,8 +24,8 @@ module IndexHelper
   end
 
 
-  #Returns request url for panoramin REST API.
-  #Input data: 
+  #Returns request url for panoramio REST API.
+  #Input data:
   #center coordinate: lat, lon.
   #radius of circumscribed circle.
   #Returns e.g. http://www.panoramio.com/map/get_panoramas.php??order=popularity&set=public&from=0&to=20&minx=36.180045197483096
@@ -37,12 +37,12 @@ module IndexHelper
     request_params[:miny] = get_miny(center_lat)
     request_params[:maxx] = get_maxx(center_lon, center_lat)
     request_params[:maxy] = get_maxy(center_lat)
-    
+
     client = HTTPClient.new
     response = client.get(PANORAMIO_REQUEST_URI , request_params)
-    
+
     return false if response.status != 200
-    
+
     result = JSON.parse(response.body)
     result['photos'].each_with_index do |item, index|
       result['photos'][index]['photo_file_url'] = item['photo_file_url'].gsub('original', '1920x1280')
@@ -52,7 +52,7 @@ module IndexHelper
   end
 
   #Returns coordinates of the rectangle - southwest and northeast corners.
-  #Input data: 
+  #Input data:
   #center coordinate: lat, lon.
   #radius of circumscribed circle.
   def get_rectangle_coordinates(center_lat, center_lon)
@@ -74,7 +74,7 @@ module IndexHelper
   def get_minx(center_lon, center_lat)
     center_lon - (CITY_RADIUS / longitude_degree_distance(center_lat))
   end
-  
+
   def get_maxx(center_lon, center_lat)
     center_lon + (CITY_RADIUS / longitude_degree_distance(center_lat))
   end
@@ -107,7 +107,7 @@ module IndexHelper
     "http://en.wikipedia.org/wiki?curid=#{wiki_page_id}"
   end
 
-  def get_googlemap_url(latitude, longitude) 
+  def get_googlemap_url(latitude, longitude)
     "http://maps.google.com/?q=#{latitude},#{longitude}"
   end
 end
