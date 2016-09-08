@@ -1,5 +1,5 @@
 <% content_for :head do %>
-  <meta property="og:title" content="<%= @city.city %> / <%= @city.country %>" />
+  <meta property="og:title" content="<%= @city.city %> / <%= @city.country.name %>" />
 <% end %>
 <header id="header">
   <div class="c">
@@ -7,14 +7,14 @@
       <strong class="logo">
         <a href="/" title="EveryWorldCity.com">Every World City</a>
       </strong>
-      <span class="city-name"><%= @city.city %> / <%= @city.country %></span>
+      <span class="city-name"><%= @city.city %> / <%= @city.country.name %></span>
       <form action="" role="form" class="select-form">
         <fieldset>
           <label for="select-beast" class="sr-only">Country:</label>
           <select id="select-country">
-            <option value="<%= @city.country %>" selected><%= @city.country %></option>
+            <option value="<%= @city.country.id %>" selected><%= @city.country.name %></option>
               <% @countries.each do |country| %>
-                <option value="<%= country %>"><%= country %></option>
+                <option value="<%= country.id %>"><%= country.name %></option>
             <% end %>
           </select>
           <label for="select-beast" class="sr-only">City:</label>
@@ -30,7 +30,7 @@
 <section class="section" id="gallery">
   <div class="holder">
     <div class="hold">
-      <h1><%= @city.city %> / <span><%= @city.country %></span></h1>
+      <h1><%= @city.city %> / <span><%= @city.country.name %></span></h1>
       <div class="socials-btn">
         <!-- Twitter Post the page-->
         <a href="https://twitter.com/share" class="twitter-share-button" data-text="I liked this city!" data-via="everyworldcity" data-hashtags="everyworldcity,travel"></a>

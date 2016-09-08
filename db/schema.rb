@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141130215715) do
+ActiveRecord::Schema.define(version: 20160526183103) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -50,7 +50,6 @@ ActiveRecord::Schema.define(version: 20141130215715) do
   add_index "admin_users", ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true, using: :btree
 
   create_table "cities", force: true do |t|
-    t.string   "country",                    limit: 25
     t.string   "city",                       limit: 40,   default: "0"
     t.float    "latitude"
     t.float    "longitude"
@@ -63,19 +62,23 @@ ActiveRecord::Schema.define(version: 20141130215715) do
     t.string   "wiki_image_src",             limit: 1500
     t.datetime "created_at"
     t.string   "friendly_url",               limit: 1024
-    t.string   "country_code",               limit: 2
     t.string   "copyright_text"
     t.string   "twitter_image_file_name"
     t.string   "twitter_image_content_type"
     t.integer  "twitter_image_file_size"
     t.datetime "twitter_image_updated_at"
+    t.integer  "country_id"
   end
 
-  add_index "cities", ["country_code"], name: "cities_code_key", unique: true, using: :btree
-  add_index "cities", ["country_code"], name: "index_code", using: :btree
-  add_index "cities", ["country_code"], name: "unique_code", unique: true, using: :btree
   add_index "cities", ["friendly_url"], name: "cities_friendly_url_key", unique: true, using: :btree
   add_index "cities", ["friendly_url"], name: "index_url", using: :btree
   add_index "cities", ["wiki_page_id"], name: "cities_wiki_page_id_idx", using: :btree
+
+  create_table "countries", force: true do |t|
+    t.string "name", limit: 25
+    t.string "code", limit: 2
+  end
+
+  add_index "countries", ["code"], name: "code_key", unique: true, using: :btree
 
 end
