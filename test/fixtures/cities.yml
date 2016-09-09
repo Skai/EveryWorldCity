@@ -5,7 +5,6 @@
 # below each fixture, per the syntax in the comments below
 #
 one:
-  country: ItalyTest
   city: PisaTest
   latitude: 43.7175199
   longitude: 10.3964996
@@ -14,3 +13,4 @@ one:
   wiki_page_id: 1
   wiki_image_src: https://upload.wikimedia.org/wikipedia/commons/thumb/6/66/The_Leaning_Tower_of_Pisa_SB.jpeg/624px-The_Leaning_Tower_of_Pisa_SB.jpeg
   friendly_url: italy-pisa-test
+  country_id: 1
