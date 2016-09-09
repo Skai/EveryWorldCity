@@ -42,8 +42,8 @@ group :development do
 end
 
 group :test do
-  gem 'minitest-reporters', '1.0.18'
   gem 'minitest-rails',     '2.2.0'
+  gem 'minitest-reporters', '1.0.18'
   gem 'capybara'
   gem 'capybara-webkit'
   gem 'capybara-screenshot'
