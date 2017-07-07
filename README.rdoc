@@ -27,7 +27,5 @@ Every day the new random city will be tweeted via Rake task and Twitter API.
 
 
 *Run with docker:*
-
 * docker-compose up
-
 * docker-compose run web rake db:setup
