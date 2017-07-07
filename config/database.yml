@@ -1,17 +1,22 @@
 default: &default
-  database: every_world_city
   adapter: postgresql
+  encoding: unicode
+  host: db
+  username: postgres
+  password:
   pool: 5
-  timeout: 5000
 
 development:
   <<: *default
+  database: every_world_city_development
+
 
 test:
   <<: *default
   database: every_world_city_test
-production:
-  <<: *default
-  username: everycityapp
-  password: c9e8f54f7d77aed76e45b836e41acee5
-  host: localhost
+
+# production:
+#   <<: *default
+#   username: everycityapp
+#   password: c9e8f54f7d77aed76e45b836e41acee5
+#   host: localhost
