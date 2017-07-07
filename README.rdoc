@@ -17,7 +17,7 @@ Every day the new random city will be tweeted via Rake task and Twitter API.
 * Database is PostgreSQL 9.3.1
 * Requires ImageMagic on board.
 
-*Run with docker:*
+*Docker:*
 * docker-compose up
 * docker-compose run web rake db:setup
 
