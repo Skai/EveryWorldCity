@@ -1,26 +1,32 @@
 
 ==EveryWirldCity.com  {<img src="https://travis-ci.org/Skai/EveryWorldCity.svg?branch=master" alt="Build Status" />}[https://travis-ci.org/Skai/EveryWorldCity]
 
-There are a lot of cities all over the world, which we don't know at all. 
-That's why we have decided to create twitter account @everyworldcity[https://twitter.com/everyworldcity]. 
-Following it you will have an opportunity to learn a new city every day - review photos, explore map, read interesting facts. 
+There are a lot of cities all over the world, which we don't know at all.
+That's why we have decided to create twitter account @everyworldcity[https://twitter.com/everyworldcity].
+Following it you will have an opportunity to learn a new city every day - review photos, explore map, read interesting facts.
 Probably namely here you will be inspired to a new adventure.
-The Data Base has already 10530 cities and it is expanding dynamically. 
-All descriptions and photos for twitter posts were found/gathered with Wikipedia API's help. 
-Based on Panoramio Rest API we prepare the most popular photos for each city. 
-The map uses Google's Static Map API. 
-Every day the new random city(ies) will be tweeted via Rake task and Twitter API.
+The Data Base has already 10530 cities and it is expanding dynamically.
+All descriptions and photos for twitter posts were found/gathered with Wikipedia API's help.
+Based on Panoramio Rest API we prepare the most popular photos for each city.
+The map uses Google's Static Map API.
+Every day the new random city will be tweeted via Rake task and Twitter API.
 
 *Info:*
 * The Ruby version 2.0.0
-* Rails version 4.1.1 
+* Rails version 4.1.1
 * Database is PostgreSQL 9.3.1
 * Requires ImageMagic on board.
 
 *Deployment:*
 
-* get rails (and all realated).
+* get rails (and all related).
 
-* run bundle install to get all gems required for currect work.
+* run bundle install to get all gems required for the correct work.
 
 * set up a scheduled task to run Rake task tweet.rake[https://github.com/Skai/EveryWorldCity/blob/master/lib/tasks/tweet.rake]
+
+*Run with docker:*
+
+* docker-compose up
+
+* docker-compose run web rake db:setup
