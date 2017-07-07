@@ -2,12 +2,5 @@ sudo: required
 language: ruby
 services:
   - docker
-rvm:
-  - 2.0.0-p353
-addons:
-  postgresql: "9.3"
-before_script:
-  - psql -c 'create database every_world_city_test;' -U postgres
-
 script:
 - bundle exec rake test
