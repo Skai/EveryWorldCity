@@ -3,7 +3,7 @@ language: ruby
 services:
   - docker
 env:
-  DOCKER_COMPOSE_VERSION: 1.14
+  DOCKER_COMPOSE_VERSION: 1.4.1
 
 before_install:
   - sudo rm /usr/local/bin/docker-compose
@@ -11,4 +11,5 @@ before_install:
   - chmod +x docker-compose
   - sudo mv docker-compose /usr/local/bin
 script:
-- bundle exec rake test
+  - docker-compose build
+  - bundle exec rake test
