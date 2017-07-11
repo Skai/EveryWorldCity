@@ -4,7 +4,7 @@ module IndexHelper
 
   GOOGLE_PLACE_SEARCH_URI = 'https://maps.googleapis.com/maps/api/place/nearbysearch/json'
   GOOGLE_PLACE_PHOTOS_URI = 'https://maps.googleapis.com/maps/api/place/photo'
-  GOOGLE_APP_KEY          = 'AIzaSyB_qIgbHmPe5XEsSk189fWyjCW_-YafowA'#ENV['GOOGLE_APP_KEY']
+  GOOGLE_APP_KEY          = ENV['GOOGLE_APP_KEY']
 
   MOBILE_BROWSERS = ["playbook", "windows phone", "android", "ipod", "iphone", "opera mini", "blackberry", "palm","hiptop","avantgo","plucker", "xiino","blazer","elaine", "windows ce; ppc;", "windows ce; smartphone;","windows ce; iemobile", "up.browser","up.link","mmp","symbian","smartphone", "midp","wap","vodafone","o2","pocket","kindle", "mobile","pda","psp","treo"]
 
