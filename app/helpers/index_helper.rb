@@ -2,15 +2,9 @@
 module IndexHelper
   require 'httpclient'
 
-  EARTH_RADIUS = 6371.0
-  PANORAMIO_REQUEST_URI = 'http://www.panoramio.com/map/get_panoramas.php'
-  CITY_RADIUS = 5
-  DEFAULT_PANORAMIO_PARAMS = {
-    :set => :public,
-    :from => 0,
-    :to => 40,
-    :order => :popularity
-  }
+  GOOGLE_PLACE_SEARCH_URI = 'https://maps.googleapis.com/maps/api/place/nearbysearch/json'
+  GOOGLE_PLACE_PHOTOS_URI = 'https://maps.googleapis.com/maps/api/place/photo'
+  GOOGLE_APP_KEY          = ENV['GOOGLE_APP_KEY']
 
   MOBILE_BROWSERS = ["playbook", "windows phone", "android", "ipod", "iphone", "opera mini", "blackberry", "palm","hiptop","avantgo","plucker", "xiino","blazer","elaine", "windows ce; ppc;", "windows ce; smartphone;","windows ce; iemobile", "up.browser","up.link","mmp","symbian","smartphone", "midp","wap","vodafone","o2","pocket","kindle", "mobile","pda","psp","treo"]
 
@@ -23,80 +17,48 @@ module IndexHelper
     false
   end
 
+  def google_photos_json (center_lat, center_lon)
 
-  #Returns request url for panoramio REST API.
-  #Input data:
-  #center coordinate: lat, lon.
-  #radius of circumscribed circle.
-  #Returns e.g. http://www.panoramio.com/map/get_panoramas.php??order=popularity&set=public&from=0&to=20&minx=36.180045197483096
-  #&miny=49.955033919704064&maxx=36.319954802516904&maxy=50.044966080295936&size=original
-  def get_panoramio_json (center_lat, center_lon)
-    request_params = DEFAULT_PANORAMIO_PARAMS
-    request_params[:size] = is_mobile ? :medium : :original
-    request_params[:minx] = get_minx(center_lon, center_lat)
-    request_params[:miny] = get_miny(center_lat)
-    request_params[:maxx] = get_maxx(center_lon, center_lat)
-    request_params[:maxy] = get_maxy(center_lat)
+    # get place info
+    place_info = place_info_json(center_lat, center_lon)
+    return false if place_info == false
 
-    client = HTTPClient.new
-    response = client.get(PANORAMIO_REQUEST_URI , request_params)
+    photos = []
 
-    return false if response.status != 200
-
-    result = JSON.parse(response.body)
-    result['photos'].each_with_index do |item, index|
-      result['photos'][index]['photo_file_url'] = item['photo_file_url'].gsub('original', '1920x1280')
+    place_info['results'].each_with_index do |result,index|
+      photos[index]  = {
+        title:             result['name'],
+        photo:             google_photo_url(result['photos'][0]['photo_reference']),
+        html_attributions: result['photos'][0]['html_attributions']
+      }
     end
 
-    result
+    photos
   end
 
-  #Returns coordinates of the rectangle - southwest and northeast corners.
-  #Input data:
-  #center coordinate: lat, lon.
-  #radius of circumscribed circle.
-  def get_rectangle_coordinates(center_lat, center_lon)
-    # panoramio uses such format {'sw': {'lat': -30, 'lng': 10.5}, 'ne': {'lat': 50.5, 'lng': 30}}
-    # Radius of the Earth, in kilometers.
-    # http://en.wikipedia.org/wiki/Earth_radius
-    r_coordinates = {
-      sw: {
-        lat: get_miny(center_lat),
-        lng: get_minx(center_lon, center_lat)
-      },
-      ne: {
-        lat: get_maxy(center_lat),
-        lng: get_maxx(center_lon, center_lat)
-      }
+  def place_info_json(center_lat, center_lon)
+    # get place info
+    request_params = {
+      key:      GOOGLE_APP_KEY,
+      location: "#{center_lat},#{center_lon}",
+      radius:   5000
     }
+
+    response = HTTPClient.new.get(GOOGLE_PLACE_SEARCH_URI , request_params)
+
+    return false if response.status != 200
+    JSON.parse(response.body)
   end
 
-  def get_minx(center_lon, center_lat)
-    center_lon - (CITY_RADIUS / longitude_degree_distance(center_lat))
-  end
+  def google_photo_url(reference)
+    request_params = {
+      key:      GOOGLE_APP_KEY,
+      photoreference: reference,
+      maxwidth:       is_mobile ? '640' : '1920',
+      maxheight:      is_mobile ? '480' : '1280'
+    }
 
-  def get_maxx(center_lon, center_lat)
-    center_lon + (CITY_RADIUS / longitude_degree_distance(center_lat))
-  end
-
-  def get_miny(center_lat)
-    center_lat - (CITY_RADIUS / latitude_degree_distance)
-  end
-
-  def get_maxy(center_lat)
-    center_lat + (CITY_RADIUS / latitude_degree_distance)
-  end
-
-  def latitude_degree_distance
-    2 * Math::PI * EARTH_RADIUS / 360
-  end
-
-  def longitude_degree_distance(latitude)
-    latitude_degree_distance * Math.cos(to_radians(latitude))
-  end
-
-  def to_radians(value)
-    value * (Math::PI / 180)
+    "#{GOOGLE_PLACE_PHOTOS_URI}?#{request_params.to_query}"
   end
 
   def get_staticmap_url(latitude, longitude, marker_color = '0xff765e', label = '*')

@@ -65,7 +65,7 @@ $(document).ready(function() {
     var _width = $(window).innerWidth(),
         newHeight = _width/2;
 
-    $("#photos-panoramio .owl-item img").each(function(){
+    $("#photos-google .owl-item img").each(function(){
       var theImage = new Image();
       theImage.src = $(this).attr("src");
       var imgWidth = theImage.width,
@@ -92,16 +92,16 @@ $(document).ready(function() {
   });
 
   //================  Initializing owlCarousel with custom JSON data   ==============
-  var panoramio = $("#photos-panoramio");
+  var googleplace = $("#photos-googleplace");
   function initCarousel() {
-    panoramio.owlCarousel({
+    googleplace.owlCarousel({
       loop: true,
       items: 1,
       nav : true,
       dots: false,
       smartSpeed: 400,
       onInitialized: function(){
-       $("#photos-panoramio .owl-item").each(function(){
+       $("#photos-googleplace .owl-item").each(function(){
           var titel = $(this).find('img').attr('alt');
           $(this).append('<p class="titel">' + titel + '</p>');
        });
@@ -109,26 +109,26 @@ $(document).ready(function() {
     });
   }
 
-  if (panoramio.html().length == 0) {
+  if (googleplace.html().length == 0) {
     $.getJSON(
       '/get_photos?latitude=' + latitude + '&longitude=' + longitude,
       function(data) {
         var content = "";
-        for(var i in data["photos"]){
-          var img = data["photos"][i].photo_file_url;
-          var alt = data["photos"][i].photo_title + ' by ' + data["photos"][i].owner_name;
+        for(var i in data){
+          var img  = data[i].photo;
+          var alt  = data[i].title;
           content += "<img src=\"" + img + "\" alt=\"" + escapeAlt(alt) + "\">";
         };
 
         if (content.length > 0){
-          panoramio.html(content);
+          googleplace.html(content);
           setTimeout(function(){
             initCarousel();
             changeImageSize();
-            panoramio.removeClass('loading');
+            googleplace.removeClass('loading');
           }, 1500);
         } else {
-          panoramio.addClass('empty');
+          googleplace.addClass('empty');
         };
       }
     );
@@ -138,11 +138,12 @@ $(document).ready(function() {
 
   function escapeAlt(alt) {
     return alt.replace(/&/g, '&amp;')
-              .replace(/>/g, '&gt;')
-              .replace(/</g, '&lt;')
-              .replace(/"/g, '&quot;')
-              .replace(/'/g, '&apos;');
+      .replace(/>/g, '&gt;')
+      .replace(/</g, '&lt;')
+      .replace(/"/g, '&quot;')
+      .replace(/'/g, '&apos;');
   }
+
   //=============== end initialization carousel ========================================
 
   //=============== Initialization for twitter buttons ====================

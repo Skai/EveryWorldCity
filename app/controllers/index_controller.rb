@@ -20,6 +20,6 @@ class IndexController < ApplicationController
   end
 
   def get_photos
-    render json: get_panoramio_json(params[:latitude].to_f, params[:longitude].to_f)
+    render json: google_photos_json(params[:latitude].to_f, params[:longitude].to_f)
   end
 end
