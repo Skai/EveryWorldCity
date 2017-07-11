@@ -26,10 +26,10 @@ module IndexHelper
     photos = []
 
     place_info['results'].each_with_index do |result,index|
+      next if result['photos'].blank?
       photos[index]  = {
-        title:             result['name'],
-        photo:             google_photo_url(result['photos'][0]['photo_reference']),
-        html_attributions: result['photos'][0]['html_attributions']
+        title: result['name'],
+        photo: google_photo_url(result['photos'][0]['photo_reference'])
       }
     end
 
