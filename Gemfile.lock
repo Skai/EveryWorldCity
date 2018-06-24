@@ -148,7 +148,7 @@ GEM
       builder
       minitest (>= 5.0)
       ruby-progressbar
-    multi_json (1.11.0)
+    multi_json (1.13.1)
     multipart-post (2.0.0)
     naught (1.0.0)
     nokogiri (1.6.8)
@@ -165,7 +165,7 @@ GEM
     polyamorous (1.3.0)
       activerecord (>= 3.0)
     polyglot (0.3.5)
-    rack (1.5.3)
+    rack (1.5.5)
     rack-test (0.6.3)
       rack (>= 1.0)
     rails (4.1.1)
@@ -211,7 +211,7 @@ GEM
       rdoc (~> 4.0)
     simple_oauth (0.3.1)
     spring (1.3.6)
-    sprockets (2.12.3)
+    sprockets (2.12.5)
       hike (~> 1.2)
       multi_json (~> 1.0)
       rack (~> 1.0)
